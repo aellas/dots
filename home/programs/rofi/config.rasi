@@ -1,0 +1,18 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+* {
+    font: "Ubuntu Nerd Font Regular 12";
+    spacing: 2;
+}
+
+configuration {
+    modes: [ combi, drun, window ];
+    display-drun: " 󰍉 ";
+    display-window: " 󱂬 ";
+ }
+
+element {
+    border:  0;
+    padding: 1px ;
+    children: [element-icon,  element-text];
+}
