@@ -12,8 +12,8 @@
 
     shellAliases = {
       ls = "ls --color=auto";
-      uu = "cd /home/array/Documents/GitHub/nixos-testing && sudo nixos-rebuild switch --flake .#arynix";
-      uf = "cd /home/array/Documents/GitHub/nixos-testing && nix flake update";
+      uu = "cd /home/array/Documents/nixos/main && sudo nixos-rebuild switch --flake .#arynix";
+      uf = "cd /home/array/Documents/nixos/main && nix flake update";
     };
   };
 }

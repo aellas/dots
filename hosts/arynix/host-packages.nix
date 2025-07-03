@@ -9,6 +9,7 @@
       nwg-look
       imagemagick
       nicotine-plus
+      gnome-disk-utility
   ];
   nixpkgs.overlays = [
   (self: super: {
