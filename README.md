@@ -2,4 +2,4 @@
 
 <p align="center">NixOS + Qtile</p>
 
-![preview](img/meh.png?raw=true)
+![preview](img/mehs.png?raw=true)
