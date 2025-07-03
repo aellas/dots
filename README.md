@@ -1,6 +1,6 @@
 # <p align="center">Dots</p>
 
-<p align="center">NixOS + Qtile</p>
+<p align="center">My journey with NixOS</p>
 
 ![preview](img/mehs.png?raw=true)
 
@@ -8,7 +8,7 @@
 
 | Icon                                         | Hostname  | Device type                                                    |
 |----------------------------------------------|-----------|----------------------------------------------------------------|
-| ![arynix]()  | arynix  | Main PC                                                |
+| ![arynix](/hosts/arynix)  | arynix  | Main PC                                                |
 | ![xpsnix]()      | xpsnix      | Dell XPS 7390                                                        |
 | ![thinknix]() | thinknix | Thinkpad X390 Yoga |
 
