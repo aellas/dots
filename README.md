@@ -1,0 +1,2 @@
+# dots
+NixOS + Qtile
