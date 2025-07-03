@@ -8,7 +8,7 @@
 
 | Icon                                         | Hostname  | Device type                                                    |
 |----------------------------------------------|-----------|----------------------------------------------------------------|
-| ![Arynix]()  | Arynix  | Main Laptop                                                |
-| ![XPSnix]()      | XPSnix      | Dell XPS 7390                                                        |
-| ![Thinknix]() | Thinknix | Thinkpad X390 Yoga |
+| ![arynix]()  | arynix  | Main Laptop                                                |
+| ![xpsnix]()      | xpsnix      | Dell XPS 7390                                                        |
+| ![thinknix]() | thinknix | Thinkpad X390 Yoga |
 
