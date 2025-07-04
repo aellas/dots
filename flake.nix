@@ -9,14 +9,9 @@
     nixcord.url = "github:kaylorben/nixcord";
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
-
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-  };
 };
 
-  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, zen-browser, ... }:
+  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, ... }:
     let
       system = "x86_64-linux";
 
