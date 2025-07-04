@@ -1,6 +1,6 @@
 # <p align="center">Dots</p>
 
-<p align="center">My journey with NixOS (WIP)</p>
+<p align="center">My journey with NixOS</p>
 
 ![preview](img/mehs.png?raw=true)
 
