@@ -6,9 +6,9 @@
 
 ## Devices
 
-| Icon                                         | Hostname  | Device type                                                    |
-|----------------------------------------------|-----------|----------------------------------------------------------------|
-| ![arynix](/hosts/arynix)  | arynix  | Main PC                                                |
-| ![xpsnix]()      | xpsnix      | Dell XPS 7390                                                        |
-| ![thinknix]() | thinknix | Thinkpad X390 Yoga |
+| Hostname  | Device type                                                    |
+|-----------|----------------------------------------------------------------|
+| arynix    | Main PC                                                        |
+| xpsnix    | Dell XPS 7390                                                  |
+| thinknix  | Thinkpad X390 Yoga                                             |
 
