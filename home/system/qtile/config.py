@@ -27,8 +27,7 @@ keys = [
     Key([mod], "l", lazy.spawn('ghostty -e nvim'), desc="Launch nvim"),
     Key([mod], "k", lazy.spawn("rofi -modi 'clipboard:greenclip print' -show clipboard -run-command 'echo {cmd} | xclip -selection clipboard'"), desc="Launch clipboard manager"),    
     Key([], "Home", lazy.spawn('flameshot full --clipboard --path /home/array/Pictures/Screenshots'), desc="Take full screenshot"),
-    Key([mod], "Home", lazy.spawn('/home/array/.config/qtile/scripts/screenshot_region.sh'), desc="Take region screenshot"),
-    Key([mod], "F12", lazy.spawn("/home/array/.config/qtile/scripts/screenshot_full.sh"), desc="Screenshot to clipboard"),
+    Key([mod, "shift"], "u", lazy.spawn('/home/array/.config/qtile/scripts/nix.sh'), desc="Nix actions script"),
 # --- Qtile Specific Keybinds --- #
     Key([mod], "o", lazy.hide_show_bar(), desc="Hides the bar"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
