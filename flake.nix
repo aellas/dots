@@ -9,7 +9,6 @@
     nixcord.url = "github:kaylorben/nixcord";
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.url = "github:hyprwm/Hyprland";
 };
 
   outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager,  ... }:

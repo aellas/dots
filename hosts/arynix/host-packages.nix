@@ -4,7 +4,6 @@
       github-desktop
       youtube-music
       vscodium
-      flameshot
       protontricks
       nwg-look
       imagemagick

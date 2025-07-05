@@ -24,8 +24,6 @@
     ./system/qtile.nix
     ./system/mpd.nix
 
-    ./system/hyprland/default.nix
-
  ];
 
   home.stateVersion = "25.11";

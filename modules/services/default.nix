@@ -12,5 +12,6 @@
     ./fstrim.nix
     ./libinput.nix
     ./redshift.nix
+    ./flameshot.nix
   ];
 }

@@ -196,7 +196,7 @@ screens = [
             28,
             background=current_theme["background"],
             opacity=1.0,
-            margin=[6, 8, -2, 8]
+            margin=[0, 0, 0, 0]
         ),
     ),
 ]
