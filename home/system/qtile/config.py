@@ -13,10 +13,10 @@ mod = "mod4"
 # --- Key Bindings --- #
 keys = [
 # --- My Personal Keybinds --- #
-    Key([mod], "Return", lazy.spawn('ghostty'), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn('kitty'), desc="Launch terminal"),
     Key([mod], "Space", lazy.spawn('rofi -show drun'), desc="Launch app launcher (rofi)"),
     Key([mod], "b", lazy.spawn('firefox'), desc="Launch web browser"),
-    Key([mod], "n", lazy.spawn('ghostty -e yazi'), desc="Launch Yazi"),
+    Key([mod], "n", lazy.spawn('kitty -e yazi'), desc="Launch Yazi"),
     Key([mod], "h", lazy.spawn('thunar'), desc="Launch Thunar"),
     Key([mod], "j", lazy.spawn('dbus-run-session env _JAVA_AWT_WM_NONREPARENTING=1 bolt-launcher'), desc="Launch bolt launcher"),
     Key([mod], "m", lazy.spawn('youtube-music'), desc="Launch YouTube Music"),
@@ -24,10 +24,10 @@ keys = [
     Key([mod], "d", lazy.spawn('discord'), desc="Launch Discord"),
     Key([mod], "Backslash", lazy.spawn('codium'), desc="Launch vscodium"),
     Key([mod], "f11", lazy.spawn('gpick --pick'), desc="Launch color picker"),
-    Key([mod], "l", lazy.spawn('ghostty -e nvim'), desc="Launch nvim"),
+    Key([mod], "l", lazy.spawn('kitty -e nvim'), desc="Launch nvim"),
     Key([mod], "k", lazy.spawn("rofi -modi 'clipboard:greenclip print' -show clipboard -run-command 'echo {cmd} | xclip -selection clipboard'"), desc="Launch clipboard manager"),    
     Key([], "Home", lazy.spawn('flameshot full --clipboard --path /home/array/Pictures/Screenshots'), desc="Take full screenshot"),
-    Key([mod, "shift"], "u", lazy.spawn('/home/array/.config/qtile/scripts/nix.sh'), desc="Nix actions script"),
+    Key([mod], "Home", lazy.spawn('flameshot gui --clipboard --path /home/array/Pictures/Screenshots --accept-on-select'), desc="Take region screenshot"),
 # --- Qtile Specific Keybinds --- #
     Key([mod], "o", lazy.hide_show_bar(), desc="Hides the bar"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
@@ -74,10 +74,11 @@ for i in groups:
 
 # --- Scratchpad ---
 groups.append(ScratchPad("scratchpad", [
-    DropDown("term", f"ghostty", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
-    DropDown("music", f"ghostty -e rmpc", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
-    DropDown("files", f"ghostty -e yazi", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
+    DropDown("term", f"kitty", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
+    DropDown("music", f"kitty -e rmpc", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
+    DropDown("files", f"kitty -e yazi", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
     DropDown("theme", f"bash /home/array/.config/qtile/scripts/switch_theme.sh", width=1.0, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
+    DropDown("nix", f"kitty -e /home/array/.config/qtile/scripts/nix.sh", width=1.0, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
     DropDown("sound", f"pavucontrol", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
     DropDown("vpn", f"protonvpn-app", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
 ]))
@@ -90,6 +91,7 @@ keys.extend([
     Key([mod, "shift"], "n", lazy.group["scratchpad"].dropdown_toggle("files")),
     Key([mod, "shift"], "s", lazy.group["scratchpad"].dropdown_toggle("sound")),
     Key([mod, "shift"], "p", lazy.group["scratchpad"].dropdown_toggle("vpn")),
+    Key([mod, "shift"], "u", lazy.group["scratchpad"].dropdown_toggle("nix")),
     Key([mod], "x", lazy.group["scratchpad"].hide_all()),
 ])
 
@@ -162,12 +164,12 @@ screens = [
                     tag_sensor='Core 0',
                     format='   {temp:.0f}{unit}',
                     threshold=90.0,
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('ghostty' + ' -e htop')}
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('kitty' + ' -e htop')}
                 ),
                 widget.TextBox(fmt=" ∷ "),
                 widget.Memory(
                     format='  {MemUsed: .0f}{mm}',
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('ghostty' + ' -e htop')}
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('kitty' + ' -e htop')}
                 ),
                 widget.TextBox(fmt=" ∷ "),
                 widget.Volume(

@@ -4,25 +4,53 @@ set -e
 
 FLAKE_DIR="/home/array/Documents/nixos/main"
 
-CHOICE=$(printf "ra (arynix)\nrx (xpsnix)\nrt (thinknix)\nuf (flake update)" | rofi -dmenu -p "NixOS Action")
+MENU_OPTIONS=(
+  "\nSelect a NixOS Action:"
+  "arynix (Rebuild)"
+  "xpsnix (Rebuild)"
+  "thinknix (Rebuild)"
+  "update (Flake)"
+  "show (Flake)"
+  "Exit" # Added an explicit exit option
+)
 
-cd "$FLAKE_DIR"
+echo "${MENU_OPTIONS[0]}" # Print the instruction
 
-case "$CHOICE" in
-  "ra (arynix)")
-    exec sudo nixos-rebuild switch --flake .#arynix
-    ;;
-  "rx (xpsnix)")
-    exec sudo nixos-rebuild switch --flake .#xpsnix
-    ;;
-  "rt (thinknix)")
-    exec sudo nixos-rebuild switch --flake .#thinknix
-    ;;
-  "uf (flake update)")
-    exec nix flake update
-    ;;
-  *)
-    notify-send "NixOS Rofi" "No valid selection made."
-    exit 1
-    ;;
-esac
+# Display the numbered menu and prompt for choice
+select CHOICE in "${MENU_OPTIONS[@]:1}"; do
+  case "$CHOICE" in
+    "arynix (Rebuild)")
+      echo "Rebuilding arynix..."
+      cd "$FLAKE_DIR"
+      exec sudo nixos-rebuild switch --flake .#arynix
+      ;;
+    "xpsnix (Rebuild)")
+      echo "Rebuilding xpsnix..."
+      cd "$FLAKE_DIR"
+      exec sudo nixos-rebuild switch --flake .#xpsnix
+      ;;
+    "thinknix (Rebuild)")
+      echo "Rebuilding thinknix..."
+      cd "$FLAKE_DIR"
+      exec sudo nixos-rebuild switch --flake .#thinknix
+      ;;
+    "update (Flake)")
+      echo "Updating flake..."
+      cd "$FLAKE_DIR"
+      exec nix flake update
+      ;;
+    "show (Flake)")
+      echo "Showing flake info..."
+      cd "$FLAKE_DIR"
+      exec nix flake show
+      ;;
+    "Exit")
+      echo "Exiting."
+      exit 0
+      ;;
+    *)
+      echo "Invalid selection. Please try again."
+      # This causes the select loop to continue
+      ;;
+  esac
+done
