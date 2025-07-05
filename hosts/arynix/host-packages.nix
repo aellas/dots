@@ -9,6 +9,9 @@
       imagemagick
       nicotine-plus
       gnome-disk-utility
+      (flameshot.override {
+      enableWlrSupport = true;
+      })
   ];
   nixpkgs.overlays = [
   (self: super: {

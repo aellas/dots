@@ -22,7 +22,6 @@
       wlr-randr
       grim
       slurp
-      swappy
   ];
 
   home.file = {
