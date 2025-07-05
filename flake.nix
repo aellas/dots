@@ -9,10 +9,10 @@
     nixcord.url = "github:kaylorben/nixcord";
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    ghostty.url = "github:ghostty-org/ghostty";
+    hyprland.url = "github:hyprwm/Hyprland";
 };
 
-  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, ghostty, ... }:
+  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager,  ... }:
     let
       system = "x86_64-linux";
 
