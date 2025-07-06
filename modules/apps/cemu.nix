@@ -1,0 +1,5 @@
+{
+    programs.cemu = {
+        enable = true;
+    };
+}
