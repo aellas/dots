@@ -23,9 +23,6 @@
     ./system/picom/picom.nix
     ./system/qtile.nix
     ./system/mpd.nix
-
-    ./system/niri.nix
-
  ];
 
   home.stateVersion = "25.11";

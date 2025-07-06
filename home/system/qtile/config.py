@@ -130,7 +130,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Spacer(length=8),
+                widget.Spacer(length=4),
                 widget.GroupBox(
                     fontsize=10,
                     margin_y=3,
@@ -150,16 +150,11 @@ screens = [
                 widget.WindowName(
                     format=" ‣ {name}",
                     max_chars=150,
-                    background=current_theme["active"],
-                    foreground=current_theme["background"]
+                #    background='#535455',
+                #    foreground='#0C0D0E'
                 ),
+                widget.Spacer(),
                 widget.Spacer(length=4),
-                widget.GenPollText(
-                    update_interval=2,
-                    func=lambda: subprocess.check_output(
-                        ["/home/array/.config/qtile/scripts/music.sh"],
-                        text=True).strip(),
-                ),
                 widget.ThermalSensor(
                     tag_sensor='Core 0',
                     format='   {temp:.0f}{unit}',
@@ -194,9 +189,9 @@ screens = [
                 widget.Spacer(length=12),
             ],
             28,
-            background=current_theme["background"],
+            background='#00000000',
             opacity=1.0,
-            margin=[0, 0, 0, 0]
+            margin=[6, 8, -2, 8]
         ),
     ),
 ]

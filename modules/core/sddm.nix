@@ -1,14 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  services.displayManager.sddm = {
+  services.displayManager.gdm = {
     enable = true;
-    theme = "chili"; 
+    wayland = true;
 
   };
 
-  environment.systemPackages = with pkgs; [
-    sddm-chili-theme
-  ];
-  security.pam.services.sddm.enableGnomeKeyring = true;
+  security.pam.services.gdm.enableGnomeKeyring = true;
 }
