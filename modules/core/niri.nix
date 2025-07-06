@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-    programs.waybar = {
+    programs.niri = {
         enable = true;
     };
 }

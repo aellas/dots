@@ -22,6 +22,7 @@
       wlr-randr
       grim
       slurp
+      waybar
   ];
 
   home.file = {
