@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-    programs.niri = {
+    programs.hyprland = {
         enable = true;
     };
 }
