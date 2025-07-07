@@ -14,6 +14,7 @@
       })
       overskride
       cemu
+      ryubing
   ];
   nixpkgs.overlays = [
   (self: super: {

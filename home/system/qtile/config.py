@@ -1,4 +1,4 @@
-import os, subprocess, json
+import os, subprocess, json, socket
 from libqtile import bar, layout, qtile, widget, hook
 from libqtile.config import Click, Drag, DropDown, Group, Key, Match, ScratchPad, Screen
 from libqtile.lazy import lazy
@@ -7,16 +7,23 @@ from colours import current_theme
 from qtile_extras.widget import StatusNotifier
 from qtile_extras import widget
 
+hostname = socket.gethostname()
+
+IS_LAPTOP = hostname in ["xpsnix", "thinknix"]
+BAR_FONT_SIZE = 13 if IS_LAPTOP else 11
+BAR_SIZE = 36 if IS_LAPTOP else 28
+GROUP_BOX = 12 if IS_LAPTOP else 10
+
 # --- Mod --- #
 mod = "mod4"
 
 # --- Key Bindings --- #
 keys = [
 # --- My Personal Keybinds --- #
-    Key([mod], "Return", lazy.spawn('kitty'), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn('ghostty'), desc="Launch terminal"),
     Key([mod], "Space", lazy.spawn('rofi -show drun'), desc="Launch app launcher (rofi)"),
     Key([mod], "b", lazy.spawn('firefox'), desc="Launch web browser"),
-    Key([mod], "n", lazy.spawn('kitty -e yazi'), desc="Launch Yazi"),
+    Key([mod], "n", lazy.spawn('ghostty -e yazi'), desc="Launch Yazi"),
     Key([mod], "h", lazy.spawn('thunar'), desc="Launch Thunar"),
     Key([mod], "j", lazy.spawn('dbus-run-session env _JAVA_AWT_WM_NONREPARENTING=1 bolt-launcher'), desc="Launch bolt launcher"),
     Key([mod], "m", lazy.spawn('youtube-music'), desc="Launch YouTube Music"),
@@ -24,7 +31,7 @@ keys = [
     Key([mod], "d", lazy.spawn('discord'), desc="Launch Discord"),
     Key([mod], "Backslash", lazy.spawn('codium'), desc="Launch vscodium"),
     Key([mod], "f11", lazy.spawn('gpick --pick'), desc="Launch color picker"),
-    Key([mod], "l", lazy.spawn('kitty -e nvim'), desc="Launch nvim"),
+    Key([mod], "l", lazy.spawn('ghostty -e nvim'), desc="Launch nvim"),
     Key([mod], "k", lazy.spawn("rofi -modi 'clipboard:greenclip print' -show clipboard -run-command 'echo {cmd} | xclip -selection clipboard'"), desc="Launch clipboard manager"),    
     Key([], "Home", lazy.spawn('flameshot full --clipboard --path /home/array/Pictures/Screenshots'), desc="Take full screenshot"),
     Key([mod], "Home", lazy.spawn('flameshot gui --clipboard --path /home/array/Pictures/Screenshots --accept-on-select'), desc="Take region screenshot"),
@@ -74,11 +81,11 @@ for i in groups:
 
 # --- Scratchpad ---
 groups.append(ScratchPad("scratchpad", [
-    DropDown("term", f"kitty", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
-    DropDown("music", f"kitty -e rmpc", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
-    DropDown("files", f"kitty -e yazi", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
+    DropDown("term", f"ghostty", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
+    DropDown("music", f"ghostty -e rmpc", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
+    DropDown("files", f"ghostty -e yazi", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
     DropDown("theme", f"bash /home/array/.config/qtile/scripts/switch_theme.sh", width=1.0, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
-    DropDown("nix", f"kitty -e /home/array/.config/qtile/scripts/nix.sh", width=1.0, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
+    DropDown("nix", f"ghostty -e /home/array/.config/qtile/scripts/nix.sh", width=1.0, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
     DropDown("sound", f"pavucontrol", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
     DropDown("vpn", f"protonvpn-app", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
 ]))
@@ -114,25 +121,38 @@ layouts = [
 ]
 
 # --- Bar --- #
+battery_widget = (
+    widget.Battery(
+        format=" ∷   {char}  {percent:2.0%}",
+        low_percentage=0.2,
+        show_short_text=False,
+        notify_below=10,
+        update_interval=30,
+        charge_char="󰂄",
+        discharge_char="󰂀",
+        empty_char="󰂎",
+        full_char="󰁹",
+        mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("xfce4-power-manager-settings")}
+    )
+    if IS_LAPTOP else widget.Spacer(length=0)
+)
+
 widget_defaults = dict(
     font="Ubuntu Nerd Font Bold",
-    fontsize=11,
+    fontsize=BAR_FONT_SIZE,
     padding=3,
     background=current_theme["background"],
     foreground=current_theme["foreground"],
 )
-
 widget.extension_defaults = widget_defaults
 
-
-# --- Bar --- #
 screens = [
     Screen(
         top=bar.Bar(
             [
                 widget.Spacer(length=4),
                 widget.GroupBox(
-                    fontsize=10,
+                    fontsize=GROUP_BOX,
                     margin_y=3,
                     margin_x=1,
                     padding_y=4,
@@ -150,8 +170,6 @@ screens = [
                 widget.WindowName(
                     format=" ‣ {name}",
                     max_chars=150,
-                #    background='#535455',
-                #    foreground='#0C0D0E'
                 ),
                 widget.Spacer(),
                 widget.Spacer(length=4),
@@ -159,18 +177,19 @@ screens = [
                     tag_sensor='Core 0',
                     format='   {temp:.0f}{unit}',
                     threshold=90.0,
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('kitty' + ' -e htop')}
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('ghostty -e htop')}
                 ),
                 widget.TextBox(fmt=" ∷ "),
                 widget.Memory(
                     format='  {MemUsed: .0f}{mm}',
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('kitty' + ' -e htop')}
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('ghostty -e htop')}
                 ),
+                battery_widget,
                 widget.TextBox(fmt=" ∷ "),
                 widget.Volume(
                     fmt="   {}",
-                    mouse_callbacks = {'Button3': lambda: qtile.cmd_spawn("pavucontrol")},
-                    volume_app = "pavucontrol",
+                    mouse_callbacks={'Button3': lambda: qtile.cmd_spawn("pavucontrol")},
+                    volume_app="pavucontrol",
                 ),
                 widget.WidgetBox(
                     fmt=" ∷ ",
@@ -178,17 +197,18 @@ screens = [
                     text_close="  ",
                     close_button_location="right",
                     widgets=[
-                        widget.StatusNotifier(
+                        StatusNotifier(
                             icon_size=14,
                             padding=4
                         )
-                    ]),
+                    ],
+                ),
                 widget.Clock(
                     format="󰥔  %A, %d %b  :  %H:%M"
                 ),
                 widget.Spacer(length=12),
             ],
-            28,
+            BAR_SIZE,
             background='#00000000',
             opacity=1.0,
             margin=[6, 8, -2, 8]

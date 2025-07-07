@@ -24,7 +24,6 @@
       modules = [
       "break"
       "break"
-
         {
             type = "os";
             key = "{$1}Distro";
