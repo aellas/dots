@@ -18,12 +18,12 @@
     ./programs/yazi/default.nix
     ./programs/lazygit.nix
     ./programs/git.nix
+    ./programs/bottom.nix
 
-    #./system/gtk.nix
+    ./system/gtk.nix
     ./system/picom/picom.nix
     ./system/qtile.nix
     ./system/mpd.nix
-    ./system/niri.nix
  ];
 
   home.stateVersion = "25.11";

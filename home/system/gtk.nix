@@ -1,18 +1,23 @@
 { pkgs, ... }:
 
-{
-  gtk = {
+{   
+    gtk = {
     enable = true;
-    cursorTheme = {
-      name = "BreezeX-RoséPineDawn";
-      package = pkgs.rose-pine-cursor;
+    theme = {
+      name = "Graphite-Light";
+      package = pkgs.graphite-gtk-theme;
+    };
+    iconTheme = {
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
+    
     };
   };
-
-  dconf.settings = {
+    dconf.settings = {
     "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-      cursor-theme = "BreezeX-RoséPineDawn";
+      color-scheme = "prefer-light";
+      gtk-theme = "Graphite-Light";
+      icon-theme = "Papirus";
     };
   };
 }

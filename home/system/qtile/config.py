@@ -141,8 +141,8 @@ widget_defaults = dict(
     font="Ubuntu Nerd Font Bold",
     fontsize=BAR_FONT_SIZE,
     padding=3,
-    background=current_theme["background"],
-    foreground=current_theme["foreground"],
+    background='#D9D9D9',
+    foreground='#363636',
 )
 widget.extension_defaults = widget_defaults
 
@@ -158,12 +158,12 @@ screens = [
                     padding_y=4,
                     padding_x=6,
                     disable_drag=True,
-                    active=current_theme["foreground"],
-                    inactive=current_theme["foreground"],
+                    active='#363636',
+                    inactive='#363636',
                     rounded=True,
                     highlight_method="block",
-                    this_current_screen_border=current_theme["active"],
-                    block_highlight_text_color=current_theme["background"],
+                    this_current_screen_border='#333333',
+                    block_highlight_text_color='#D9D9D9',
                     visible_groups=[g.name for g in groups if g.name in [str(i) for i in range(1, 6)]],
                 ),
                 widget.Spacer(length=4),

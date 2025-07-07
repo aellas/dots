@@ -13,7 +13,6 @@ in
     enable = true;
     package = myGhostty;
     settings = {
-      theme = "/home/array/.cache/wal/ghostty.conf";
       font-size = 10;
       font-family = "JetBrainsMono NF";
       font-style = "bold";

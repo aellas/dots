@@ -58,7 +58,7 @@
         {
             type = "wm";
             key = "{$1}WM";
-            format = "Qtile";
+            format = "{19}";
             keyColor = "38;5;147";
         }
         {
