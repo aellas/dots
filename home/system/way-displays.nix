@@ -3,12 +3,7 @@
     enable = true;
     settings = {
       MODE = [
-        {
-          NAME_DESC = "DP-4";
-          WIDTH = 1920;
-          HEIGHT = 1080;
-          HZ = 240;
-        }
+
         {
           NAME_DESC = "DP-3";
           WIDTH = 1920;
@@ -19,7 +14,6 @@
           NAME_DESC = "eDP-1";
           WIDTH = 1920;
           HEIGHT = 1080;
-          SCALE = 1;
           HZ = 60;
         }
       ];
@@ -27,7 +21,7 @@
         {
           NAME_DESC = "eDP-1";
           IF = [
-            { PLUGGED = [ "DP-4" "DP-3"]; }
+            { PLUGGED = [ "DP-3"]; }
           ];
         }
       ];
@@ -35,6 +29,9 @@
         "VG279QM"
         "eDP-1"
       ];
+
+      AUTO_SCALE = false;
+      SCALING = false;
       VERBOSE = true;
     };
   };
