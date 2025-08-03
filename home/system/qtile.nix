@@ -19,7 +19,6 @@
       wl-color-picker
       libnotify
       waypaper
-      way-displays
  ];
 
   home.file = {

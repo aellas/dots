@@ -2,4 +2,5 @@
 
 wl-copy &
 waypaper --restore &
-exec dunst
+exec dunst &
+(sleep 1 && way-displays) &
