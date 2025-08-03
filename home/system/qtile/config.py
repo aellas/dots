@@ -88,7 +88,7 @@ groups.append(ScratchPad("scratchpad", [
     DropDown("theme", f"bash /home/array/.config/qtile/scripts/switch_theme.sh", width=1.0, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
     DropDown("sound", f"wiremix", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
     DropDown("vpn", f"protonvpn-app", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
-    DropDown("nix", f"ghostty -e /home/array/.config/qtile/scripts/nix.sh", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
+    DropDown("displays", f"ghostty -e /home/array/.config/qtile/scripts/wayland.sh", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
 
 ]))
 
@@ -100,7 +100,7 @@ keys.extend([
     Key([mod, "shift"], "n", lazy.group["scratchpad"].dropdown_toggle("files")),
     Key([mod, "shift"], "s", lazy.group["scratchpad"].dropdown_toggle("sound")),
     Key([mod, "shift"], "p", lazy.group["scratchpad"].dropdown_toggle("vpn")),
-    Key([mod, "shift"], "u", lazy.group["scratchpad"].dropdown_toggle("nix")),
+    Key([mod, "shift"], "u", lazy.group["scratchpad"].dropdown_toggle("displays")),
 
     Key([mod], "x", lazy.group["scratchpad"].hide_all()),
 ])
@@ -135,9 +135,9 @@ layouts = [
 # --- Bar --- #
 widget_defaults = dict(
     font = "Ubuntu Nerd Font Bold",
-    fontsize=11,
+    fontsize=BAR_FONT_SIZE,
     padding=2,
-    background="#070607",
+    background="#161821",
     foreground="#D2D4DE",
 )
 
@@ -253,7 +253,7 @@ screens = [
 
                 widget.Spacer(length=12),
             ],
-            28,
+            BAR_SIZE,
             background=current_theme["background"],
             opacity=1.0,
             margin=[6, 4, 2, 4],

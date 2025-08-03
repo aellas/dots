@@ -21,6 +21,7 @@
     
     ./system/qtile.nix
     ./system/mpd.nix
+    ./system/way-displays.nix
  ];
 
   home.stateVersion = "25.11";
