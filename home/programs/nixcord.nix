@@ -1,7 +1,7 @@
 {
   programs.nixcord = {
     enable = true;
-    quickCss = "some CSS";
+    quickCss = "";
     config = {
       useQuickCss = true;
       themeLinks = [
@@ -22,5 +22,4 @@
     extraConfig = {
     };
   };
-  # ...
 }

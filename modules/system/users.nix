@@ -21,6 +21,7 @@
       "audio"
       "render"
       "video"
+      "libvirtd"
     ];
     shell = pkgs.fish;
     ignoreShellProgramCheck = true;

@@ -12,9 +12,6 @@
       (flameshot.override {
       enableWlrSupport = true;
       })
-      overskride
-      cemu
-      ryubing
   ];
   nixpkgs.overlays = [
   (self: super: {

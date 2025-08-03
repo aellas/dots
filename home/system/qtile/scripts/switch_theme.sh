@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
-WALLPAPER_DIR="/home/array/Documents/GitHub/nixos-testing/home/system/qtile/wallpapers/"
+# Directory containing wallpapers
+WALLPAPER_DIR="/home/$USER/Documents/GitHub/nixos-testing/home/system/qtile/wallpapers/"
+
+# Use rofi to select a wallpaper
 SELECTED=$(find "$WALLPAPER_DIR" -type f | sort | rofi -dmenu -i -p "Select Wallpaper")
 
+# Exit if no selection made
 [ -z "$SELECTED" ] && exit 1
 
-feh --bg-fill "$SELECTED"
-
-wal -i "$SELECTED"
-
-qtile cmd-obj -o cmd -f reload_config
-
-bash dunst.sh
+# Set wallpaper using feh
+swaybg --image "$SELECTED"

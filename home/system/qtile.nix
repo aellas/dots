@@ -1,19 +1,13 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-      pywal16
+
       dunst
-      feh
       pavucontrol
       pulseaudio
       pamixer
       alsa-utils
       playerctl
-      git
       polkit_gnome
-      picom
-      xclip
-      haskellPackages.greenclip
-      gpick
       brightnessctl
       psmisc
 
@@ -22,8 +16,11 @@
       wlr-randr
       grim
       slurp
-      waybar
-  ];
+      wl-color-picker
+      libnotify
+      waypaper
+      wdisplays
+ ];
 
   home.file = {
     ".config/qtile" = {

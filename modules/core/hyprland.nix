@@ -1,19 +1,15 @@
-{ pkgs, ... }:
-{
-    programs = {
-      hyprland = {
-        enable = true;
-      };
-      xwayland = {
-        enable = true;
-      };
-    };
+{inputs, pkgs, ...}: {
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
+  environment.systemPackages = with pkgs; [
+    waybar
+    pyprland
+    hyprpicker
+    waypaper
+    ];
 
-    environment.systemPackages = with pkgs; [   
-        xwayland
-        pamixer
-        swaybg
-        hyprpicker
-        power-profiles-daemon
-   ];
-}
+} 

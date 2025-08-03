@@ -1,4 +1,4 @@
-@import "~/.cache/wal/colors-rofi-dark.rasi"
+@import "~/.config/rofi/colors.rasi"
 
 * {
     font: "Ubuntu Nerd Font Regular 12";

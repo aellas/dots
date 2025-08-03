@@ -1,14 +1,30 @@
 {
-  description = "AryOS";
+  description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nixcord.url = "github:kaylorben/nixcord";
-    nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+  
+  nixpkgs = {
+    url = "github:NixOS/nixpkgs/nixos-unstable";
+  };
+	
+	nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+	};
+    
+	home-manager = {
+	  url = "github:nix-community/home-manager";
+    inputs.nixpkgs.follows = "nixpkgs";
+	};
+  
+  nixcord = {
+    url = "github:kaylorben/nixcord";
+  };
+    
+  nixvim = {
+    url = "github:nix-community/nixvim";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
 };
 
   outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, ... }:
@@ -21,8 +37,9 @@
           specialArgs = { inherit inputs; host = name; };
 
           modules = [
+
             ./hosts/${name}/default.nix
-            ./modules/apps/default.nix
+            ./modules/programs/default.nix
             ./modules/core/default.nix
             ./modules/services/default.nix
             ./modules/system/default.nix
@@ -64,9 +81,17 @@
           hardwareModule = {};
           extraModules = [
             ./modules/drivers/amd.nix
-            ./modules/apps/corectrl.nix
-            
-          ];
+            ./modules/programs/corectrl.nix   
+            #./modules/system/filesystem.nix         
+        ];
+      };
+        "proxnix" = mkNixosConfig {
+          name = "proxnix";
+          hardwareModule = {};
+          extraModules = [
+            ./modules/core/virt.nix
+            ./modules/core/kde.nix
+        ];
       };
     };
   };

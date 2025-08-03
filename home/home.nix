@@ -14,14 +14,11 @@
     ./programs/yazi/default.nix
     ./programs/rofi.nix
     ./programs/firefox.nix
-    ./programs/rmpc.nix
-    ./programs/yazi/default.nix
-    ./programs/lazygit.nix
     ./programs/git.nix
-    ./programs/bottom.nix
+    ./programs/fzf.nix
 
-    ./system/gtk.nix
-    ./system/picom/picom.nix
+    ./programs/emacs.nix
+    
     ./system/qtile.nix
     ./system/mpd.nix
  ];

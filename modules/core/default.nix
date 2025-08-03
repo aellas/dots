@@ -1,8 +1,9 @@
 {
   imports = [
     ./qtile.nix
-    ./sddm.nix
+    ./gdm.nix
     ./fish.nix
     ./starship.nix
+    #./hyprland.nix
   ];
 }

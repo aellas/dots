@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-
 let
   isxps = config.networking.hostName == "xpsnix";
   isthink= config.networking.hostName == "thinknix";
@@ -13,5 +12,4 @@ in
       variant = "";
     };
   };
-
 }

@@ -3,6 +3,7 @@
     neovim
     pyright
     lua-language-server
+    gcc
   ];
 
   home.file = {

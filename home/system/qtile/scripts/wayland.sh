@@ -1,4 +1,11 @@
-wlr-randr --output DP-1 --mode 1920x1080@239.75995 &
+#!/usr/bin/env bash
+
+# Background utilities
+    wlr-randr --output DP-3 --mode 1920x1080@239.759995
+    sleep 1
+    wlr-randr --output eDP-1 --off
 wl-copy &
-wal -R &
-dunst -config /home/array/.cache/wal/dunstrc &
+waypaper --restore &
+#conky --config=/home/array/.config/conky/nord.conkyrc &
+# Start dunst and replace shell process
+exec dunst

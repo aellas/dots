@@ -1,4 +1,5 @@
 import os, subprocess, json, socket
+from libqtile.backend.wayland.inputs import InputConfig
 from libqtile import bar, layout, qtile, widget, hook
 from libqtile.config import Click, Drag, DropDown, Group, Key, Match, ScratchPad, Screen
 from libqtile.lazy import lazy
@@ -10,9 +11,8 @@ from qtile_extras import widget
 hostname = socket.gethostname()
 
 IS_LAPTOP = hostname in ["xpsnix", "thinknix"]
-BAR_FONT_SIZE = 13 if IS_LAPTOP else 11
-BAR_SIZE = 36 if IS_LAPTOP else 28
-GROUP_BOX = 12 if IS_LAPTOP else 10
+BAR_FONT_SIZE = 11 if IS_LAPTOP else 11
+BAR_SIZE = 28 if IS_LAPTOP else 28
 
 # --- Mod --- #
 mod = "mod4"
@@ -24,17 +24,18 @@ keys = [
     Key([mod], "Space", lazy.spawn('rofi -show drun'), desc="Launch app launcher (rofi)"),
     Key([mod], "b", lazy.spawn('firefox'), desc="Launch web browser"),
     Key([mod], "n", lazy.spawn('ghostty -e yazi'), desc="Launch Yazi"),
-    Key([mod], "h", lazy.spawn('thunar'), desc="Launch Thunar"),
+    Key([mod], "h", lazy.spawn('nemo'), desc="Launch Thunar"),
     Key([mod], "j", lazy.spawn('dbus-run-session env _JAVA_AWT_WM_NONREPARENTING=1 bolt-launcher'), desc="Launch bolt launcher"),
     Key([mod], "m", lazy.spawn('youtube-music'), desc="Launch YouTube Music"),
     Key([mod], "s", lazy.spawn('steam'), desc="Launch steam"),
     Key([mod], "d", lazy.spawn('discord'), desc="Launch Discord"),
     Key([mod], "Backslash", lazy.spawn('codium'), desc="Launch vscodium"),
-    Key([mod], "f11", lazy.spawn('gpick --pick'), desc="Launch color picker"),
+    Key([mod], "c", lazy.spawn('wl-color-picker clipboard'), desc="Launch color picker"),
     Key([mod], "l", lazy.spawn('ghostty -e nvim'), desc="Launch nvim"),
     Key([mod], "k", lazy.spawn("rofi -modi 'clipboard:greenclip print' -show clipboard -run-command 'echo {cmd} | xclip -selection clipboard'"), desc="Launch clipboard manager"),    
-    Key([], "Home", lazy.spawn('flameshot full --clipboard --path /home/array/Pictures/Screenshots'), desc="Take full screenshot"),
-    Key([mod], "Home", lazy.spawn('flameshot gui --clipboard --path /home/array/Pictures/Screenshots --accept-on-select'), desc="Take region screenshot"),
+    Key([], "Home", lazy.spawn('/home/array/.config/qtile/scripts/screenshot_full.sh'), desc="Take full screenshot"),
+    Key([mod], "Home", lazy.spawn('/home/array/.config/qtile/scripts/screenshot_region.sh'), desc="Take region screenshot"),
+    Key([mod], "x", lazy.spawn('bash /home/array/.config/qtile/scripts/screen.sh'), desc="fix screen"),
 # --- Qtile Specific Keybinds --- #
     Key([mod], "o", lazy.hide_show_bar(), desc="Hides the bar"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
@@ -85,9 +86,10 @@ groups.append(ScratchPad("scratchpad", [
     DropDown("music", f"ghostty -e rmpc", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
     DropDown("files", f"ghostty -e yazi", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
     DropDown("theme", f"bash /home/array/.config/qtile/scripts/switch_theme.sh", width=1.0, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
-    DropDown("nix", f"ghostty -e /home/array/.config/qtile/scripts/nix.sh", width=1.0, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
-    DropDown("sound", f"pavucontrol", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
+    DropDown("sound", f"wiremix", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
     DropDown("vpn", f"protonvpn-app", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
+    DropDown("nix", f"ghostty -e /home/array/.config/qtile/scripts/nix.sh", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0, on_focus_lost='hide'),
+
 ]))
 
 # --- Scratchpad Keybinds ---
@@ -99,17 +101,27 @@ keys.extend([
     Key([mod, "shift"], "s", lazy.group["scratchpad"].dropdown_toggle("sound")),
     Key([mod, "shift"], "p", lazy.group["scratchpad"].dropdown_toggle("vpn")),
     Key([mod, "shift"], "u", lazy.group["scratchpad"].dropdown_toggle("nix")),
+
     Key([mod], "x", lazy.group["scratchpad"].hide_all()),
 ])
 
 # --- Borders for layouts ---
 layout_conf = { 
-    'border_focus': current_theme.get("active"),
-    'border_normal': current_theme.get("inactive"),
+    'border_focus': "#91ACD1",
+    'border_normal': "#6B7089",
     'border_width': 2,
-    'margin': 8
-}
+    'margin': 4
+    }
 
+wl_input_rules = {
+    "type:touchpad": InputConfig(
+        tap=True,
+        natural_scroll=False,
+        dwt=True,
+        accel_profile="adaptive",
+        pointer_accel=0,
+    ),
+}
 # --- Layouts ---
 layouts = [
     layout.MonadTall(**layout_conf),
@@ -121,100 +133,134 @@ layouts = [
 ]
 
 # --- Bar --- #
-battery_widget = (
-    widget.Battery(
-        format=" ∷   {char}  {percent:2.0%}",
-        low_percentage=0.2,
-        show_short_text=False,
-        notify_below=10,
-        update_interval=30,
-        charge_char="󰂄",
-        discharge_char="󰂀",
-        empty_char="󰂎",
-        full_char="󰁹",
-        mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("xfce4-power-manager-settings")}
-    )
-    if IS_LAPTOP else widget.Spacer(length=0)
+widget_defaults = dict(
+    font = "Ubuntu Nerd Font Bold",
+    fontsize=11,
+    padding=2,
+    background="#070607",
+    foreground="#D2D4DE",
 )
 
-widget_defaults = dict(
-    font="Ubuntu Nerd Font Bold",
-    fontsize=BAR_FONT_SIZE,
-    padding=3,
-    background='#D9D9D9',
-    foreground='#363636',
-)
 widget.extension_defaults = widget_defaults
 
+battery_widgets = []
+if IS_LAPTOP:
+    battery_widgets = [
+        widget.Battery(
+            format="   {percent:2.0%}",
+            low_percentage=0.2,
+            show_short_text=False,
+            notify_below=10,
+            update_interval=30,
+            charge_char="",
+            discharge_char="",
+            empty_char="",
+            full_char="",
+            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("xfce4-power-manager-settings")}
+        ),
+            widget.TextBox(fmt=" • "),
+
+    ]
+
+
+# --- Bar --- #
 screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Spacer(length=4),
+                widget.Spacer(length=8),
+
                 widget.GroupBox(
-                    fontsize=GROUP_BOX,
+                    fontsize=10,
                     margin_y=3,
                     margin_x=1,
                     padding_y=4,
                     padding_x=6,
                     disable_drag=True,
-                    active='#363636',
-                    inactive='#363636',
+                    active="#D2D4DE",
+                    inactive="#D2D4DE",
                     rounded=True,
                     highlight_method="block",
-                    this_current_screen_border='#333333',
-                    block_highlight_text_color='#D9D9D9',
-                    visible_groups=[g.name for g in groups if g.name in [str(i) for i in range(1, 6)]],
+                    this_current_screen_border="#91ACD1",
+                    block_highlight_text_color="#0C0D0E",
+                    visible_groups=[
+                        g.name for g in groups
+                        if g.name in [str(i) for i in range(1, 6)]
+                    ],
                 ),
+
                 widget.Spacer(length=4),
+
                 widget.WindowName(
                     format=" ‣ {name}",
                     max_chars=150,
                 ),
-                widget.Spacer(),
-                widget.Spacer(length=4),
-                widget.ThermalSensor(
-                    tag_sensor='Core 0',
-                    format='   {temp:.0f}{unit}',
-                    threshold=90.0,
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('ghostty -e htop')}
+
+                widget.CPU(
+                    format="    {load_percent}%",
                 ),
-                widget.TextBox(fmt=" ∷ "),
+                separator(),
+
                 widget.Memory(
-                    format='  {MemUsed: .0f}{mm}',
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('ghostty -e htop')}
+                    format=" {MemUsed: .0f}{mm}",
                 ),
-                battery_widget,
-                widget.TextBox(fmt=" ∷ "),
+                separator(),
+
+                widget.TextBox(fmt="  GMH"),
+                separator(),
+
+                widget.Battery(
+                    format="  {percent:2.0%}",
+                    low_percentage=0.2,
+                    show_short_text=False,
+                    notify_below=10,
+                    update_interval=60,
+                    charge_char="",
+                    discharge_char="",
+                    empty_char="",
+                    full_char="",
+                    mouse_callbacks={
+                        "Button1": lambda: qtile.cmd_spawn("xfce4-power-manager-settings")
+                    },
+                ),
+                separator(),
+
                 widget.Volume(
-                    fmt="   {}",
-                    mouse_callbacks={'Button3': lambda: qtile.cmd_spawn("pavucontrol")},
+                    fmt="  {}",
                     volume_app="pavucontrol",
+                    mouse_callbacks={
+                        "Button3": lambda: qtile.cmd_spawn("wiremix")
+                    },
+                ),
+                separator(),
+
+                widget.Clock(
+                    format="󰃰 %d %b",
                 ),
                 widget.WidgetBox(
-                    fmt=" ∷ ",
-                    text_open=" • ",
-                    text_close="  ",
+                    fmt=" ︱ ",
                     close_button_location="right",
                     widgets=[
                         StatusNotifier(
-                            icon_size=14,
+                            icon_size=12,
                             padding=4
                         )
                     ],
                 ),
                 widget.Clock(
-                    format="󰥔  %A, %d %b  :  %H:%M"
+                    format="󰥔 %H:%M",
                 ),
+
                 widget.Spacer(length=12),
             ],
-            BAR_SIZE,
-            background='#00000000',
+            28,
+            background=current_theme["background"],
             opacity=1.0,
-            margin=[6, 8, -2, 8]
+            margin=[6, 4, 2, 4],
         ),
     ),
 ]
+
 
 # --- Other Settings ---
 dgroups_key_binder = None
@@ -225,7 +271,7 @@ floats_kept_above = True
 cursor_warp = True
 floating_layout = layout.Floating(
     border_width=2,
-    border_focus=current_theme.get("active"), 
+    border_focus="#91ACD1", 
     border_normal=current_theme.get("active"),
     float_rules=[
         *layout.Floating.default_float_rules,
@@ -240,16 +286,10 @@ floating_layout = layout.Floating(
     ]
 )
 
-# --- Autostart ---
 @hook.subscribe.startup_once
 def autostart():
-    backend_name = qtile.core.name
-    if backend_name == "wayland":
-        autostart_script = os.path.expanduser('~/.config/qtile/scripts/wayland.sh')
-    elif backend_name == "x11":
-        autostart_script = os.path.expanduser('~/.config/qtile/scripts/x11.sh')
-    if os.path.exists(autostart_script):
-        subprocess.Popen(['bash', autostart_script])
+    autostart_script = os.path.expanduser('~/.config/qtile/scripts/wayland.sh')
+    subprocess.Popen(['bash', autostart_script])
 
 auto_fullscreen = True
 focus_on_window_activation = "never"

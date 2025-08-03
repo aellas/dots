@@ -8,6 +8,7 @@
     };
       bluetooth = {
         enable = true;
+        powerOnBoot = true;
         input.General.ClassicBondedOnly = false;
         package = pkgs.bluez;
     };
@@ -16,6 +17,5 @@
     graphics.enable = true;
     enableRedistributableFirmware = true;
     keyboard.qmk.enable = true;
-    bluetooth.powerOnBoot = true;
   };
 }

@@ -5,12 +5,10 @@
     ./keyring.nix
     ./greenclip.nix
     ./openssh.nix
-    #./blueman.nix
     ./tumbler.nix
     ./envfs.nix
     ./gvfs.nix
-    ./fstrim.nix
+    ./fstrim.nix    
     ./libinput.nix
-    ./redshift.nix
   ];
 }

@@ -12,65 +12,48 @@
     };
 
       logo = {
-        source = ./nixos.webp;
-        type = "kitty"; 
+        type = "small"; 
         padding = {
           top = 2;
           right = 5;
           left = 3;
         };
       };
-
-      modules = [
-      "break"
+    modules = [
       "break"
         {
+            type = "title";
+       }
+        {
             type = "os";
-            key = "{$1}Distro";
+            key = "Distro";
             format = "{3}";
-            keyColor = "38;5;147";
         }
         {
             type = "kernel";
-            key = "{$1}Kernel";
-            keyColor = "38;5;75";
+            key = "Kernel";
         }
         {
             type = "packages";
-            key = "{$1}Packages";
-            keyColor = "38;5;123";
+            key = "Packages";
         }
         {
             type = "uptime";
-            key = "{$1}Uptime";
-            keyColor = "38;5;147";
-        }
-        {
-            type = "terminal";
-            key = "{$1}Terminal";
-            keyColor = "38;5;75";
-        }
-        {
-            type = "shell";
-            key = "{$1}Shell";
-            keyColor = "38;5;123";
+            key = "Uptime";
         }
         {
             type = "wm";
-            key = "{$1}WM";
-            format = "{19}";
-            keyColor = "38;5;147";
+            key = "WM";
+            format = "Qtile (Wayland)";
         }
         {
             type = "command";
-            keyColor ="38;5;75";
-            key = "{$1}Day";
+            key = "Day";
             text = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference";
         }
         {
             type = "command";
-            keyColor ="38;5;123";
-            key = "{$1}Left";
+            key = "Left";
             text = "echo \"$(( ($(date -d \"$(date -d \"@$(stat -c %W /)\" \"+%Y-%m-%d\") + 2 years\" \"+%s\") - $(date +%s)) / 86400 ))\"";        
           }
       ];
