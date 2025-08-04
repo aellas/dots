@@ -70,8 +70,13 @@ mouse = [
 	Drag([mod], 'Button3', lazy.window.set_size_floating(), start=lazy.window.get_size()),
 	Click([mod], 'Button2', lazy.window.bring_to_front())
 	]
-# --- Groups ---
-group_labels = {str(i + 1): str(i + 1) for i in range(9)}
+# List of icons for the 9 groups
+icons = ["󱓻", "󱓻", "󱓻", "󱓻", "󱓻", "󱓻", "󱓻", "󱓻", "󱓻"]
+
+# Create a dict with group name as number, label as icon
+group_labels = {str(i + 1): icons[i] for i in range(9)}
+
+# Create groups with icon labels
 groups = [Group(name, label=label) for name, label in group_labels.items()]
 
 for i in groups:
@@ -135,7 +140,7 @@ layouts = [
 # --- Bar --- #
 widget_defaults = dict(
     font = "Ubuntu Nerd Font Bold",
-    fontsize=BAR_FONT_SIZE,
+    fontsize=12,
     padding=2,
     background="#161821",
     foreground="#D2D4DE",
@@ -143,46 +148,26 @@ widget_defaults = dict(
 
 widget.extension_defaults = widget_defaults
 
-battery_widgets = []
-if IS_LAPTOP:
-    battery_widgets = [
-        widget.Battery(
-            format="   {percent:2.0%}",
-            low_percentage=0.2,
-            show_short_text=False,
-            notify_below=10,
-            update_interval=30,
-            charge_char="",
-            discharge_char="",
-            empty_char="",
-            full_char="",
-            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("xfce4-power-manager-settings")}
-        ),
-            widget.TextBox(fmt=" • "),
-
-    ]
-
 
 # --- Bar --- #
 screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Spacer(length=8),
-
+                widget.Spacer(length=6),
                 widget.GroupBox(
-                    fontsize=10,
+                    fontsize=8,
                     margin_y=3,
                     margin_x=1,
-                    padding_y=4,
-                    padding_x=6,
+                    padding_y=1,
+                    padding_x=4,
                     disable_drag=True,
                     active="#D2D4DE",
                     inactive="#D2D4DE",
                     rounded=True,
                     highlight_method="block",
                     this_current_screen_border="#91ACD1",
-                    block_highlight_text_color="#0C0D0E",
+                    block_highlight_text_color="#91ACD1",
                     visible_groups=[
                         g.name for g in groups
                         if g.name in [str(i) for i in range(1, 6)]
@@ -192,71 +177,69 @@ screens = [
                 widget.Spacer(length=4),
 
                 widget.WindowName(
-                    format=" ‣ {name}",
+                    format=" ‣  {name}",
                     max_chars=150,
+                    fontsize=11
                 ),
-
-                widget.CPU(
-                    format="    {load_percent}%",
-                ),
-                separator(),
-
-                widget.Memory(
-                    format=" {MemUsed: .0f}{mm}",
-                ),
-                separator(),
-
-                widget.TextBox(fmt="  GMH"),
-                separator(),
-
-                widget.Battery(
-                    format="  {percent:2.0%}",
-                    low_percentage=0.2,
-                    show_short_text=False,
-                    notify_below=10,
-                    update_interval=60,
-                    charge_char="",
-                    discharge_char="",
-                    empty_char="",
-                    full_char="",
-                    mouse_callbacks={
-                        "Button1": lambda: qtile.cmd_spawn("xfce4-power-manager-settings")
-                    },
-                ),
-                separator(),
-
-                widget.Volume(
-                    fmt="  {}",
-                    volume_app="pavucontrol",
-                    mouse_callbacks={
-                        "Button3": lambda: qtile.cmd_spawn("wiremix")
-                    },
-                ),
-                separator(),
-
+                widget.Spacer(),
                 widget.Clock(
-                    format="󰃰 %d %b",
+                    format="%A, %d %b   :   %H:%M ",
+                    fontsize=11
                 ),
-                widget.WidgetBox(
-                    fmt=" ︱ ",
+                widget.Spacer(),
+                        widget.WidgetBox(
+                    fmt="  ",
                     close_button_location="right",
                     widgets=[
                         StatusNotifier(
                             icon_size=12,
                             padding=4
-                        )
+                        ),
+                       separator(),
+                       widget.CPU(
+                           format="    {load_percent}%", 
+                           fontsize=11
+                        ),
+                        widget.Memory(
+                          format="   {MemUsed: .0f}{mm}",
+                          fontsize=11
+                        ),
                     ],
                 ),
-                widget.Clock(
-                    format="󰥔 %H:%M",
-                ),
-
-                widget.Spacer(length=12),
+                separator(),
+                widget.CurrentLayout(fontsize=11),
+                separator(),
+                widget.TextBox(fmt="  "),
+                separator(),
+            widget.Battery(
+            format="  {char}  ",
+            low_percentage=0.2,
+            show_short_text=False,
+            notify_below=10,
+            update_interval=30,
+            charge_char="",
+            discharge_char="",
+            empty_char="",
+            full_char="",
+            not_charging_char="󰢝",
+            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("xfce4-power-manager-settings")}
+        ),
+                separator(),
+                widget.Volume(
+                    fmt="  ",
+                    volume_app="pavucontrol",
+                    mouse_callbacks={
+                        "Button3": lambda: qtile.cmd_spawn("wiremix")
+                    },
+                ),                
+                separator(),
+                widget.TextBox(fmt="  " , foreground="#D2D4DE", fontsize=13),
+                widget.Spacer(length=14),
             ],
-            BAR_SIZE,
+            30,
             background=current_theme["background"],
             opacity=1.0,
-            margin=[6, 4, 2, 4],
+            margin=[6, 6, 2, 6],
         ),
     ),
 ]

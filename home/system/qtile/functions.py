@@ -3,7 +3,7 @@ from libqtile import bar, layout, qtile, widget, hook
 import datetime
 
 def separator():
-    return widget.TextBox(fmt=" ︱ ")
+    return widget.TextBox(fmt="  ")
 
 def format_time():
     return datetime.now().strftime("󰥔  %a,  %d   %H:%M %p").replace("am", "AM").replace("pm", "PM")
