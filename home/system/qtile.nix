@@ -13,12 +13,12 @@
 
       swaybg
       wl-clipboard
-      wlr-randr
       grim
       slurp
       wl-color-picker
       libnotify
       waypaper
+      wdisplays
  ];
 
   home.file = {
