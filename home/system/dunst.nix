@@ -1,6 +1,7 @@
 {
-  programs.dunst = {
+  services.dunst = {
     enable = true;
+    waylandDisplay = "wayland-0";
 
     settings = {
       global = {
@@ -19,7 +20,6 @@
         notification_limit = 1;
         format = "<b>%s</b>: %b";
         markup = "full";
-
         mouse_left_click = "close_current";
         mouse_middle_click = "do_action, close_current";
         mouse_right_click = "close_all";

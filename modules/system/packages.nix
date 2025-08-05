@@ -6,11 +6,11 @@
        sshfs-fuse 
        libgcc
        heroic
-        protonvpn-gui
-        virt-viewer
-        virt-manager
-        remmina
-        yaru-theme
+       protonvpn-gui
+       virt-viewer
+       virt-manager
+       remmina
+       yaru-theme
    ];
 
    nixpkgs.config.permittedInsecurePackages = [
