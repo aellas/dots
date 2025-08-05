@@ -16,6 +16,7 @@
     ./programs/firefox.nix
     ./programs/git.nix
     ./programs/fzf.nix
+    ./programs/dunst.nix
 
     ./programs/emacs.nix
     
