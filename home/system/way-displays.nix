@@ -1,9 +1,9 @@
 {
   services.way-displays = {
     enable = true;
+    systemdTarget = "graphical-session.target"; # Or any other appropriate target
     settings = {
       MODE = [
-
         {
           NAME_DESC = "DP-3";
           WIDTH = 1920;
@@ -29,7 +29,6 @@
         "VG279QM"
         "eDP-1"
       ];
-
       AUTO_SCALE = false;
       SCALING = false;
       VERBOSE = true;

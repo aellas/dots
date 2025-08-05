@@ -2,3 +2,5 @@
 
 wl-copy &
 waypaper --restore &
+way-displays &
+

@@ -22,9 +22,9 @@ from functions import (
 
 # --- Hostname / Machine Specific Settings --- #
 hostname = socket.gethostname()
-IS_LAPTOP = hostname in ["xpsnix", "thinknix"]
-BAR_FONT_SIZE = 11 if IS_LAPTOP else 11
-BAR_SIZE = 28 if IS_LAPTOP else 28
+IS_LAPTOP = hostname in ["xpsnix"]
+BAR_FONT_SIZE = 13 if IS_LAPTOP else 11
+BAR_SIZE = 34 if IS_LAPTOP else 28
 
 # --- Mod Key --- #
 mod = "mod4"
