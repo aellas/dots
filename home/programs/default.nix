@@ -1,15 +1,20 @@
 {
   imports = [
-    kitty.nix
-    ghostty.nix
-    neovim.nix
-    fastfetch/default.nix
-    nixcord.nix
-    yazi/default.nix
-    rofi.nix
-    firefox.nix
-    git.nix
-    fzf.nix
+    ##./kitty.nix
+    ##./bottom.nix
+    ##./lazygit.nix
+    ##./pyprland.nix
+    ##./rmpc.nix
+
+    ./ghostty.nix
+    ./neovim.nix
+    ./fastfetch.nix
+    ./nixcord.nix
+    ./yazi/yazi.nix
+    ./rofi.nix
+    ./firefox.nix
+    ./git.nix
+    ./fzf.nix
 
   ];
 }
