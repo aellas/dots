@@ -8,7 +8,7 @@
 
     ./ghostty.nix
     ./neovim.nix
-    ./fastfetch.nix
+    ./fastfetch/fastfetch.nix
     ./nixcord.nix
     ./yazi/yazi.nix
     ./rofi.nix
