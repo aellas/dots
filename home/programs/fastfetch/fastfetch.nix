@@ -12,7 +12,7 @@
     };
 
       logo = {
-        type = "small"; 
+        type = "auto"; 
         padding = {
           top = 2;
           right = 5;
@@ -45,7 +45,7 @@
             type = "wm";
             key = "WM";
             format = "Qtile (Wayland)";
-        }
+        }      
         {
             type = "command";
             key = "Day";
