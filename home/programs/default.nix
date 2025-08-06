@@ -15,6 +15,7 @@
     ./firefox.nix
     ./git.nix
     ./fzf.nix
+    ./zoxide.nix
 
   ];
 }
