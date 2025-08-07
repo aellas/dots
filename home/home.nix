@@ -11,11 +11,9 @@
     # Programs 
     ./programs/default.nix
 
-    
     ./system/qtile.nix
     ./system/way-displays.nix
     ./system/dunst.nix
-    ./system/swaylock.nix
  ];
 
   home.stateVersion = "25.11";

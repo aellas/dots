@@ -13,8 +13,6 @@
       separator-color = "00000000";
       show-failed-attempts = true;
       indicator-idle-visible = true;
-      grace = 2;
-      fade-in = 0.2;
     };
   };
 }
