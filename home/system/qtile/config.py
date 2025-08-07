@@ -270,6 +270,7 @@ floating_layout = layout.Floating(
 def autostart():
     autostart_script = os.path.expanduser('~/.config/qtile/scripts/wayland.sh')
     subprocess.Popen(['bash', autostart_script])
+    subprocess.Popen(["swayidle"])
 
 auto_fullscreen = True
 focus_on_window_activation = "never"

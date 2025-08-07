@@ -10,6 +10,5 @@
     ./gvfs.nix
     ./fstrim.nix    
     ./libinput.nix
-    ./wlroots.nix
   ];
 }

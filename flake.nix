@@ -85,14 +85,6 @@
             #./modules/system/filesystem.nix         
         ];
       };
-        "proxnix" = mkNixosConfig {
-          name = "proxnix";
-          hardwareModule = {};
-          extraModules = [
-            ./modules/core/virt.nix
-            ./modules/core/kde.nix
-        ];
-      };
     };
   };
 }

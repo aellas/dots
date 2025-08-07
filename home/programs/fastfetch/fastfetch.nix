@@ -12,7 +12,7 @@
     };
 
       logo = {
-        type = "auto"; 
+        type = "small"; 
         padding = {
           top = 2;
           right = 5;
