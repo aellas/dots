@@ -16,7 +16,6 @@
     ./git.nix
     ./fzf.nix
     ./zoxide.nix
-    ./floorp.nix
 
   ];
 }
