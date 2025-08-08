@@ -4,7 +4,7 @@
     ./gdm.nix
     ./fish.nix
     ./starship.nix
-    #./hyprland.nix
     ./river.nix
+    ./hyprland
   ];
 }

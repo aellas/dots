@@ -19,6 +19,10 @@
   nixcord = {
     url = "github:kaylorben/nixcord";
   };
+
+  hyprland = {
+    url = "github:hyprwm/Hyprland";
+  };
     
   nixvim = {
     url = "github:nix-community/nixvim";
