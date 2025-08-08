@@ -13,7 +13,6 @@
       nerd-fonts.jetbrains-mono
       maple-mono.NormalNL-NF
       nerd-fonts.hack
-
     ];
   };
 }
