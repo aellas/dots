@@ -4,8 +4,8 @@
     gtk = {
     enable = true;
     theme = {
-      name = "Nordic";
-      package = pkgs.nordic;
+      name = "Qogir-Dark";
+      package = pkgs.qogir-theme;
     };
     iconTheme = {
       name = "Papirus";
@@ -15,8 +15,8 @@
   };
     dconf.settings = {
     "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-light";
-      gtk-theme = "Graphite-Light";
+      color-scheme = "prefer-dark";
+      gtk-theme = "Qogir-Dark";
       icon-theme = "Papirus";
     };
   };
