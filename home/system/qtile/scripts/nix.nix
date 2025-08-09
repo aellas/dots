@@ -1,4 +1,9 @@
-#!/bin/bash
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+ ];
+
+home.file.".config/qtile/scripts/nix.sh".text = ''
+#!/usr/bin/env bash
 
 host=$(hostname)
 dotfiles_dir="/home/array/Documents/GitHub/dots"
@@ -33,3 +38,6 @@ case "$choice" in
         exit 1
         ;;
 esac
+'';
+
+}

@@ -1,4 +1,9 @@
-#!/bin/bash
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+ ];
+
+home.file.".config/qtile/scripts/screenshot.sh".text = ''
+#!/usr/bin/env bash
 
 # Prompt options
 options="󰹑  Fullscreen\n󰨵  Region"
@@ -25,3 +30,8 @@ case "$choice" in
         exit 1
         ;;
 esac
+
+
+'';
+
+}

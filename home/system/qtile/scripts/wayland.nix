@@ -8,8 +8,6 @@ home.file.".config/qtile/scripts/wayland.sh".text = ''
 wl-copy &
 waypaper --restore &
 way-displays &
-
-
 '';
 
 }
