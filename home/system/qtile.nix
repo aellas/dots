@@ -4,6 +4,7 @@
 
  imports = [
   ./qtile/config.nix
+  ./qtile/functions.nix
 
  ];
 }
