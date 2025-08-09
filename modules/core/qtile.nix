@@ -8,22 +8,21 @@ services.xserver.windowManager.qtile = {
     ];
   };
 
-        environment.systemPackages = with pkgs; [
+environment.systemPackages = with pkgs; [
       dunst
-      feh
+#      feh
       pavucontrol
       pulseaudio
       pamixer
       alsa-utils
       playerctl
       polkit_gnome
-      picom
-      xclip
-      haskellPackages.greenclip
-      gpick
+#      picom
+#      xclip
+#      haskellPackages.greenclip
+#      gpick
       brightnessctl
-      psmisc
-      #pywalfox
+#      psmisc
 
       swaybg
       wl-clipboard

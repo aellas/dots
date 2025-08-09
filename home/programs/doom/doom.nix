@@ -6,6 +6,10 @@
     libtool
     cmake
     pkg-config
+    ispell
+    gcc 
+    gnumake 
+    cmake
   ];
 
   
@@ -73,6 +77,7 @@
      (nix +tree-sitter)
      toml
      yaml
+     python
 
      :config
      (default +bindings +smartparens))
@@ -80,7 +85,7 @@
 
   home.file.".doom.d/config.el".text = ''
     ;;; config.el -*- lexical-binding: t; -*-
-
+    (xterm-mouse-mode 1)
     (setq doom-theme 'doom-one)
     (setq display-line-numbers-type 'relative)
     (setq nerd-icons-font-family "JetBrainsMono Nerd Font")

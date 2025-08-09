@@ -69,7 +69,7 @@ in
   xdg.desktopEntries.doom-emacs = {
     name = "Doom Emacs";
     comment = "A configuration framework for GNU Emacs";
-    exec = "kitty -e emacs";
+    exec = "ghostty -e emacs";
     icon = doom-icon;
     terminal = false;
     type = "Application";

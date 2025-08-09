@@ -19,10 +19,6 @@
   nixcord = {
     url = "github:kaylorben/nixcord";
   };
-
-  hyprland = {
-    url = "github:hyprwm/Hyprland";
-  };
     
   nixvim = {
     url = "github:nix-community/nixvim";
@@ -85,8 +81,7 @@
           hardwareModule = {};
           extraModules = [
             ./modules/drivers/amd.nix
-            ./modules/programs/corectrl.nix   
-            #./modules/system/filesystem.nix         
+            ./modules/programs/corectrl.nix
         ];
       };
     };
