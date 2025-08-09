@@ -1,3 +1,8 @@
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+ ];
+
+home.file.".config/qtile/config.py".text = ''
 import os
 import subprocess
 import json
@@ -276,3 +281,7 @@ focus_on_window_activation = "never"
 reconfigure_screens = True
 auto_minimize = True
 wmname = "qtile"
+
+'';
+
+}
