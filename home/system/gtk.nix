@@ -4,8 +4,8 @@
     gtk = {
     enable = true;
     theme = {
-      name = "Graphite-Light";
-      package = pkgs.graphite-gtk-theme;
+      name = "Nordic";
+      package = pkgs.nordic;
     };
     iconTheme = {
       name = "Papirus";

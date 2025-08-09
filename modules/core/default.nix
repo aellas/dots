@@ -2,9 +2,9 @@
   imports = [
     ./qtile.nix
     ./gdm.nix
+    ./gtk.nix
     ./fish.nix
     ./starship.nix
-    ./river.nix
-    ./hyprland
+    ./hyprland.nix
   ];
 }
