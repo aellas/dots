@@ -7,12 +7,12 @@
     cmake
     pkg-config
     ispell
-    gcc 
-    gnumake 
+    gcc
+    gnumake
     cmake
   ];
 
-  
+
 
   home.file.".doom.d/init.el".text = ''
     ;;; init.el -*- lexical-binding: t; -*-
@@ -101,7 +101,7 @@ home.file.".doom.d/config.el".text = ''
   (add-to-list 'auto-mode-alist '("\\.jpg\\'" . image-mode))
   (add-to-list 'auto-mode-alist '("\\.jpeg\\'" . image-mode))
   (add-to-list 'auto-mode-alist '("\\.gif\\'" . image-mode))
-  ;; Show image previews
+ ;; Show image previews
    (setq dired-listing-switches "-alh --group-directories-first")
 (add-hook! '+doom-dashboard-functions :append
   (insert "\n" (+doom-dashboard--center +doom-dashboard--width "Powered by Doom Emacs")))
@@ -144,13 +144,10 @@ home.file.".doom.d/config.el".text = ''
      'face 'doom-dashboard-banner)))
 
 (setq +doom-dashboard-ascii-banner-fn #'ghost)
-
-
-(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
-
 '';
 
   home.file.".doom.d/packages.el".text = ''
     ;;; packages.el -*- lexical-binding: t; -*-
+     (package! ligature)
   '';
 }
