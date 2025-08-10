@@ -1,0 +1,8 @@
+#+title: Todo
+#+author: Aellas
+#+date:   2025-8-10
+
+* TODO Reduce Packages
+* TODO Edit Doom Emacs
+* TODO Edit cheatsheet
+* DONE Update Flake
