@@ -7,7 +7,6 @@
   systemd.user.startServices = true;
 
   imports = [
-
     # Programs 
     ./programs/default.nix
     ./programs/doom/doom.nix
