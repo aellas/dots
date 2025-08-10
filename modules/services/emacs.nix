@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  programs.emacs = {
+  services.emacs = {
     enable = true;
     defaultEditor = true;
   };
