@@ -3,6 +3,7 @@ Space . (search directory)
 Space , (switch to a buffer)
 Space o t (open vterm)
 Space o p (open treemacs)
+Space h t (themes)
 
 Magit
 -----

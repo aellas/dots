@@ -4,5 +4,6 @@
     ./gdm.nix
     ./fish.nix
     ./starship.nix
+    ./emacs.nix
   ];
 }
