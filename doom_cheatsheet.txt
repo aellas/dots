@@ -1,0 +1,17 @@
+Ctrl x o (switch pane)
+Space . (search directory)
+Space , (switch to a buffer)
+Space o t (open vterm)
+Space o p (open treemacs)
+
+Magit
+-----
+Space g g - Open Magit
+s (stage)
+u (unstage)
+c c (commit - create new commit)
+Ctrl - c Ctrl - c (write commit)
+P p (push to default branch)
+P u (push to upstream)
+F p (pull from remote/branch)
+F u (pull from upstream)
