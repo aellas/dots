@@ -35,6 +35,7 @@
      tabs
      vi-tilde-fringe
      window-select
+     treemacs
 
      :editor
      (evil +everywhere)
@@ -88,11 +89,14 @@ home.file.".doom.d/config.el".text = ''
 
   ;; Basic settings
   (xterm-mouse-mode 1)
-  (setq doom-theme 'doom-one)
+  (setq doom-theme 'doom-nord)
   (setq display-line-numbers-type 'relative)
 
   ;; Change Nerd Font family
   (setq nerd-icons-font-family "Ubuntu Nerd Font")
+
+  ;; Hide hidden files by default
+  (setq treemacs-show-hidden-files nil))
 
   ;; Doom Dashboard customization
   (setq doom-fallback-buffer-name "► Doom"

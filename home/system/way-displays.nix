@@ -1,7 +1,7 @@
 {
   services.way-displays = {
     enable = true;
-    systemdTarget = "graphical-session.target"; # Or any other appropriate target
+    systemdTarget = "graphical-session.target";
     settings = {
       MODE = [
         {

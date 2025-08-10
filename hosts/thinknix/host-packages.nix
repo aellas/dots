@@ -6,5 +6,6 @@
       protonvpn-gui
       wiremix
       gtk-frdp
-    ];
+      parsec-bin
+  ];
 }

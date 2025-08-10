@@ -2,7 +2,8 @@
   home.packages = with pkgs; [
  ];
 
-home.file.".config/qtile/scripts/nix.sh".text = ''
+  home.file.".config/qtile/scripts/nix.sh" = {
+    text = ''
 #!/usr/bin/env bash
 
 host=$(hostname)
@@ -38,6 +39,8 @@ case "$choice" in
         exit 1
         ;;
 esac
-'';
+    '';
+    executable = true;  # This makes the script executable
+  };
 
 }

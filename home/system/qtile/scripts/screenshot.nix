@@ -1,37 +1,41 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
- ];
+  ];
 
-home.file.".config/qtile/scripts/screenshot.sh".text = ''
+  home.file.".config/qtile/scripts/screenshot.sh" = {
+    text = ''
 #!/usr/bin/env bash
 
-# Prompt options
 options="󰹑  Fullscreen\n󰨵  Region"
-
-# Show menu and capture selection
 choice=$(echo -e "$options" | rofi -dmenu -p "Screenshot")
 
-# Set output directory and filename
-output_dir="${HOME}/Pictures/Screenshots"
-mkdir -p "$output_dir"
+DIR="$HOME/Pictures/Screenshots"
+mkdir -p "$DIR"
 filename="screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
-output_path="${output_dir}/${filename}"
+filepath="$DIR/$filename"
 
 case "$choice" in
     "󰹑  Fullscreen")
-        grim "$output_path" && wl-copy < "$output_path"
-        notify-send "Screenshot saved" "$output_path"
+        grim "$filepath" && wl-copy < "$filepath"
+        notify-send "Screenshot saved" "$filepath"
         ;;
+
     "󰨵  Region")
-        slurp | grim -g - "$output_path" && wl-copy < "$output_path"
-        notify-send "Screenshot (selection) saved" "$output_path"
+        geom=$(slurp)
+        if [ -z "$geom" ]; then
+          notify-send "Screenshot cancelled"
+          exit 1
+        fi
+        grim -g "$geom" "$filepath" && wl-copy < "$filepath"
+        notify-send "Screenshot (selection) saved" "$filepath"
         ;;
+
     *)
         exit 1
         ;;
 esac
 
-
-'';
-
+    '';
+    executable = true;  # This makes the script executable
+  };
 }

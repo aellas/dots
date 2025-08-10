@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
  ];
 
-home.file.".config/qtile/function.py".text = ''
+home.file.".config/qtile/functions.py".text = ''
 from libqtile.lazy import lazy
 from libqtile import bar, layout, qtile, widget, hook
 import datetime

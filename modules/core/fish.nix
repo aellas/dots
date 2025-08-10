@@ -21,6 +21,7 @@
       rp = "cd /home/array/Documents/GitHub/dots && sudo nixos-rebuild switch --flake .#proxnix";
       uf = "cd /home/array/Documents/GitHub/dots && nix flake update";
       ss = "sudo sshfs array@192.168.1.35:/home/array/Documents/nixos /home/array/Documents/nixos -o allow_other";
+      dsync = "$HOME/.emacs.d/bin/doom sync";
     };
   };
 }
