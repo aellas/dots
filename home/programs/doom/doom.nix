@@ -86,7 +86,6 @@
 
 home.file.".doom.d/config.el".text = ''
   ;;; config.el -*- lexical-binding: t; -*-
-
   ;; Basic settings
   (xterm-mouse-mode 1)
   (setq doom-theme 'doom-nord)
@@ -96,28 +95,60 @@ home.file.".doom.d/config.el".text = ''
   (setq nerd-icons-font-family "Ubuntu Nerd Font")
 
   ;; Hide hidden files by default
-  (setq treemacs-show-hidden-files nil))
+  (setq treemacs-show-hidden-files nil)
+  ;; Ensure images open in image-mode
+  (add-to-list 'auto-mode-alist '("\\.png\\'" . image-mode))
+  (add-to-list 'auto-mode-alist '("\\.jpg\\'" . image-mode))
+  (add-to-list 'auto-mode-alist '("\\.jpeg\\'" . image-mode))
+  (add-to-list 'auto-mode-alist '("\\.gif\\'" . image-mode))
+  ;; Show image previews
+   (setq dired-listing-switches "-alh --group-directories-first")
+(add-hook! '+doom-dashboard-functions :append
+  (insert "\n" (+doom-dashboard--center +doom-dashboard--width "Powered by Doom Emacs")))
 
-  ;; Doom Dashboard customization
-  (setq doom-fallback-buffer-name "► Doom"
-        doom-dashboard-banner-padding '(1 . 1) ;; Less padding for ASCII
-        doom-dashboard-menu-sections
-        '(("Open org-agenda" :icon (nerd-icons-octicon "nf-oct-calendar") :action org-agenda)
-          ("Recently opened files" :icon (nerd-icons-octicon "nf-oct-history") :action recentf-open-files)
-          ("Open project" :icon (nerd-icons-octicon "nf-oct-briefcase") :action projectile-switch-project)
-          ("Open config.el" :icon (nerd-icons-octicon "nf-oct-tools") :action (lambda () (find-file "~/.doom.d/config.el")))))
+(defun ghost ()
+  (let* ((banner '( "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣤⡤⣤⢤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠛⠉⠀⠀⠀⠀⠀⠀⠉⠻⣦⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⠏⠀⠀⠀⠀⣀⡀⠀⠀⠀⠀⠀⠈⢻⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⠯⠀⠀⠀⢰⣿⣿⣿⣆⡀⣴⣾⣿⣦⡈⢿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣏⠀⠀⠀⠀⢸⣿⣿⣿⡿⠇⣿⣿⣿⣿⠆⠘⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠇⠀⠀⠀⠀⠈⠿⠿⡿⠃⠀⢿⣿⣿⠏⠀⠀⢹⣗⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "⠀⠀⠀⠀⠀⠀⠀⠀⢸⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "⠀⠀⠀⠀⠀⠀⠀⡐⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠘⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "⠀⠀⠀⠀⠀⠀⠀⡁⡿⠄⠀⢀⡷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠂⠀⢿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "⠀⠀⠀⠀⠀⠀⠀⣻⡷⠀⠠⣼⡗⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣦⠀⠘⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "⠀⠀⠀⠀⠀⠀⢠⡿⠃⠀⢡⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠸⣿⠆⠀⠸⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "⠀⠀⠀⠀⠀⢀⣿⠓⠀⠀⣼⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⡧⠀⠀⠹⣯⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "⠀⠀⠀⠀⢰⣾⡃⠀⠀⠀⣿⡄⠀⠀⠀⠀⠀⢰⣿⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⡀⠀⢮⠿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "⠀⠀⠀⣨⡿⠃⠀⠀⠀⢠⡿⠀⠀⠀⠀⠀⠀⢀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠁⠚⣷⡀⠀⣀⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "⠀⣠⡾⠋⠀⠀⠀⠰⠀⢸⣇⠀⠀⠀⠀⠀⠀⠈⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣷⡿⠛⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "⠐⠿⠶⠶⠶⢤⣤⣤⣤⣼⣇⠀⠀⠀⠀⠀⡀⠀⡘⣷⠀⠀⠀⠀⠀⠀⠀⠈⢀⠀⠈⣿⣄⠀⠃⠀⠀⠀⠀⠀⠀ ⠀"
+                    "⠀⠀⠀⢀⠀⠀⠁⢻⣏⠉⣿⡀⠀⠀⠀⠘⠅⠀⣈⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⢿⡄⠀⠀⠀⠀⠀⠀⠀ ⠀"
+                    "⠀⠀⠀⠀⠀⠀⠀⠀⢻⣶⡿⠃⠀⠀⢀⣬⣾⣿⡻⠋⣿⡆⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⣼⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⡿⠯⠶⠾⠛⠁⠈⠘⣷⣿⠏⠀⢀⣴⠾⠋⠉⠉⠉⠙⠉⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠿⣮⠷⠟⠉⠀⠀⠀⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                    "                                           "
+                    "                                           "
+                    "                                           "
+                    "                                           "
 
-  ;; Custom ASCII banner
-  (setq +doom-dashboard-ascii-banner-fn
-        (lambda ()
-          (insert
-           "                        ██████╗ ███╗   ███╗██╗  ██╗\n"
-           "                       ██╔════╝ ████╗ ████║██║  ██║\n"
-           "                       ██║  ███╗██╔████╔██║███████║\n"
-           "                       ██║   ██║██║╚██╔╝██║██╔══██║\n"
-           "                       ╚██████╔╝██║ ╚═╝ ██║██║  ██║\n"
-           "                        ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝\n"
-           "                              Forever, always.\n\n")))'';
+  ))
+         (longest-line (apply #'max (mapcar #'length banner))))
+    (put-text-property
+     (point)
+     (dolist (line banner (point))
+       (insert (+doom-dashboard--center
+                +doom-dashboard--width
+                (concat line (make-string (max 0 (- longest-line (length line))) 32)))
+               "\n"))
+     'face 'doom-dashboard-banner)))
+
+(setq +doom-dashboard-ascii-banner-fn #'ghost)
+
+
+(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
+
+'';
 
   home.file.".doom.d/packages.el".text = ''
     ;;; packages.el -*- lexical-binding: t; -*-

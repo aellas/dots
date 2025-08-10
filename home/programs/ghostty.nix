@@ -9,7 +9,7 @@
       font-thicken = "true";
       window-decoration = "false";
       confirm-close-surface = "false";
-      theme = "iceberg-dark"; 
+      theme = "iceberg-dark";
     };
   };
 }
