@@ -5,12 +5,14 @@
    environment.systemPackages = with pkgs; [   
        sshfs-fuse 
        libgcc
-       heroic
        protonvpn-gui
-       virt-viewer
-       virt-manager
        remmina
-       yaru-theme
+       github-desktop
+       youtube-music
+       protonvpn-gui
+       wiremix
+       gtk-frdp
+       parsec-bin
    ];
 
    nixpkgs.config.permittedInsecurePackages = [

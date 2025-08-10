@@ -1,7 +1,6 @@
 {
   imports = [
     ./ghostty.nix
-    ./neovim.nix
     ./fastfetch/fastfetch.nix
     ./nixcord.nix
     ./yazi/yazi.nix
