@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    emacs-nox
+    emacs-pgtk
     git
     ripgrep
     libtool
@@ -11,8 +11,6 @@
     gnumake
     cmake
   ];
-
-
 
   home.file.".doom.d/init.el".text = ''
     ;;; init.el -*- lexical-binding: t; -*-
@@ -64,18 +62,18 @@
      (eval +overlay)
      (lookup +docsets)
      (magit +forge)
-    pdf
+     pdf
      tree-sitter
 
      :lang
      bash
-     c
+     (c +lsp)
      css
      docker
      html
-     json
+     (jsom +lsp)
      markdown
-     (nix +tree-sitter)
+     (nix +tree-sitter +lsp)
      toml
      yaml
      python
@@ -93,6 +91,7 @@ home.file.".doom.d/config.el".text = ''
 
   ;; Change Nerd Font family
   (setq nerd-icons-font-family "Ubuntu Nerd Font")
+  (setq doom-font "JetBrainsMono Nerd Font:pixelsize=14:weight=semi-bold")
 
   ;; Hide hidden files by default
   (setq treemacs-show-hidden-files nil)

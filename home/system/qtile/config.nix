@@ -46,9 +46,9 @@ keys = [
     Key([mod], "m", lazy.spawn("youtube-music"), desc="Launch YouTube Music"),
     Key([mod], "s", lazy.spawn("steam"), desc="Launch Steam"),
     Key([mod], "d", lazy.spawn("discord"), desc="Launch Discord"),
-    Key([mod], "Backslash", lazy.spawn("codium"), desc="Launch VSCodium"),
+    Key([mod], "Backslash", lazy.spawn("emacs"), desc="Launch VSCodium"),
     Key([mod], "c", lazy.spawn("wl-color-picker clipboard"), desc="Launch color picker"),
-    Key([mod], "l", lazy.spawn("ghostty -e emacs"), desc="Launch Doom Emacs"),
+    Key([mod], "l", lazy.spawn("emacs"), desc="Launch Doom Emacs"),
     Key([mod], "k", lazy.spawn("rofi -modi 'clipboard:greenclip print' -show clipboard -run-command 'echo {cmd} | xclip -selection clipboard'"), desc="Launch clipboard manager"),
     Key([], "Home", lazy.spawn('bash -c /home/array/.config/qtile/scripts/screenshot.sh'), desc="Take full screenshot"),
 

@@ -12,7 +12,7 @@
     };
 
       logo = {
-        type = "small"; 
+        type = "none";
         padding = {
           top = 2;
           right = 5;
@@ -21,39 +21,46 @@
       };
     modules = [
       "break"
-        {
-            type = "title";
-       }
-        {
+
+              {
             type = "os";
-            key = "Distro";
+            key = "  Distro";
             format = "{3}";
         }
+
+        {
+            type = "host";
+            key = "  Host";
+            format = "{1}";
+       }
         {
             type = "kernel";
-            key = "Kernel";
+            key = "  Kernel";
         }
         {
             type = "packages";
-            key = "Packages";
+            key = "  Packages";
+        }
+        {
+           type = "editor";
+           key = "  Editor";
         }
         {
             type = "uptime";
-            key = "Uptime";
+            key = "  Uptime";
         }
         {
             type = "wm";
-            key = "WM";
+            key = "  WM";
             format = "Qtile (Wayland)";
-        }      
-        {
+        }        {
             type = "command";
-            key = "Day";
+            key = "  Day";
             text = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference";
         }
         {
             type = "command";
-            key = "Left";
+            key = "  Left";
             text = "echo \"$(( ($(date -d \"$(date -d \"@$(stat -c %W /)\" \"+%Y-%m-%d\") + 2 years\" \"+%s\") - $(date +%s)) / 86400 ))\"";        
           }
       ];

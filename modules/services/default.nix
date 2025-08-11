@@ -10,5 +10,6 @@
     ./gvfs.nix
     ./fstrim.nix    
     ./libinput.nix
+    ./emacs.nix
   ];
 }

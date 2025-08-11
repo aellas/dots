@@ -1,7 +1,7 @@
 {
   imports = [
     ./qtile.nix
-    ./gdm.nix
+    ./ly.nix
     ./fish.nix
     ./starship.nix
   ];

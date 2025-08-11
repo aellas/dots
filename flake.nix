@@ -19,11 +19,6 @@
   nixcord = {
     url = "github:kaylorben/nixcord";
   };
-    
-  nixvim = {
-    url = "github:nix-community/nixvim";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
 
 };
 
