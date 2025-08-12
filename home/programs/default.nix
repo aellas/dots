@@ -8,6 +8,5 @@
     ./firefox.nix
     ./git.nix
     ./fzf.nix
-    ./waybar.nix
   ];
 }

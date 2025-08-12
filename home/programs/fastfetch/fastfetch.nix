@@ -13,6 +13,7 @@
 
       logo = {
         type = "none";
+        #source = "/home/array/Documents/GitHub/dots/home/programs/fastfetch/nixos.webp";
         padding = {
           top = 2;
           right = 5;
@@ -23,16 +24,15 @@
       "break"
 
               {
+            format = "  {user-name-colored}{at-symbol-colored}{host-name-colored}";
+            type = "title";
+        }
+              {
             type = "os";
             key = "  Distro";
             format = "{3}";
         }
 
-        {
-            type = "host";
-            key = "  Host";
-            format = "{1}";
-       }
         {
             type = "kernel";
             key = "  Kernel";
@@ -44,6 +44,7 @@
         {
            type = "editor";
            key = "  Editor";
+           format = "Emacs 30.1";
         }
         {
             type = "uptime";

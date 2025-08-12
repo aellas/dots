@@ -6,7 +6,7 @@
 
     interactiveShellInit = ''
       set fish_greeting
-      fastfetch
+      fastfetch --logo NixOS_small
 
       set -gx PATH $HOME/.config/emacs/bin $PATH
 

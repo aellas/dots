@@ -13,6 +13,8 @@
        wiremix
        gtk-frdp
        parsec-bin
+       waybar
+       hyprpicker
    ];
 
    nixpkgs.config.permittedInsecurePackages = [

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   environment.systemPackages = with pkgs; [
       bolt-launcher
       github-desktop
@@ -8,6 +8,7 @@
       nwg-look
       imagemagick
       nicotine-plus
+          inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
       dconf
       gnome-disk-utility
       (flameshot.override {

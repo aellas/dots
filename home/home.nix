@@ -13,7 +13,6 @@
     ./programs/doom/extra.nix
 
     ./system/qtile.nix
-    ./system/way-displays.nix
     ./system/dunst.nix
     ./system/gtk.nix
  ];

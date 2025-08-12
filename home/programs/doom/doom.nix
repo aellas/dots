@@ -88,6 +88,15 @@ home.file.".doom.d/config.el".text = ''
   (xterm-mouse-mode 1)
   (setq doom-theme 'doom-nord)
   (setq display-line-numbers-type 'relative)
+  ;; Force vterm to use the same font as your terminal
+(add-hook 'vterm-mode-hook
+          (lambda ()
+            (set (make-local-variable 'buffer-face-mode-face) '(:family "JetBrainsMono Nerd Font" :height 110))
+            (buffer-face-mode t)))
+
+;; Make sure fixed-pitch uses Nerd Font too
+(set-face-attribute 'fixed-pitch nil :family "JetBrainsMono Nerd Font")
+
 
   ;; Change Nerd Font family
   (setq nerd-icons-font-family "Ubuntu Nerd Font")
