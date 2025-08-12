@@ -1,2 +1,4 @@
-**NixOS+Qtile/Hyprland**
-- Wayland Sessions
+<div align="center">
+# NixOS with Qtile/Hyprland
+
+-
