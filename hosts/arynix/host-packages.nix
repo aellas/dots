@@ -8,6 +8,7 @@
       nwg-look
       imagemagick
       nicotine-plus
+      dconf
       gnome-disk-utility
       (flameshot.override {
       enableWlrSupport = true;
