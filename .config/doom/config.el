@@ -72,13 +72,13 @@
   (gptel-make-openai "OpenWebUI"
     :host "serfor:3001"
     :protocol "http"
-    :key "sk-5f8531346126459eace0485e2186455a"
+    :key "sk-1c85fa6c50d148b7bb0966468fd66101"
     :endpoint "/api/chat/completions"
     :stream t
     :models '(lfm2.5:latest))
   (setq! gptel-backend (gptel-get-backend "OpenWebUI")
          gptel-model 'lfm2.5:latest
-         gptel-default-mode 'org-mode))
+         gptel-default-mode 'markdown-mode))
 
 (use-package! gptel-autocomplete
   :after gptel
