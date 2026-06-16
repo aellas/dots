@@ -178,8 +178,8 @@
 (map! :leader
       :prefix ("n" . "notes")
       :desc "Publish file"     "p" #'orgnote-publish-file
-      :desc "Force sync"       "F" #'orgnote-force-sync
-      :desc "Sync"             "S" #'orgnote-sync)
+      :desc "Force sync"       "s" #'orgnote-force-sync
+      :desc "Sync"             "s" #'orgnote-sync)
 
 (setq treesit-language-source-alist
       '((toml "https://github.com/tree-sitter/tree-sitter-toml")))
