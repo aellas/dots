@@ -13,7 +13,6 @@
 (package! gptel-autocomplete
   :recipe (:host github
            :repo "JDNdeveloper/gptel-autocomplete"))
-(package! org-modern)
 (package! olivetti)
 (package! orgnote
   :recipe (:host github :repo "Artawower/orgnote.el" :branch "dev"))

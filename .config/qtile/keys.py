@@ -36,7 +36,14 @@ keys = [
         ),
         desc="App launcher",
     ),
-    Key([mod], "m", lazy.spawn("feishin --ozone-platform=wayland"), desc="Music"),
+    Key(
+        [mod],
+        "m",
+        lazy.spawn(
+            "bash -c 'feishin --ozone-platform=wayland & sleep 0.3 && feishin --ozone-platform=wayland'"
+        ),
+        desc="Music",
+    ),
     Key([mod], "d", lazy.spawn("vesktop"), desc="Discord"),
     Key(
         [mod],
@@ -45,7 +52,12 @@ keys = [
         desc="File manager (TUI)",
     ),
     Key([mod, "shift"], "n", lazy.spawn("dolphin"), desc="File manager (GUI)"),
-    Key([mod], "Return", lazy.spawn("wezterm -e tmux"), desc="Terminal"),
+    Key(
+        [mod],
+        "Return",
+        lazy.spawn("wezterm -e tmux attach-session -t thinkfor"),
+        desc="Terminal",
+    ),
     Key(
         [mod, "shift"],
         "p",

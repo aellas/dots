@@ -64,7 +64,7 @@
  yaml
  (lua +lsp +treesitter)
  (python +lsp +treesitter)
- (org +hugo +pretty)
+ (org +hugo)
  emacs-lisp
  (rust +lsb +treesitter)
 

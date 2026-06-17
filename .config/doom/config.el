@@ -4,7 +4,15 @@
 
 (use-package! dashboard
   :config
-  (setq dashboard-startup-banner 'logo
+  
+  (setq dashboard-banner-logo-title "Searching for the words that I can say
+   how it feels when you're with me")
+  (setq dashboard-navigation-cycle t)
+  (setq dashboard-week-agenda t)
+  (setq dashboard-agenda-prefix-format " %-4s - %t")
+  (setq dashboard-agenda-format-item-string "%s")
+  (setq dashboard-projects-backend 'projectile)
+  (setq dashboard-startup-banner '"/home/array/doom/ascii.txt"
         dashboard-center-content t
         dashboard-items '((recents   . 7)
                           (projects  . 5)
@@ -13,6 +21,14 @@
         dashboard-set-heading-icons t
         dashboard-set-file-icons t
         dashboard-icon-type 'nerd-icons)
+  (setq dashboard-startupify-list '(dashboard-insert-banner
+                                    dashboard-insert-newline
+                                    dashboard-insert-banner-title
+                                    dashboard-insert-navigator
+                                    dashboard-insert-newline
+                                    dashboard-insert-items
+                                    dashboard-insert-newline
+                                    ))
   (dashboard-setup-startup-hook))
 ;; Font settings
 (setq doom-font (font-spec :family "Iosevka Nerd Font" :size 24))
@@ -37,7 +53,6 @@
 (add-to-list 'auto-mode-alist '("\\.jsonc\\'" . json-mode))
 (add-to-list 'auto-mode-alist '("waybar/config\\'" . json-mode))
 
-
 ;; Vterm
 (use-package! multi-vterm
   :after vterm)
@@ -61,12 +76,9 @@
 
 (add-hook 'emacs-startup-hook
           (lambda ()
-            (let ((mgs-list '("Welcome to emacs, the thermonuclear editor."
-                              "You enter to Out Space. Emacs on."
-                              "Nice day for Emacsing!")))
+            (let ((mgs-list '("For Those That Wish to Exist")))
               (message (nth (random (length mgs-list)) mgs-list)))))
 
-;; AI - gptel
 (use-package! gptel
   :config
   (gptel-make-openai "OpenWebUI"
@@ -75,10 +87,10 @@
     :key "sk-1c85fa6c50d148b7bb0966468fd66101"
     :endpoint "/api/chat/completions"
     :stream t
-    :models '(lfm2.5:latest))
+    :models '(mistral-nemo:latest))
   (setq! gptel-backend (gptel-get-backend "OpenWebUI")
-         gptel-model 'lfm2.5:latest
-         gptel-default-mode 'markdown-mode))
+         gptel-model 'mistral-nemo:latest
+         gptel-default-mode 'org-mode))
 
 (use-package! gptel-autocomplete
   :after gptel
@@ -143,27 +155,14 @@
   (require 'org-indent)
   (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch)))
 
-(use-package! org-modern
-  :hook (org-mode . org-modern-mode)
-  :config
-  (setq org-modern-star '("◉" "○" "✸" "✿")
-        org-modern-table t
-        org-modern-checkbox '((?X . "✅") (?- . "➖") (?\s . "☐"))))
+;; Org agenda - show scheduled/deadline times in the agenda view
 (after! org
-  (setq org-startup-indented t
-        org-cycle-separator-lines 2))
+  (setq org-agenda-prefix-format
+        '((agenda . "  %i %-12:c%?-12t% s")
+          (todo   . "  %i %-12:c")
+          (tags   . "  %i %-12:c")
+          (search . "  %i %-12:c"))))
 
-(add-hook 'org-mode-hook (lambda ()
-                           (setq line-spacing 0.3)))
-(after! org
-  (setq org-startup-indented t
-        org-cycle-separator-lines 2))
-
-(add-hook 'org-mode-hook (lambda ()
-                           (setq line-spacing 0.3)))
-(after! org
-  (setq org-hide-drawer-startup t
-        org-startup-folded 'content))
 ;; olivetti - centered text width
 (use-package! olivetti
   :hook (org-mode . olivetti-mode)
@@ -178,9 +177,8 @@
 (map! :leader
       :prefix ("n" . "notes")
       :desc "Publish file"     "p" #'orgnote-publish-file
-      :desc "Force sync"       "s" #'orgnote-force-sync
+      :desc "Force sync"       "F" #'orgnote-force-sync
       :desc "Sync"             "s" #'orgnote-sync)
 
 (setq treesit-language-source-alist
       '((toml "https://github.com/tree-sitter/tree-sitter-toml")))
-

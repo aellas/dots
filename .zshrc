@@ -27,25 +27,21 @@ export PATH="$HOME/.cargo/bin/:$PATH"
 export NIX_REMOTE=daemon
 export EDITOR="emacs"
 
-alias dsync="doom sync && pkill emacs && emacsclient -c -a 'emacs' &"
 alias cd="z"
-alias dots="z ~/dotfiles"
 alias cat="bat"
-alias update="sudo dnf update"
-alias upgrade="sudo dnf upgrade --refresh"
-alias pacup='tmux new -s update "sudo dnf update"'
 alias ls='eza -A --color=always --group-directories-first --icons'
 alias ll='eza -Ahl --color=always --group-directories-first --icons'
 alias lt='eza -aT --color=always --group-directories-first'
 alias jctl="journalctl -p 3 -xb"
 
-# ssh
-alias sernix="ssh array@serfor"
-alias serfor="ssh array@serfor"
-alias pideb="ssh array@pideb"
+alias dsync="doom sync && pkill emacs && emacsclient -c -a 'emacs' &"
 
-alias ff="fastfetch"
+alias update="sudo dnf upgrade --refresh && home-manager switch"
 
 eval "$(zoxide init zsh)"
 
 fastfetch
+
+if ! tmux has-session -t thinkfor 2>/dev/null; then
+    tmux new-session -ds thinkfor
+fi
