@@ -5,6 +5,7 @@ from screens import screens, widget_defaults, extension_defaults
 from rules import mouse, dgroups_key_binder, dgroups_app_rules
 from hooks import *
 from libqtile.backend.wayland import InputConfig
+
 # Behaviour
 follow_mouse_focus = True
 bring_front_click = False
@@ -28,9 +29,9 @@ wl_input_rules = {
     "type:touchpad": InputConfig(
         natural_scroll=True,
         tap=True,
-        tap_button_map="lrm",  # 1-finger=left, 2-finger=right, 3-finger=middle
+        tap_button_map="lrm",
         drag=True,
-        dwt=True,              # disable while typing
+        dwt=True,
         accel_profile="adaptive",
     ),
 }

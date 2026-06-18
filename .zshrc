@@ -36,7 +36,8 @@ alias jctl="journalctl -p 3 -xb"
 
 alias dsync="doom sync && pkill emacs && emacsclient -c -a 'emacs' &"
 
-alias update="sudo dnf upgrade --refresh && home-manager switch"
+alias update="sudo dnf upgrade --refresh"
+alias switch="home-manager switch"
 
 eval "$(zoxide init zsh)"
 

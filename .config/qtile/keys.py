@@ -55,7 +55,7 @@ keys = [
     Key(
         [mod],
         "Return",
-        lazy.spawn("wezterm -e tmux attach-session -t thinkfor"),
+        lazy.spawn("wezterm -e tmux new-session -A -s thinkfor"),
         desc="Terminal",
     ),
     Key(

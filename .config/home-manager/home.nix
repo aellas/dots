@@ -17,5 +17,8 @@ home.packages = [
     EDITOR = "emacs";
   };
 
+ imports = [
+    ./zen.nix
+ ];
   programs.home-manager.enable = true;
 }
