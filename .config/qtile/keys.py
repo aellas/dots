@@ -26,7 +26,12 @@ def tile_all_windows(qtile):
 
 keys = [
     # --- Applications ---
-    Key([mod], "b", lazy.spawn("zen-browser"), desc="Browser"),
+    Key(
+        [mod],
+        "b",
+        lazy.spawn("helium-browser-bin --force-device-scale-factor=1.5"),
+        desc="Browser",
+    ),
     Key([mod], "e", lazy.spawn("emacsclient -c -a emacs"), desc="Emacs"),
     Key(
         [mod],

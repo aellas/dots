@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, zen-browser, system, ... }:
 {
  home.username = "array";
   home.homeDirectory = "/home/array";
@@ -9,6 +9,7 @@ home.packages = [
   pkgs.feishin
   pkgs.joshuto
   pkgs.shotman
+      zen-browser.packages.${system}.default
 ];
   home.file = {
   };
@@ -18,7 +19,6 @@ home.packages = [
   };
 
  imports = [
-    ./zen.nix
  ];
   programs.home-manager.enable = true;
 }

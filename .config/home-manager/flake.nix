@@ -7,7 +7,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-        zen-browser = {
+    zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -23,6 +23,7 @@
       homeConfigurations."array" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
+        extraSpecialArgs = { inherit zen-browser system; };
         modules = [ ./home.nix ];
       };
     };
