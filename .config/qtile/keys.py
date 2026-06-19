@@ -49,6 +49,12 @@ keys = [
         ),
         desc="Music",
     ),
+    Key(
+        [mod],
+        "k",
+        lazy.spawn("flatpak run com.bambulab.BambuStudio"),
+        desc="Printer",
+    ),
     Key([mod], "d", lazy.spawn("vesktop"), desc="Discord"),
     Key(
         [mod],
@@ -82,10 +88,10 @@ keys = [
         desc="File manager (GUI)",
     ),
     # --- Focus ---
-    Key([mod], "h", lazy.layout.left(), desc="Focus left"),
-    Key([mod], "l", lazy.layout.right(), desc="Focus right"),
-    Key([mod], "j", lazy.layout.down(), desc="Focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Focus up"),
+    # Key([mod], "h", lazy.layout.left(), desc="Focus left"),
+    # Key([mod], "l", lazy.layout.right(), desc="Focus right"),
+    # Key([mod], "j", lazy.layout.down(), desc="Focus dow),
+    # Key([mod], "k", lazy.layout.up(), desc="Focus up"),
     # --- Move windows ---
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window left"),
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window right"),

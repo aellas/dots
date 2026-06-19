@@ -12,7 +12,7 @@
   (setq dashboard-agenda-prefix-format " %-4s - %t")
   (setq dashboard-agenda-format-item-string "%s")
   (setq dashboard-projects-backend 'projectile)
-  (setq dashboard-startup-banner '"/home/array/.config/doom/ascii.txt"
+  (setq dashboard-startup-banner '"~/.config/doom/ascii.txt"
         dashboard-center-content t
         dashboard-items '((recents   . 7)
                           (projects  . 5)
