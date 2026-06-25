@@ -3,7 +3,7 @@ local config = wezterm.config_builder()
 
 config.initial_cols = 120
 config.initial_rows = 28
-config.font_size = 18
+config.font_size = 10
 config.color_scheme = "tokyonight_night"
 config.font = wezterm.font("IosevkaTerm Nerd Font")
 config.enable_tab_bar = false

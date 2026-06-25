@@ -6,10 +6,11 @@
 #                 ░▀▀░░▀▀▀░▀░░░▀░▀░▀░▀
 #
 
-export QT_QPA_PLATFORM=xcb
-export XDG_SESSION_TYPE=x11
-export XDG_RUNTIME_DIR=/run/user/$(id -u)
-
+printf 'Xft.dpi: 192\nXcursor.size: 32\n' | xrdb -merge # X apps, fonts + cursor
+export GDK_SCALE=2                                      # GTK app widgets (thunar, geany)
+export GDK_DPI_SCALE=0.5                                # cancel GTK's double font scaling on top of GDK_SCALE
+export QT_AUTO_SCREEN_SCALE_FACTOR=1                    # Qt apps (pavucontrol, qimgv) follow Xft.dpi
+export XCURSOR_SIZE=32
 wmname LG3D &
 /home/array/.config/bspwm/scripts/autostart.sh &
 # Workspaces
@@ -31,5 +32,4 @@ bspc config normal_border_color "#1a1b26"
 
 bspc config focus_follows_pointer true
 bspc rule -a "tdrop" state=floating
-
-xsetroot -cursor_name left_ptr
+xsetroot -cursor_name left_ptr &

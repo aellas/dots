@@ -12,8 +12,5 @@ run nitrogen --restore
 run dunst
 run brightnessctl set 60%
 run polybar
-run xsetroot -cursor_name Bibata-Modern-Ice_left_ptr
-run gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'
-run skippy-xd --start-daemon
 run lxpolkit
 run emacs --daemon

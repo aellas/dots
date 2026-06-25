@@ -1,17 +1,31 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+
+;;; Basics
 (setq user-full-name "Zac Pizzey"
       user-mail-address "zacpi@pm.me")
 
+;;; UI & Fonts
+(setq doom-font (font-spec :family "Iosevka Nerd Font" :size 25)
+      doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font")
+      doom-theme 'doom-tokyo-night
+      display-line-numbers-type t
+      confirm-kill-emacs nil
+      auto-save-default t
+      make-backup-files t)
+
+;; Mouse support in terminal only
+(add-hook 'tty-setup-hook #'xterm-mouse-mode)
+
+;;; Dashboard
 (use-package! dashboard
   :config
-  (setq dashboard-banner-logo-title "Searching for the words that I can say
-   how it feels when you're with me")
-  (setq dashboard-navigation-cycle t)
-  (setq dashboard-week-agenda t)
-  (setq dashboard-agenda-prefix-format " %-4s - %t")
-  (setq dashboard-agenda-format-item-string "%s")
-  (setq dashboard-projects-backend 'projectile)
-  (setq dashboard-startup-banner '"~/.config/doom/ascii.txt"
+  (setq dashboard-banner-logo-title "Searching for the words that I can say\n   how it feels when you're with me"
+        dashboard-navigation-cycle t
+        dashboard-week-agenda t
+        dashboard-agenda-prefix-format " %-4s - %t"
+        dashboard-agenda-format-item-string "%s"
+        dashboard-projects-backend 'projectile
+        dashboard-startup-banner "~/.config/doom/ascii.txt"
         dashboard-center-content t
         dashboard-items '((recents   . 7)
                           (projects  . 5)
@@ -19,19 +33,18 @@
                           (agenda    . 5))
         dashboard-set-heading-icons t
         dashboard-set-file-icons t
-        dashboard-icon-type 'nerd-icons)
-  (setq dashboard-startupify-list '(dashboard-insert-banner
+        dashboard-icon-type 'nerd-icons
+        dashboard-startupify-list '(dashboard-insert-banner
                                     dashboard-insert-newline
                                     dashboard-insert-banner-title
                                     dashboard-insert-navigator
                                     dashboard-insert-newline
                                     dashboard-insert-items
-                                    dashboard-insert-newline
-                                    ))
+                                    dashboard-insert-newline))
+
   (dashboard-setup-startup-hook)
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
 
-  ;; FIX: Refresh dashboard when emacsclient creates a new frame
   (add-hook 'server-after-make-frame-hook
             (lambda ()
               (when (display-graphic-p)
@@ -40,81 +53,62 @@
                 (dashboard-insert-startupify-lists)
                 (dashboard-refresh-buffer)))))
 
-;; Font settings
-(setq doom-font (font-spec :family "Iosevka Nerd Font" :size 24))
-(setq doom-theme 'doom-tokyo-night)
-;; Line numbers
-(setq display-line-numbers-type t)
-(custom-set-faces!
-  '(variable-pitch :family "Iosevka Nerd Font"))
-;; Mouse support in terminal
-(xterm-mouse-mode 1)
+;;; Dired & Treemacs
+(setq dired-listing-switches "-alh --group-directories-first"
+      treemacs-show-hidden-files t)
 
-;; Dired settings
-(setq dired-listing-switches "-alh --group-directories-first")
+;;; File associations
+(dolist (ext '("\\.png\\'" "\\.jpe?g\\'" "\\.gif\\'" "\\.jsonc\\'" "waybar/config\\'"))
+  (add-to-list 'auto-mode-alist (cons ext 'image-mode)))
 
-;; Treemacs
-(setq treemacs-show-hidden-files t)
-
-;; Image file handling
-(add-to-list 'auto-mode-alist '("\\.png\\'"  . image-mode))
-(add-to-list 'auto-mode-alist '("\\.jpe?g\\'" . image-mode))
-(add-to-list 'auto-mode-alist '("\\.gif\\'"  . image-mode))
-(add-to-list 'auto-mode-alist '("\\.jsonc\\'" . json-mode))
 (add-to-list 'auto-mode-alist '("waybar/config\\'" . json-mode))
 
-;; Vterm
+;;; Vterm
 (use-package! multi-vterm
   :after vterm)
 
-;; Misc
-(setq confirm-kill-emacs nil)
-(setq auto-save-default t
-      make-backup-files t)
+;;; Misc
 (add-hook 'prog-mode-hook #'rainbow-mode)
 
-;; Modeline
+;;; Modeline
 (setq doom-modeline-enable-word-count t)
 
-;; Org
-(setq org-directory "~/org/")
-(after! org (setq org-hide-emphasis-markers t))
-
-(use-package nerd-icons-ibuffer
-  :ensure t
+;;; Ibuffer
+(use-package! nerd-icons-ibuffer
   :hook (ibuffer-mode . nerd-icons-ibuffer-mode))
 
+;;; Startup message
 (add-hook 'emacs-startup-hook
           (lambda ()
-            (let ((mgs-list '("For Those That Wish to Exist")))
-              (message (nth (random (length mgs-list)) mgs-list)))))
+            (message (seq-random-elt '("For Those That Wish to Exist")))))
 
+;;; GPTel
+(load! "secrets")
 (use-package! gptel
   :config
   (gptel-make-openai "OpenWebUI"
     :host "serfor:3001"
     :protocol "http"
-    :key "sk-1c85fa6c50d148b7bb0966468fd66101"
+    :key my-openwebui-key
     :endpoint "/api/chat/completions"
     :stream t
-    :models '(qwen3.5:latest))
+    :models '(mistral-nemo:latest))
   (setq! gptel-backend (gptel-get-backend "OpenWebUI")
-         gptel-model 'qwen3.5:latest
-         gptel-default-mode 'org-mode))
+         gptel-model 'mistral-nemo:latest
+         gptel-default-mode 'org-mode
+         gptel-include-reasoning nil))
 
 (use-package! gptel-autocomplete
   :after gptel
+  :hook (prog-mode . gptel-autocomplete-mode)
   :config
   (setq gptel-autocomplete-before-context-lines 100
         gptel-autocomplete-after-context-lines 20
         gptel-autocomplete-temperature 0.1
         gptel-autocomplete-idle-delay 0.5)
-
   (keymap-set gptel-autocomplete-completion-map "TAB"   #'gptel-accept-completion)
   (keymap-set gptel-autocomplete-completion-map "<tab>" #'gptel-accept-completion)
-  (keymap-set gptel-autocomplete-completion-map "M-f"   #'gptel-accept-word)
-
-  (add-hook 'prog-mode-hook #'gptel-autocomplete-mode))
+  (keymap-set gptel-autocomplete-completion-map "M-f"   #'gptel-accept-word))
 
 (map! :leader
       (:prefix ("k" . "AI")
@@ -127,24 +121,26 @@
        :desc "gptel abort"          "x" #'gptel-abort
        :desc "gptel toggle log"     "l" #'gptel-toggle-log
        :desc "gptel system prompt"  "p" #'gptel-system-prompt))
-(add-hook 'org-mode-hook 'variable-pitch-mode)
-(add-hook 'org-mode-hook 'visual-line-mode)
-(add-hook 'org-mode-hook 'olivetti-mode)
 
-(setq gptel-include-reasoning nil)
-;; Org settings
+;;; Org
+(setq org-directory "~/org/")
+
 (after! org
-  (setq org-directory "~/org/"
-        org-hide-emphasis-markers t
+  (setq org-hide-emphasis-markers t
         org-hide-leading-stars t
         org-pretty-entities t
         org-ellipsis "  ·"
         org-adapt-indentation t
         org-src-fontify-natively t
         org-src-tab-acts-natively t
-        org-edit-src-content-indentation 0)
+        org-edit-src-content-indentation 0
+        org-agenda-prefix-format '((agenda . "  %i %-12:c%?-12t% s")
+                                   (todo   . "  %i %-12:c")
+                                   (tags   . "  %i %-12:c")
+                                   (search . "  %i %-12:c"))
+        org-agenda-files '("~/org/"))
 
-  ;; Resize headings - using your Iosevka font
+  ;; Headings
   (dolist (face '((org-level-1 . 1.35)
                   (org-level-2 . 1.3)
                   (org-level-3 . 1.2)
@@ -155,32 +151,24 @@
                   (org-level-8 . 1.1)))
     (set-face-attribute (car face) nil :weight 'bold :height (cdr face)))
 
-  ;; Keep code blocks in fixed-pitch
-  (set-face-attribute 'org-block nil        :foreground nil :inherit 'fixed-pitch :height 0.85)
-  (set-face-attribute 'org-code nil         :inherit '(shadow fixed-pitch) :height 0.85)
-  (set-face-attribute 'org-verbatim nil     :inherit '(shadow fixed-pitch) :height 0.85)
-  (set-face-attribute 'org-checkbox nil     :inherit 'fixed-pitch)
-  (set-face-attribute 'org-meta-line nil    :inherit '(font-lock-comment-face fixed-pitch))
+  ;; Fixed-pitch for code blocks
+  (set-face-attribute 'org-block nil     :foreground nil :inherit 'fixed-pitch :height 0.85)
+  (set-face-attribute 'org-code nil      :inherit '(shadow fixed-pitch) :height 0.85)
+  (set-face-attribute 'org-verbatim nil  :inherit '(shadow fixed-pitch) :height 0.85)
+  (set-face-attribute 'org-checkbox nil  :inherit 'fixed-pitch)
+  (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
 
   (require 'org-indent)
   (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch)))
 
-;; Org agenda - show scheduled/deadline times in the agenda view
-(after! org
-  (setq org-agenda-prefix-format
-        '((agenda . "  %i %-12:c%?-12t% s")
-          (todo   . "  %i %-12:c")
-          (tags   . "  %i %-12:c")
-          (search . "  %i %-12:c"))))
+(add-hook 'org-mode-hook #'variable-pitch-mode)
+(add-hook 'org-mode-hook #'visual-line-mode)
 
-;; olivetti - centered text width
 (use-package! olivetti
   :hook (org-mode . olivetti-mode)
   :config
   (setq olivetti-body-width 100))
 
+;;; Tree-sitter
 (setq treesit-language-source-alist
       '((toml "https://github.com/tree-sitter/tree-sitter-toml")))
-
-
-(setq org-agenda-files '("~/org/"))

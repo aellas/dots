@@ -20,7 +20,7 @@ super + e
       emacsclient -c -a "emacs"
       
 super + b
-    helium-browser-bin --force-device-scale-factor=1.5 
+    helium-browser-bin --force-device-scale-factor=1.6 
 
 super + space
 	rofi -show drun -modi drun -line-padding 4 -hide-scrollbar -show-icons
@@ -40,13 +40,6 @@ super + shift + p
 super + p
       ./.config/bspwm/scripts/launch.sh
 
-alt + Tab
-        skippy-xd --paging
-
-super + l
-    bsp-layout next --layouts monocle,tall,tiled && notify-send "BSP Layout Changed" "$(bspc query -d | xargs bsp-layout get)"
-
-    
 super + shift + x
       xkill
 
