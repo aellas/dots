@@ -1,0 +1,74 @@
+window-rule {
+  match app-id="studio"
+  match app-id="zed"
+
+  open-maximized true
+}
+
+window-rule {
+  match title="^Picture-in-Picture$"
+
+  open-floating true
+  default-column-width { fixed 480; }
+  default-window-height { fixed 270; }
+  baba-is-float true
+}
+
+window-rule {
+  match app-id="kdenlive"
+  open-floating true
+}
+
+window-rule {
+
+    geometry-corner-radius 2
+    clip-to-geometry true
+}
+
+
+// Floating Noctalia settings window.
+window-rule {
+  match app-id="dev.noctalia.Noctalia.Settings"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
+
+layer-rule {
+  match namespace="^noctalia-wallpaper"
+  place-within-backdrop true
+}
+
+layout {
+  background-color "transparent"
+}
+
+window-rule {
+  background-effect {
+    blur true
+    xray false
+  }
+}
+
+/*
+  Noctalia
+  Disable xray on all our surfaces so it looks more realistic.
+  Noctalia publishes blur regions automatically when ext-background-effects is available.
+*/
+layer-rule {
+  match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+  background-effect {
+    xray false
+    // blur false
+  }
+}
+
+/* You can also fine-tune the blur effect globally. */
+blur {
+  passes 2        // more passes = stronger blur (default: 3)
+  offset 3.0      // sample distance per pass (default: 3.0)
+  noise 0.03      // grain overlay (default: 0.02)
+  saturation 1.0  // color saturation boost (default: 1.5)
+}
+
+prefer-no-csd
