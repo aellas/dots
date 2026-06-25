@@ -1,9 +1,5 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;;; Basics
-(setq user-full-name "Zac Pizzey"
-      user-mail-address "zacpi@pm.me")
-
 ;;; UI & Fonts
 (setq doom-font (font-spec :family "Iosevka Nerd Font" :size 25)
       doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font")
