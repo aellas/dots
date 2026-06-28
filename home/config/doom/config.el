@@ -88,9 +88,9 @@
     :key my-openwebui-key
     :endpoint "/api/chat/completions"
     :stream t
-    :models '(mistral-nemo:latest))
+    :models '(ornith:latest))
   (setq! gptel-backend (gptel-get-backend "OpenWebUI")
-         gptel-model 'mistral-nemo:latest
+         gptel-model 'ornith:latest
          gptel-default-mode 'org-mode
          gptel-include-reasoning nil))
 

@@ -7,7 +7,6 @@
 #
 
 printf 'Xft.dpi: 192\nXcursor.size: 32\n' | xrdb -merge # X apps, fonts + cursor
-export GDK_SCALE=2                                      # GTK app widgets (thunar, geany)
 export GDK_DPI_SCALE=0.5                                # cancel GTK's double font scaling on top of GDK_SCALE
 export QT_AUTO_SCREEN_SCALE_FACTOR=1                    # Qt apps (pavucontrol, qimgv) follow Xft.dpi
 export XCURSOR_SIZE=32
