@@ -6,9 +6,7 @@
 #                 ░▀▀░░▀▀▀░▀░░░▀░▀░▀░▀
 #
 
-printf 'Xft.dpi: 192\nXcursor.size: 32\n' | xrdb -merge # X apps, fonts + cursor
-export GDK_DPI_SCALE=0.5                                # cancel GTK's double font scaling on top of GDK_SCALE
-export QT_AUTO_SCREEN_SCALE_FACTOR=1                    # Qt apps (pavucontrol, qimgv) follow Xft.dpi
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export XCURSOR_SIZE=32
 wmname LG3D &
 /home/array/.config/bspwm/scripts/autostart.sh &

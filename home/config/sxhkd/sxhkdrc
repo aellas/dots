@@ -20,7 +20,7 @@ super + e
       emacsclient -c -a "emacs"
       
 super + b
-    helium-browser-bin --force-device-scale-factor=1.6 
+    helium-browser-bin --force-device-scale-factor=1.5 
 
 super + space
 	rofi -show drun -modi drun -line-padding 4 -hide-scrollbar -show-icons

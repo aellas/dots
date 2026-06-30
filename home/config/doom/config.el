@@ -15,28 +15,26 @@
 ;;; Dashboard
 (use-package! dashboard
   :config
-  (setq dashboard-banner-logo-title "Searching for the words that I can say\n   how it feels when you're with me"
-        dashboard-navigation-cycle t
-        dashboard-week-agenda t
-        dashboard-agenda-prefix-format " %-4s - %t"
-        dashboard-agenda-format-item-string "%s"
-        dashboard-projects-backend 'projectile
-        dashboard-startup-banner "~/.config/doom/ascii.txt"
-        dashboard-center-content t
-        dashboard-items '((recents   . 7)
-                          (projects  . 5)
-                          (bookmarks . 3)
-                          (agenda    . 5))
-        dashboard-set-heading-icons t
-        dashboard-set-file-icons t
-        dashboard-icon-type 'nerd-icons
-        dashboard-startupify-list '(dashboard-insert-banner
-                                    dashboard-insert-newline
-                                    dashboard-insert-banner-title
-                                    dashboard-insert-navigator
-                                    dashboard-insert-newline
-                                    dashboard-insert-items
-                                    dashboard-insert-newline))
+  (setq 
+   dashboard-navigation-cycle t
+   dashboard-week-agenda t
+   dashboard-agenda-prefix-format " %-4s - %t"
+   dashboard-agenda-format-item-string "%s"
+   dashboard-projects-backend 'projectile
+   dashboard-startup-banner "~/.config/doom/ascii.txt"
+   dashboard-center-content t
+   dashboard-items '((recents   . 7)
+                     (projects  . 5)
+                     (bookmarks . 3)
+                     (agenda    . 5))
+   dashboard-set-heading-icons t
+   dashboard-set-file-icons t
+   dashboard-icon-type 'nerd-icons
+   dashboard-startupify-list '(dashboard-insert-banner
+                               dashboard-insert-navigator
+                               dashboard-insert-newline
+                               dashboard-insert-items
+                               dashboard-insert-newline))
 
   (dashboard-setup-startup-hook)
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
@@ -54,24 +52,16 @@
       treemacs-show-hidden-files t)
 
 ;;; File associations
-(dolist (ext '("\\.png\\'" "\\.jpe?g\\'" "\\.gif\\'" "\\.jsonc\\'" "waybar/config\\'"))
+(dolist (ext '("\\.png\\'" "\\.jpe?g\\'" "\\.gif\\'"))
   (add-to-list 'auto-mode-alist (cons ext 'image-mode)))
 
 (add-to-list 'auto-mode-alist '("waybar/config\\'" . json-mode))
-
-;;; Vterm
-(use-package! multi-vterm
-  :after vterm)
 
 ;;; Misc
 (add-hook 'prog-mode-hook #'rainbow-mode)
 
 ;;; Modeline
 (setq doom-modeline-enable-word-count t)
-
-;;; Ibuffer
-(use-package! nerd-icons-ibuffer
-  :hook (ibuffer-mode . nerd-icons-ibuffer-mode))
 
 ;;; Startup message
 (add-hook 'emacs-startup-hook
@@ -93,18 +83,6 @@
          gptel-model 'ornith:latest
          gptel-default-mode 'org-mode
          gptel-include-reasoning nil))
-
-(use-package! gptel-autocomplete
-  :after gptel
-  :hook (prog-mode . gptel-autocomplete-mode)
-  :config
-  (setq gptel-autocomplete-before-context-lines 100
-        gptel-autocomplete-after-context-lines 20
-        gptel-autocomplete-temperature 0.1
-        gptel-autocomplete-idle-delay 0.5)
-  (keymap-set gptel-autocomplete-completion-map "TAB"   #'gptel-accept-completion)
-  (keymap-set gptel-autocomplete-completion-map "<tab>" #'gptel-accept-completion)
-  (keymap-set gptel-autocomplete-completion-map "M-f"   #'gptel-accept-word))
 
 (map! :leader
       (:prefix ("k" . "AI")
@@ -168,3 +146,9 @@
 ;;; Tree-sitter
 (setq treesit-language-source-alist
       '((toml "https://github.com/tree-sitter/tree-sitter-toml")))
+
+(after! flycheck (setq flycheck-idle-change-delay 0.1))
+(after! lsp-mode
+  (setq lsp-idle-delay 0.1)
+  (setq lsp-completion-enable-additional-text-edit t)
+  (setq lsp-modeline-code-actions-enable t))

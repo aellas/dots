@@ -28,7 +28,7 @@
      "aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8"
      "45333f79e4a7fdeff9924d5b6658f84fb468ef38f749455e5b58ba4154782007" default))
  '(package-selected-packages
-   '(easy-hugo emms git-cliff kuronami-theme org-bullets yasnippet)))
+   '(easy-hugo emms git-cliff kuronami-theme org-bullets xclip yasnippet)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

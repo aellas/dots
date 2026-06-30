@@ -10,5 +10,6 @@
     ./emacs.nix
     ./wezterm.nix
     ./vesktop.nix
+    ./lockscreen.nix
   ];
 }

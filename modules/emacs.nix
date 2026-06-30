@@ -37,7 +37,6 @@
     pkgs.python3Packages.python-lsp-server
     pkgs.python3Packages.grip
     pkgs.rustup
-    pkgs.jetbrains.rust-rover
     pkgs.tree-sitter-grammars.tree-sitter-toml
     (pkgs.writeShellScriptBin "orgnote-cli" ''
       exec ${pkgs.nodejs}/bin/npx orgnote-cli@dev "$@"
@@ -45,5 +44,4 @@
     pkgs.google-fonts
     pkgs.nixd
   ];
-
 }

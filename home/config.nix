@@ -14,7 +14,6 @@ let
     rofi = "rofi";
     dunst = "dunst";
     picom = "picom";
-    skippy-xd = "skippy-xd";
   };
 in
 

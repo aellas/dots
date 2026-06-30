@@ -1,0 +1,9 @@
+{
+  ...
+}:
+
+{
+  services.betterlockscreen = {
+    enable = true;
+  };
+}

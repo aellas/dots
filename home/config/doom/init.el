@@ -24,6 +24,7 @@
  fold
  (format +onsave)
  multiple-cursors
+ snippets
 
  :emacs
  tramp
@@ -52,10 +53,7 @@
  :lang
  bash
  sh
- (c +lsp)
- css
  docker
- html
  (json +lsp)
  markdown
  (nix +tree-sitter +lsp)
@@ -63,8 +61,9 @@
  yaml
  (lua +lsp +treesitter)
  (python +lsp +treesitter)
- (org +brain +dragndrop +noter +pomodoro +present +roam2)
- emacs-lisp
+ (emacs-lisp +lsp +treesitter)
+ org
 
  :config
  (default +bindings +smartparens))
+

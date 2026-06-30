@@ -16,13 +16,16 @@
   targets.genericLinux.enable = true;
   programs.git.enable = true;
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "pnpm-10.29.2"
+  ];
+
   home.packages = with pkgs; [
     feishin
     joshuto
     xcolor
     tdrop
     brightnessctl
-    skippy-xd
     wiremix
     bluetui
     bsp-layout

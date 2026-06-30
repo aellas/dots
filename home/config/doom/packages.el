@@ -2,7 +2,6 @@
 ;;; $DOOMDIR/packages.el
 (package! dashboard)
 (package! ligature)
-(package! multi-vterm)
 (package! treemacs)
 (package! git-cliff)
 (package! org-superstar)
@@ -14,3 +13,4 @@
   :recipe (:host github
            :repo "JDNdeveloper/gptel-autocomplete"))
 (package! olivetti)
+(package! xclip)
