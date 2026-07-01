@@ -34,4 +34,4 @@
 [[file:screenshots/4.png]]
 
 * Keybinds
-[[file:home/config/sxhkd/keybinds.org]]
+[[file:home/config/sxhkd/keybinds.org][Keybinds]]
