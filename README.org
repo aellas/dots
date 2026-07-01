@@ -25,7 +25,7 @@
 
 * Screenshots
 #+begin_src emacs-lisp
-(message "I have no coherent themes, I've been trying out dark & lightmode together :P")
+(message "None of the themes match, I've just been testing out trying dark & light mode together at the moment!")
 #+end_src
 *Desktop*
 [[file:screenshots/2.png]]
