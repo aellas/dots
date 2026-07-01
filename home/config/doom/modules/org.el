@@ -3,32 +3,24 @@
 (setq org-directory "~/org")
 
 (after! org
-  (setq org-hide-emphasis-markers t
+  (setq org-agenda-files (list org-directory)
+        org-hide-emphasis-markers t
         org-pretty-entities t
         org-adapt-indentation t
-
         org-src-fontify-natively t
         org-src-tab-acts-natively t
-        org-edit-src-content-indentation 0
-
-        org-agenda-files '("~/org")))
+        org-edit-src-content-indentation 0))
 
 (use-package! olivetti
   :hook (org-mode . olivetti-mode)
-
   :config
   (setq olivetti-body-width 100))
 
 (use-package! mixed-pitch
   :hook (org-mode . mixed-pitch-mode))
 
-(setq display-fill-column-indicator-column 80)
-
-(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
-
 (use-package! org-modern
   :hook (org-mode . org-modern-mode)
-
   :config
   (setq org-modern-star 'replace
         org-modern-hide-stars t

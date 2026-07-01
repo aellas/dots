@@ -12,3 +12,4 @@
 (package! org-autolist)
 (package! org-auto-tangle)
 (package! org-modern)
+(package! mixed-pitch)
