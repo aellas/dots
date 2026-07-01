@@ -24,9 +24,6 @@
 - *Music Player*: [[https://github.com/jeffvli/feishin][Feishin]]
 
 * Screenshots
-#+begin_src emacs-lisp
-(message "None of the themes match, I've just been testing out trying dark & light mode together at the moment!")
-#+end_src
 *Desktop*
 [[file:screenshots/2.png]]
 *Doom Emacs*
