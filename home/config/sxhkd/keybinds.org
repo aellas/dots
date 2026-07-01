@@ -2,7 +2,7 @@
 #+DESCRIPTION: Keybinds for sxhkd + bspwm
 
 | Key | Action |
-| Mod + Return | Launch WezTerm (Terminal) |
-| Mod + Shift + T | Launch Tmux |
-| Mod + B | Launch Helium (Browser) |
-| Mod + E | Launch Emacs |
+| Mod + Return | Terminal                  |
+| Mod + Shift + T | Tmux        |
+| Mod + B | Helium Browser |
+| Mod + E | Emacs        |
