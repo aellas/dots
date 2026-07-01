@@ -1,0 +1,5 @@
+#+TITLE: Dots
+
+* Dotfiles
+
+Here are my dotfiles for Fedora.
