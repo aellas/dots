@@ -1,17 +1,20 @@
 #+TITLE: Dotfiles
-#+AUTHOR: LXDE
+#+AUTHOR: lxde
 #+DATE: <2026-07-01 Wed>
 
 #+begin_src emacs-lisp
 (message "This repo contains my personal dots for Fedora Linux.")
 #+end_src
 
-* Stack
+* Details
+*** System & Core
 - *Distro:* [[https://fedoraproject.org/][Fedora]]
 - *Kernel:* [[https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/][Cachy]]
 - *WM:* [[https://github.com/baskerville/bspwm][BSPWM]]
 - *X:* [[https://github.com/x11libre/xserver][XLibre]]
-- *Bar:* [[https://github.com/polybar/polybar][Polybar]]
+- *Bar:* [[https://github.com/polybar/polybar][Polybar
+]]- *Shell*: [[https://www.zsh.org/][Zsh]]
+*** Applications
 - *Browser:* [[https://helium.computer/][Helium]]
 - *Terminal:* [[https://wezterm.org/][WezTerm]]
 - *Editor:* [[https://github.com/doomemacs/core][Doom Emacs]]
@@ -23,4 +26,3 @@
 [[file:screenshots/1.png]]
 *Org Mode*
 [[file:screenshots/3.png]]
-* Keybinds
