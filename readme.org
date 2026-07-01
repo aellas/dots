@@ -1,7 +1,9 @@
 #+TITLE: Dotfiles
 #+AUTHOR: LXDE
 #+DATE: <2026-07-01 Wed>
-
+#+begin_src emacs-lisp
+(message "Hello world")
+#+end_src
 * Stack
 - *Distro:* [[https://fedoraproject.org/][Fedora]]
 - *Kernel:* [[https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/][Cachy]]
