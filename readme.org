@@ -17,8 +17,9 @@
 - *Editor:* [[https://github.com/doomemacs/core][Doom Emacs]]
 
 * Installation
-To use my dots you'll need to enable nix on Fedora [[https://src.fedoraproject.org/rpms/nix][https://src.fedoraproject.org/rpms/nix
-]]
+- To use my dots you'll need to enable Nix on Fedora
+[[https://src.fedoraproject.org/rpms/nix][Link]] 
+
 * Screenshots
 *Desktop*
 [[file:screenshots/2.png]]
