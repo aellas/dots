@@ -33,8 +33,4 @@
 *Feishin*
 [[file:screenshots/4.png]]
 
-* Keybinds
-| Key | Action |
-| Mod + Return | Terminal |
-| Mod + Shift + T | Tmux |
-| Mod + E | Emacs |
+
