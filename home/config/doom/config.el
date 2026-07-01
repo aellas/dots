@@ -35,58 +35,46 @@
                                dashboard-insert-newline
                                dashboard-insert-items
                                dashboard-insert-newline))
-
-  (dashboard-setup-startup-hook)
-  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
-
-  (add-hook 'server-after-make-frame-hook
-            (lambda ()
-              (when (display-graphic-p)
-                (switch-to-buffer dashboard-buffer-name)
-                (dashboard-mode)
-                (dashboard-insert-startupify-lists)
-                (dashboard-refresh-buffer)))))
-
 ;;; Dired & Treemacs
-(setq dired-listing-switches "-alh --group-directories-first"
-      treemacs-show-hidden-files t)
+  (setq dired-listing-switches "-alh --group-directories-first"
+        treemacs-show-hidden-files t)
 
 ;;; Org
-(setq org-directory "~/org/")
+  (setq org-directory "~/org/")
 
-(after! org
-  (setq org-hide-emphasis-markers t
-        org-pretty-entities t
-        org-adapt-indentation t
-        org-src-fontify-natively t
-        org-src-tab-acts-natively t
-        org-edit-src-content-indentation 0
-        org-agenda-prefix-format '((agenda . "  %i %-12:c%?-12t% s")
-                                   (todo   . "  %i %-12:c")
-                                   (tags   . "  %i %-12:c")
-                                   (search . "  %i %-12:c"))
-        org-agenda-files '("~/org/")))
+  (after! org
+    (setq org-hide-emphasis-markers t
+          org-pretty-entities t
+          org-adapt-indentation t
+          org-src-fontify-natively t
+          org-src-tab-acts-natively t
+          org-edit-src-content-indentation 0
+          org-agenda-prefix-format '((agenda . "  %i %-12:c%?-12t% s")
+                                     (todo   . "  %i %-12:c")
+                                     (tags   . "  %i %-12:c")
+                                     (search . "  %i %-12:c"))
+          org-agenda-files '("~/org/")))
 
-;; Olivetti
-(use-package! olivetti
-  :hook (org-mode . olivetti-mode)
-  :config
-  (setq olivetti-body-width 100))
+  ;; Olivetti
+  (use-package! olivetti
+    :hook (org-mode . olivetti-mode)
+    :config
+    (setq olivetti-body-width 100))
 
-(use-package! org-modern
-  :hook (org-mode . org-modern-mode)
-  :config
-  (setq org-modern-star 'replace
-        org-modern-hide-stars t
-        org-modern-table t
-        org-modern-block-fringe t))
+  (use-package! org-modern
+    :hook (org-mode . org-modern-mode)
+    :config
+    (setq org-modern-star 'replace
+          org-modern-hide-stars t
+          org-modern-table t
+          org-modern-block-fringe t))
 
 ;;; Tree-sitter
-(setq treesit-language-source-alist
-      '((toml "https://github.com/tree-sitter/tree-sitter-toml")))
+  (setq treesit-language-source-alist
+        '((toml "https://github.com/tree-sitter/tree-sitter-toml")))
 
-(after! flycheck (setq flycheck-idle-change-delay 0.1))
-(after! lsp-mode
-  (setq lsp-idle-delay 0.1)
-  (setq lsp-completion-enable-additional-text-edit t)
-  (setq lsp-modeline-code-actions-enable t))
+  (after! flycheck (setq flycheck-idle-change-delay 0.1))
+  (after! lsp-mode
+    (setq lsp-idle-delay 0.1)
+    (setq lsp-completion-enable-additional-text-edit t)
+    (setq lsp-modeline-code-actions-enable t)))
