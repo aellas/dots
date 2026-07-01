@@ -1,4 +1,6 @@
 #+TITLE: Dotfiles
+#+AUTHOR: LXDE
+#+DATE: <2026-07-01 Wed>
 
 * Stack
 - *Distro:* [[https://fedoraproject.org/][Fedora]]
