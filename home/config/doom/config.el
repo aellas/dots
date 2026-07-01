@@ -67,6 +67,7 @@
                                    (search . "  %i %-12:c"))
         org-agenda-files '("~/org/")))
 
+;; Olivetti
 (use-package! olivetti
   :hook (org-mode . olivetti-mode)
   :config
