@@ -5,7 +5,7 @@
 | Mod + Return | Terminal |
 | Mod + Shift + T | Tmux |
 | Mod + B | Helium Browser |
-| Mod + E | Emacs        |
+| Mod + E | Emacs |
 | Mod + N | Joshuto |
 | Mod + Shift + N | Thunar |
 | Mod + Space | Rofi | 
