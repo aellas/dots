@@ -18,7 +18,8 @@
 - *Browser:* [[https://helium.computer/][Helium]]
 - *Terminal:* [[https://wezterm.org/][WezTerm]]
 - *Editor:* [[https://github.com/doomemacs/core][Doom Emacs]]
-
+- *Launcher*: [[https://github.com/davatorium/rofi][Rofi]]
+- *File Manager*: [[https://github.com/kamiyaa/joshuto][Joshuto]]
 * Screenshots
 *Desktop*
 [[file:screenshots/2.png]]
