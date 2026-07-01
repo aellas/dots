@@ -3,7 +3,7 @@
 #+DATE: <2026-07-01 Wed>
 
 #+begin_src emacs-lisp
-(message "Welcome to my dots!")
+(message "This repo contains my personal dots for Fedora Linux.")
 #+end_src
 
 * Stack
@@ -15,9 +15,6 @@
 - *Browser:* [[https://helium.computer/][Helium]]
 - *Terminal:* [[https://wezterm.org/][WezTerm]]
 - *Editor:* [[https://github.com/doomemacs/core][Doom Emacs]]
-
-* Installation
-*To use my dots you'll need to enable Nix on Fedora [[https://src.fedoraproject.org/rpms/nix][Link]]*
 
 * Screenshots
 *Desktop*
