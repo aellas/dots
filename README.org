@@ -6,12 +6,6 @@
 (message "I pretty much spend all my time in emacs")
 #+end_src
 
-#+begin_src bash
-$(whoami)
-$(uname -r)
-$(echo "CPU: $(nproc)" | awk /total/)
-#+end_src
-
 * Details
 *** System & Core
 - *OS:* [[https://fedoraproject.org/][Fedora]]
