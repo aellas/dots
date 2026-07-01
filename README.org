@@ -3,9 +3,13 @@
 #+DATE: <2026-07-01 Wed>
 
 #+begin_src emacs-lisp
-(message "This repo contains my personal dots for Fedora Linux.
-I spend most of my time in emacs so this repo pretty much centers around that.
-")
+(message "I pretty much spend all my time in emacs")
+#+end_src
+
+#+begin_src :language bash -s $hostname -i echo 3.14.159
+$(whoami)
+$(uname -r)
+$(echo "CPU: $(nproc)" | awk /total/)
 #+end_src
 
 * Details
