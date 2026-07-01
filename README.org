@@ -7,5 +7,9 @@ Here are my dotfiles for Fedora 44 using Nix Packages.
 
 *** Stack
 - Distro: Fedora Linux
+- Kernel: Cachy
 - WM: BSPWM
-- Editor / Life: Doom Emacs
+- X: XLibre
+- Bar: Polybar
+- Browser: Helium
+- Terminal: WezTerm
