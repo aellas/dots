@@ -1,23 +1,23 @@
 #!/usr/bin/env sh
 
-options=" Shutdown\n Reboot\n󰒲 Suspend\n Lock\n󰿅 Logout"
+options="Shutdown\nReboot\nSuspend\nLock\nLogout"
 
-chosen=$(echo -e "$options" | rofi -dmenu -theme-str 'window { width: 16%; }' -no-fixed-num-lines -i -p "Power Menu")
+chosen=$(echo -e "$options" | rofi -dmenu -theme-str 'window { width: 10%; }' -no-fixed-num-lines -i -p "Powermenu")
 
 case "$chosen" in
-" Shutdown")
-    systemctl poweroff
-    ;;
-" Reboot")
-    systemctl reboot
-    ;;
-"󰒲 Suspend")
-    systemctl suspend
-    ;;
-" Lock")
-    betterlockscreen -l
-    ;;
-"󰿅 Logout")
-    bspc quit && killall bspwm && exit 0
-    ;;
+"Shutdown")
+	systemctl poweroff
+	;;
+"Reboot")
+	systemctl reboot
+	;;
+"Suspend")
+	systemctl suspend
+	;;
+"Lock")
+	xsecurelock
+	;;
+"Logout")
+	bspc quit && killall bspwm && exit 0
+	;;
 esac

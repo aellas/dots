@@ -4,13 +4,11 @@
 (package! ligature)
 (package! treemacs)
 (package! git-cliff)
-(package! org-superstar)
 (package! format-all)
 (package! json-mode)
-(package! rainbow-mode)
-(package! gptel :recipe (:nonrecursive t))
-(package! gptel-autocomplete
-  :recipe (:host github
-           :repo "JDNdeveloper/gptel-autocomplete"))
 (package! olivetti)
-(package! xclip)
+(package! modern-themes
+  :recipe (:host github :repo "Artawower/modern-themes"))
+(package! org-autolist)
+(package! org-auto-tangle)
+(package! org-modern)

@@ -15,7 +15,6 @@
  ligatures
  smooth-scroll
  treemacs
- vi-tilde-fringe
  window-select
  
  :editor
@@ -62,8 +61,8 @@
  (lua +lsp +treesitter)
  (python +lsp +treesitter)
  (emacs-lisp +lsp +treesitter)
- org
-
+ (org +dragndrop +hugo +pandoc +pomodoro +present +modern)
+ 
  :config
  (default +bindings +smartparens))
 

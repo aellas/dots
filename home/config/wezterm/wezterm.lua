@@ -9,7 +9,7 @@ config.font = wezterm.font("IosevkaTerm Nerd Font")
 config.enable_tab_bar = false
 config.window_close_confirmation = "NeverPrompt"
 config.colors = {
-	background = "#111117",
+	background = "#13141c",
 }
 
 return config

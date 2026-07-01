@@ -14,3 +14,4 @@ run brightnessctl set 60%
 run polybar
 run lxpolkit
 run emacs --daemon
+run xss-lock -- xsecurelock &
