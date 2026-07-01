@@ -5,9 +5,7 @@
 #+begin_src emacs-lisp
 (message "Welcome to my dotfiles!")
 #+end_src
-#+begin_src python
-print("Here")
-#+end_src
+
 * Stack
 - *Distro:* [[https://fedoraproject.org/][Fedora]]
 - *Kernel:* [[https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/][Cachy]]
