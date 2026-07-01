@@ -20,7 +20,7 @@
 To use my dots you'll need to enable nix on Fedora [[https://src.fedoraproject.org/rpms/nix][https://src.fedoraproject.org/rpms/nix
 ]]
 * Screenshots
-*** Desktop
+*Desktop*
 [[file:screenshots/2.png]]
-*** Emacs
+*Doom Emacs*
 [[file:screenshots/1.png]]
