@@ -32,3 +32,6 @@
 [[file:screenshots/3.png]]
 *Feishin*
 [[file:screenshots/4.png]]
+
+* Keybinds
+[[file:home/config/sxhkd/keybinds.org]]
