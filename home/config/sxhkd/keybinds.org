@@ -3,3 +3,5 @@
 
 | Key | Action |
 | Mod + Return | Terminal |
+| Mod + Shift + T | Tmux |
+| Mod + E | Emacs |
