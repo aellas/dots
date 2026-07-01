@@ -3,7 +3,9 @@
 #+DATE: <2026-07-01 Wed>
 
 #+begin_src emacs-lisp
-(message "This repo contains my personal dots for Fedora Linux.")
+(message "This repo contains my personal dots for Fedora Linux.
+I spend most of my time in emacs so this repo pretty much centers around that.
+")
 #+end_src
 
 * Details
