@@ -1,10 +1,5 @@
 #+TITLE: Dots
 
-* Desktop
-[[file:screenshots/2.png]]
-* Emacs
-[[file:screenshots/1.png]]
-
 ** WIP
 Here are my dotfiles for Fedora 44 using Nix Packages.
 
@@ -17,3 +12,10 @@ Here are my dotfiles for Fedora 44 using Nix Packages.
 - Browser: [[https://helium.computer/][Helium]]
 - Terminal: [[https://wezterm.org/][WezTerm]]
 - Editor: [[https://github.com/doomemacs/core][Doom Emacs]]
+
+* Screenshots
+*** Desktop
+[[file:screenshots/2.png]]
+*** Emacs
+[[file:screenshots/1.png]]
+
