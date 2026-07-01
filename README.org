@@ -1,6 +1,6 @@
 #+TITLE: Dots
 
-[[file:screenshots/1.png]]
+[[file:screenshots/2.png]]
 
 ** WIP
 Here are my dotfiles for Fedora 44 using Nix Packages.
