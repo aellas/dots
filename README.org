@@ -1,6 +1,7 @@
 #+TITLE: Dotfiles
 
-Here are my dotfiles for Fedora 44 using Nix/Home Manager
+** 
+Here are my dots for Fedora 44 using Nix/Home Manager
 
 *** Stack
 - Distro: [[https://fedoraproject.org/][Fedora]]
