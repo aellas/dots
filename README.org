@@ -1,7 +1,6 @@
-#+TITLE: Dots
+#+TITLE: Dotfiles
 
-** WIP
-Here are my dotfiles for Fedora 44 using Nix Packages.
+Here are my dotfiles for Fedora 44 using Nix/Home Manager
 
 *** Stack
 - Distro: [[https://fedoraproject.org/][Fedora]]
@@ -18,4 +17,3 @@ Here are my dotfiles for Fedora 44 using Nix Packages.
 [[file:screenshots/2.png]]
 *** Emacs
 [[file:screenshots/1.png]]
-
