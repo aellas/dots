@@ -16,7 +16,7 @@ super + n
     wezterm -e joshuto 
     
 super + shift + n
-      GDK_SCALE=2 GDK_DPI_SCALE=0.8 nemo      
+      GDK_SCALE=2 GDK_DPI_SCALE=0.8 thunar      
 
 super + e
       emacsclient -c -a "emacs"

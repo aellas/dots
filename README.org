@@ -3,7 +3,7 @@
 #+DATE: <2026-07-01 Wed>
 
 #+begin_src emacs-lisp
-(message "I pretty much spend all my time in emacs")
+(message "I pretty much spend all my time in emacs!")
 #+end_src
 
 * Details
@@ -30,3 +30,5 @@
 [[file:screenshots/1.png]]
 *Org Mode*
 [[file:screenshots/3.png]]
+*Feishin*
+[[file:screenshots/4.png]]

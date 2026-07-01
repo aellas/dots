@@ -29,7 +29,6 @@
     wiremix
     bluetui
     bsp-layout
-    thunar
   ];
 
   imports = [
