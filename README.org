@@ -13,3 +13,4 @@ Here are my dotfiles for Fedora 44 using Nix Packages.
 - Bar: [[https://github.com/polybar/polybar][Polybar]]
 - Browser: [[https://helium.computer/][Helium]]
 - Terminal: [[https://wezterm.org/][WezTerm]]
+- Editor: [[https://github.com/doomemacs/core][Doom Emacs]]
