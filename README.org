@@ -1,6 +1,9 @@
 #+TITLE: Dots
 
+* Desktop
 [[file:screenshots/2.png]]
+* Emacs
+[[file:screenshots/1.png]]
 
 ** WIP
 Here are my dotfiles for Fedora 44 using Nix Packages.
