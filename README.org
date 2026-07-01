@@ -12,8 +12,8 @@
 - *Kernel:* [[https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/][Cachy]]
 - *WM:* [[https://github.com/baskerville/bspwm][BSPWM]]
 - *X:* [[https://github.com/x11libre/xserver][XLibre]]
-- *Bar:* [[https://github.com/polybar/polybar][Polybar
-]]- *Shell*: [[https://www.zsh.org/][Zsh]]
+- *Bar:* [[https://github.com/polybar/polybar][Polybar]]
+- *Shell*: [[https://www.zsh.org/][Zsh]]
 *** Applications
 - *Browser:* [[https://helium.computer/][Helium]]
 - *Terminal:* [[https://wezterm.org/][WezTerm]]
