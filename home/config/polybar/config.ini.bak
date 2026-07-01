@@ -32,6 +32,22 @@ label =
 format-foreground = #373b41
 label-font = 4
 
+[module/cpu-governor]
+type = custom/script
+exec = ~/.config/polybar/profile.sh
+interval = 2
+click-left = ~/.config/polybar/profile.sh toggle
+label = %output%
+label-font = 5
+
+[module/logo]
+type = custom/text
+format = ""
+format-foreground = #cbd0ec
+label-font = 5
+
+
+
 [module/workspaces]
 type = internal/bspwm
 
@@ -67,7 +83,7 @@ label-foreground = #cbd0ec
 type = internal/memory
 interval = 2
 label =   %gb_used%
-label-foreground = #cbd0ec
+label-foreground = #d2d1d3
 
 [module/cpu]
 type = internal/cpu

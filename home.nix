@@ -28,7 +28,7 @@
     brightnessctl
     wiremix
     bluetui
-    bsp-layout
+    bottom
   ];
 
   imports = [

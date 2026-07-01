@@ -1,0 +1,5 @@
+#+title: Keybinds
+
+| Key | Action |
+| Mod + Return | Open WezTerm |
+
