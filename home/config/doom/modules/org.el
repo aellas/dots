@@ -12,9 +12,7 @@
         org-edit-src-content-indentation 0))
 
 (use-package! olivetti
-  :hook (org-mode . olivetti-mode)
-  :config
-  (setq olivetti-body-width 100))
+  :hook (org-mode . olivetti-mode))
 
 (use-package! mixed-pitch
   :hook (org-mode . mixed-pitch-mode))
@@ -26,3 +24,4 @@
         org-modern-hide-stars t
         org-modern-table t
         org-modern-block-fringe t))
+(add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0)))

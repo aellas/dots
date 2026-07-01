@@ -21,3 +21,5 @@
 [[file:screenshots/2.png]]
 *Doom Emacs*
 [[file:screenshots/1.png]]
+
+* Keybinds
