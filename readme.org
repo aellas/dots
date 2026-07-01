@@ -3,7 +3,7 @@
 #+DATE: <2026-07-01 Wed>
 
 #+begin_src emacs-lisp
-(message "Welcome to my dotfiles!")
+(message "Welcome to my dots!")
 #+end_src
 
 * Stack
@@ -16,6 +16,9 @@
 - *Terminal:* [[https://wezterm.org/][WezTerm]]
 - *Editor:* [[https://github.com/doomemacs/core][Doom Emacs]]
 
+* Installation
+To use my dots you'll need to enable nix on Fedora [[https://src.fedoraproject.org/rpms/nix][https://src.fedoraproject.org/rpms/nix
+]]
 * Screenshots
 *** Desktop
 [[file:screenshots/2.png]]
