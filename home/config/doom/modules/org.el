@@ -25,3 +25,4 @@
         org-modern-table t
         org-modern-block-fringe t))
 (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0)))
+(add-hook 'org-mode-hook (lambda () (setq-local mode-line-format nil)))
