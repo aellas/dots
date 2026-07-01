@@ -34,4 +34,7 @@
 [[file:screenshots/4.png]]
 
 * Keybinds
-Go to -> [[file:home/config/sxhkd/keybinds.org][Keybinds]] 
+| Key | Action |
+| Mod + Return | Terminal |
+| Mod + Shift + T | Tmux |
+| Mod + E | Emacs |
