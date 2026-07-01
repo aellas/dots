@@ -1,14 +1,5 @@
-#+TITLE: SXHKDRC KEYBINDS 
+#+TITLE: Keybinds 
 #+DESCRIPTION: Keybinds for sxhkd + bspwm
 
 | Key | Action |
 | Mod + Return | Terminal |
-| Mod + Shift + T | Tmux |
-| Mod + B | Helium Browser |
-| Mod + E | Emacs |
-| Mod + N | Joshuto |
-| Mod + Shift + N | Thunar |
-| Mod + Space | Rofi | 
-| Mod + M | Feishin |
-| Mod + D | Discord | 
-| Mod + L | XSecureLock | 
