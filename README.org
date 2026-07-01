@@ -6,3 +6,4 @@ Here are my dotfiles for Fedora 44 using Nix Packages.
 *** Stack
 - Distro: Fedora Linux
 - WM: BSPWM
+- Editor / Life: Doom Emacs
