@@ -19,7 +19,8 @@
 - *Terminal:* [[https://wezterm.org/][WezTerm]]
 - *Editor:* [[https://github.com/doomemacs/core][Doom Emacs]]
 - *Launcher*: [[https://github.com/davatorium/rofi][Rofi]]
-- *File Manager*: [[https://github.com/kamiyaa/joshuto][Joshuto]]
+- *TUI File Manager*: [[https://github.com/kamiyaa/joshuto][Joshuto]]
+- *File Manager*: [[https://docs.xfce.org/xfce/thunar/start][Thunar]]
 - *Music Player*: [[https://github.com/jeffvli/feishin][Feishin]]
 
 * Screenshots
