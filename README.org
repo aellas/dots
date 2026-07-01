@@ -7,9 +7,9 @@ Here are my dotfiles for Fedora 44 using Nix Packages.
 
 *** Stack
 - Distro: [[https://fedoraproject.org/][Fedora]]
-- Kernel: Cachy
-- WM: BSPWM
-- X: XLibre
-- Bar: Polybar
-- Browser: Helium
-- Terminal: WezTerm
+- Kernel: [[https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/][Cachy]]
+- WM: [[https://github.com/baskerville/bspwm][BSPWM]]
+- X: [[https://github.com/x11libre/xserver][XLibre]]
+- Bar: [[https://github.com/polybar/polybar][Polybar]]
+- Browser: [[https://helium.computer/][Helium]]
+- Terminal: [[https://wezterm.org/][WezTerm]]
