@@ -28,7 +28,6 @@
     brightnessctl
     wiremix
     bluetui
-    bottom
   ];
 
   imports = [

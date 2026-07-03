@@ -1,0 +1,84 @@
+{
+  "files": {
+    "/inbox.org": {
+      "mtime": 1782401684058.2178,
+      "size": 0,
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "version": 21,
+      "status": "synced",
+      "syncedAt": "2026-07-02T17:18:18.426733888Z"
+    },
+    "/.orgnote/config.sync-conflict-1781636304661-device.toml": {
+      "mtime": 1783012698522.8003,
+      "size": 1344,
+      "contentHash": "03cd19a5420d8eaa22a1d1cec8af5644d70d6618134f45df8072d0dc6c44fd34",
+      "version": 2,
+      "status": "synced",
+      "syncedAt": "2026-07-02T17:18:18.426733888Z"
+    },
+    "/.orgnote/config.sync-conflict-1782982347151-device.toml": {
+      "mtime": 1783012698542.8005,
+      "size": 1391,
+      "contentHash": "b922de72e472866fd75d0e81b2b45ef9330d3a1f5cfb29ac9d42f95b72657547",
+      "version": 2,
+      "status": "synced",
+      "syncedAt": "2026-07-02T17:18:18.426733888Z"
+    },
+    "/agenda.org": {
+      "mtime": 1783019854540.9312,
+      "size": 262,
+      "contentHash": "949588c39ade49200d5167d04e995cef9921872350b02c9e691258fcfa5c9bb4",
+      "version": 14,
+      "status": "synced",
+      "syncedAt": "2026-07-02T19:17:36.893659858Z"
+    },
+    "/personal.org": {
+      "mtime": 1783019135520.7651,
+      "size": 58,
+      "contentHash": "2ec676e78fe589d0d736bd58dccc226a578f3ae104b09c72fd5c3227f06253b4",
+      "version": 2,
+      "status": "synced",
+      "syncedAt": "2026-07-02T19:10:01.677812561Z"
+    },
+    "/.orgnote/config.toml": {
+      "mtime": 1783018090332.4797,
+      "size": 1391,
+      "contentHash": "b922de72e472866fd75d0e81b2b45ef9330d3a1f5cfb29ac9d42f95b72657547",
+      "version": 17,
+      "status": "synced",
+      "syncedAt": "2026-07-02T18:48:10.236679587Z"
+    },
+    "/.orgnote/extensions.toml": {
+      "mtime": 1783018090472.4824,
+      "size": 5411,
+      "contentHash": "df4ca043181e4c69fbfa49e1d1be6495b5ed7ab0bae0df3cd79b1fe607582678",
+      "version": 10,
+      "status": "synced",
+      "syncedAt": "2026-07-02T18:48:10.236679587Z"
+    },
+    "/.orgnote/templates/default.org.tmpl": {
+      "mtime": 1783018090367.4805,
+      "size": 54,
+      "contentHash": "636a5e8462b23bf6fb4ee97883a195c9ea4dea89e074e221ec5709c0e274161d",
+      "version": 6,
+      "status": "synced",
+      "syncedAt": "2026-07-02T18:48:10.236679587Z"
+    },
+    "/notes/life/moosey.org": {
+      "mtime": 1783012999501.8352,
+      "size": 595,
+      "contentHash": "b656b3520144a78d874b64f473a2d9c5ac2f1175dc35967fc6c2edac6aefa5c9",
+      "version": 1,
+      "status": "synced",
+      "syncedAt": "2026-07-02T19:01:53.651699706Z"
+    },
+    "/notes/work/mileage.org": {
+      "mtime": 1783018737415.7664,
+      "size": 244,
+      "contentHash": "bd02d2b91fff849a02970f5a30ce03d91fe25bade0eeb40b47f19a6bba91f538",
+      "version": 1,
+      "status": "synced",
+      "syncedAt": "2026-07-02T19:01:53.651699706Z"
+    }
+  }
+}

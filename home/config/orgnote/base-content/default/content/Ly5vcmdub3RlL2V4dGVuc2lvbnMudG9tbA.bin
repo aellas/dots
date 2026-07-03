@@ -1,0 +1,246 @@
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "Inline markup"
+description = "Bundle of predefined inline markup widgets for editor."
+version = "0.0.1"
+category = "extension"
+keywords = [ "editor", "widgets" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "Table"
+description = "Render org-mode tables."
+version = "0.0.1"
+category = "extension"
+keywords = [ "editor", "widgets", "table" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "Src block"
+description = "Multiline widget for displaying SRC blocks with syntax highlighting"
+version = "0.0.1"
+category = "extension"
+keywords = [ "editor", "widgets", "code", "syntax" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "Quote block"
+description = "Pretty quote block multiline widget for editor"
+version = "0.0.1"
+category = "extension"
+keywords = [ "editor", "widgets", "quote" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "Latex blocks"
+description = "Render LaTeX blocks and environments with KaTeX"
+version = "0.0.1"
+category = "extension"
+keywords = [ "editor", "widgets", "latex", "math" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "Property drawer"
+description = "Collapsible property drawer widget for editor"
+version = "0.0.1"
+category = "extension"
+keywords = [ "editor", "widgets", "properties" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "HTML block"
+description = "Preview HTML blocks in editor"
+version = "0.0.1"
+category = "extension"
+keywords = [ "editor", "widgets", "html" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "Image preview"
+description = "Render images from org links"
+version = "0.0.1"
+category = "extension"
+keywords = [ "editor", "widgets", "image", "media" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "Smart editing"
+description = "Smart Enter handling (auto-continue lists, exit blocks) and auto-pair markup symbols (*, /, =, ~, +, [)"
+version = "0.0.1"
+category = "extension"
+keywords = [ "editor", "editing", "lists", "blocks", "markup", "pairs" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[extensions.config]
+enableSmartEnter = true
+enableAutoPair = true
+enableBackspacePairDelete = true
+
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "Org Folding"
+version = "1.0.0"
+category = "extension"
+description = "Folding support for org-mode headlines with #+STARTUP options"
+keywords = [ "folding", "headlines", "collapse", "expand" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "Keyword Overlay"
+version = "1.0.0"
+category = "extension"
+description = "Shows placeholders for empty keywords like #+TITLE:, #+AUTHOR:, etc."
+author = "OrgNote"
+keywords = [ "keyword", "placeholder", "overlay", "title" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "Org Table of Contents"
+version = "0.0.1"
+category = "extension"
+description = "Table of contents navigation for org-mode headlines"
+keywords = [ "toc", "headlines", "navigation", "outline" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "Recent Files"
+version = "0.0.1"
+category = "extension"
+description = "Quick access to recently opened files"
+keywords = [ "recent", "files", "history", "recentf" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "Command History"
+version = "0.0.1"
+category = "extension"
+description = "Sorts commands by recent usage in command palette"
+keywords = [ "commands", "history", "recent", "palette" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "Org Tasks Sidebar"
+version = "0.0.1"
+category = "extension"
+description = "Browse indexed tasks grouped by file in the right sidebar"
+keywords = [ "tasks", "sidebar", "todo", "navigation" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "local-graph"
+version = "0.0.1"
+category = "extension"
+description = "Local graph of the current note neighbors in the sidebar"
+keywords = [ "graph", "backlinks", "links", "sidebar" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "Org Agenda"
+version = "0.0.1"
+category = "extension"
+description = "Agenda views for tasks, habits and pomodoro timer based on org-mode files"
+keywords = [ "agenda", "tasks", "habits", "pomodoro", "org-mode" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[extensions.config]
+pomoDuration = 25
+soundEnabled = true
+
+[[extensions]]
+active = true
+
+[extensions.manifest]
+name = "Org Templates"
+version = "0.0.1"
+category = "extension"
+description = "Create org notes from vault-local templates"
+keywords = [ "templates", "notes", "org-mode" ]
+
+[extensions.manifest.source]
+type = "builtin"
+
+[extensions.config]
+defaultTemplatePath = "/.orgnote/templates/default.org.tmpl"

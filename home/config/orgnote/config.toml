@@ -1,0 +1,12 @@
+[[accounts]]
+name = "default"
+clientAddress = "https://dev.org-note.com"
+wsAddress = "wss://dev.org-note.com/api/ws/events"
+remoteAddress = "https://dev.org-note.com/api/v1"
+token = "c183888f-fc2d-41c7-a672-257e752ea7c2"
+rootFolder = "~/org/"
+debug = false
+logPath = "/tmp/log/orgnote"
+backupDir = "~/Documents/org/"
+backupCount = 3
+ignorePatterns = []

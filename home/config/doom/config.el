@@ -8,3 +8,5 @@
 (load! "modules/lsp")
 (load! "modules/git")
 (load! "modules/writing")
+(load! "modules/orgnote.el")
+(load! "modules/keybinds.el")

@@ -1,0 +1,66 @@
+[editor]
+showSpecialSymbols = false
+showPropertyDrawer = true
+saveDelayMs = 500
+validationDelayMs = 1000
+autoCreateMissingNotes = true
+
+[developer]
+developerMode = false
+maximumLogsCount = 1000
+storeQueueTasksMinutes = 60
+corsProxy = "https://org-note.com/cors/"
+
+[system]
+language = "en-US"
+
+[network]
+apiUrl = "https://dev.org-note.com/api/v1"
+wsUrl = "wss://dev.org-note.com/api/ws/events"
+
+[completion]
+showGroup = false
+defaultCompletionLimit = 20
+fuseThreshold = 0.4
+showDetails = true
+
+[synchronization]
+type = "api"
+
+[ui]
+showUserProfiles = true
+theme = "light"
+darkThemeName = ""
+lightThemeName = ""
+enableAnimations = true
+notificationTimeout = 5000
+tooltipDelay = 300
+minNotificationLevel = "error"
+persistantPanes = true
+persistantPanesSaveDelay = 500
+showFileTitleBar = true
+dropZoneEdgeRatio = 0.25
+
+[ui.graph]
+nodeRelSize = 16
+linkDistance = 120
+chargeStrength = -100
+warmupTicks = 150
+velocityDecay = 0.3
+initialZoom = 1.5
+labelFontSize = 12
+linkWidth = 0.5
+
+[ui.fonts]
+main = "ui-sans-serif, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif"
+editor = "Menlo"
+headline = "ui-sans-serif, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif"
+code = "'JetBrains Mono'"
+
+[extensions]
+sources = [ "https://github.com/Artawower/orgnote-extensions", "", "", "" ]
+
+[encryption]
+type = "disabled"
+
+[fileReaders.preferredReaders]

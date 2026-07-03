@@ -67,7 +67,7 @@ in
 
       em = "/usr/bin/emacs -nw";
       rem = "killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon";
-      dsync = "doom sync && pkill emacs && emacsclient -c -a 'emacs' &";
+      dsync = "doom sync && pkill emacs && emacs --daemon";
 
       cd = "z";
       dots = "z ~/nixdots";

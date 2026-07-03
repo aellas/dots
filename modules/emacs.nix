@@ -4,7 +4,11 @@
   programs.emacs = {
     enable = true;
     package = pkgs.emacs;
+    extraPackages = epkgs: [
+      epkgs.treesit-grammars.with-all-grammars
+    ];
   };
+
   home.packages = [
     pkgs.git
     pkgs.ripgrep
@@ -23,7 +27,6 @@
     pkgs.nixfmt
     pkgs.prettier
     pkgs.fd
-    pkgs.ripgrep
     pkgs.findutils
     pkgs.mlocate
     pkgs.lua
@@ -37,11 +40,10 @@
     pkgs.python3Packages.python-lsp-server
     pkgs.python3Packages.grip
     pkgs.rustup
-    pkgs.tree-sitter-grammars.tree-sitter-toml
     (pkgs.writeShellScriptBin "orgnote-cli" ''
       exec ${pkgs.nodejs}/bin/npx orgnote-cli@dev "$@"
     '')
     pkgs.google-fonts
-    pkgs.nixd
+    pkgs.vips
   ];
 }

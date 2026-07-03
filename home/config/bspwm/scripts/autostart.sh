@@ -6,6 +6,7 @@ run() {
 }
 
 xrandr --output eDP-1 --scale 1x1 --mode 2560x1600 --rate 60.00
+emacs --daemon
 run sxhkd
 run picom
 run nitrogen --restore
@@ -13,5 +14,4 @@ run dunst
 run brightnessctl set 60%
 run polybar
 run lxpolkit
-run emacs --daemon
 run xss-lock -- xsecurelock &

@@ -1,0 +1,4 @@
+:PROPERTIES:
+:ID: {{uuid()}}
+:END:
+#+TITLE: {{title}}

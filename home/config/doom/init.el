@@ -16,6 +16,7 @@
  smooth-scroll
  treemacs
  window-select
+ workspaces
  
  :editor
  (evil +everywhere)
@@ -28,7 +29,7 @@
  :emacs
  tramp
  vc
- (dired +icons)
+ (dired +dirvish +icons)
  electric
  (ibuffer +icons)
  (undo +tree)
@@ -61,7 +62,7 @@
  (lua +lsp +treesitter)
  (python +lsp +treesitter)
  (emacs-lisp +lsp +treesitter)
- (org +dragndrop +hugo +pandoc +pomodoro +present +modern)
+ (org +dragndrop +hugo +pandoc +pomodoro +present +modern +pretty)
  
  :config
  (default +bindings +smartparens))
