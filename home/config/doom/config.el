@@ -10,3 +10,5 @@
 (load! "modules/writing")
 (load! "modules/orgnote.el")
 (load! "modules/keybinds.el")
+(load! "modules/empv.el")
+(setq initial-buffer-choice 'dashboard-open)

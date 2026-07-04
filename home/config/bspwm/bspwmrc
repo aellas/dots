@@ -6,10 +6,17 @@
 #                 ░▀▀░░▀▀▀░▀░░░▀░▀░▀░▀
 #
 
+printf 'Xft.dpi: 144\nXcursor.size: 32\n' | xrdb -merge
+export GDK_DPI_SCALE=0.5
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export XCURSOR_SIZE=32
+
 wmname LG3D &
-/home/array/.config/bspwm/scripts/autostart.sh &
+
+~/.config/bspwm/scripts/autostart.sh &
+sleep 2 &
+~/.config/polybar/launch.sh &
+
 # Workspaces
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 bspc config border_width 4

@@ -15,3 +15,6 @@
   :recipe (:host github
            :repo "Artawower/orgnote.el"
            :branch "dev"))
+(package! dirvish)
+(package! empv)
+

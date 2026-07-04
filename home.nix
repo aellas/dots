@@ -27,12 +27,12 @@
     tdrop
     brightnessctl
     wiremix
+    flameshot
     bluetui
   ];
 
   imports = [
     ./home/config.nix
     ./modules/default.nix
-
   ];
 }

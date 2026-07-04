@@ -61,6 +61,7 @@ in
 
       eval "$(zoxide init zsh)"
       fastfetch
+
     '';
 
     shellAliases = {
@@ -73,7 +74,7 @@ in
       dots = "z ~/nixdots";
       cat = "bat";
 
-      home = "cd && cd nux && home-manager switch --flake '.#array'";
+      home = "cd && cd nux && nix flake update && home-manager switch --flake '.#array'";
       update = "sudo dnf upgrade --refresh";
 
       ls = "eza -A --color=always --group-directories-first --icons";

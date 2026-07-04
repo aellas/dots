@@ -16,7 +16,6 @@
  smooth-scroll
  treemacs
  window-select
- workspaces
  
  :editor
  (evil +everywhere)

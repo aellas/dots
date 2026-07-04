@@ -22,7 +22,10 @@ super + e
       emacsclient -c -a "emacs"
       
 super + b
-    helium-browser-bin --force-device-scale-factor=1.5 
+    helium-browser-bin --force-device-scale-factor=1.5
+
+super + shift + b
+    helium-browser-bin --incognito --force-device-scale-factor=1.5
 
 super + space
 	rofi -show drun -modi drun -line-padding 4 -hide-scrollbar -show-icons
@@ -40,13 +43,17 @@ super + shift + p
       ./.config/bspwm/scripts/power.sh
 
 super + p
-      ./.config/bspwm/scripts/polybar.sh
+      ./.config/polybar/launch.sh
 
 super + shift + x
       xkill
 
 super + ctrl + r
       bspc wm -r
+
+# Web Apps
+super + a
+      helium-browser-bin --app='http://serfor:3080/c/new' --force-scale-factor=1.5
 
 # Scratchpads
 super + shift + b

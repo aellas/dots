@@ -2,9 +2,11 @@
 #+TODO: TODO(t) NEXT(n) WAITING(w) | DONE(d) CANCELLED(c)
 
 * Life
-** TODO Take Bernard Swiming
-SCHEDULED: <2026-07-03 Fri>
-
+** DONE Take Bernard Swiming
+CLOSED: [2026-07-03 Fri 14:54] SCHEDULED: <2026-07-03 Fri>
+:LOGBOOK:
+- State "DONE" from "TODO" [2026-07-03 Fri 14:54]
+:END:
 * Car
 ** TODO Clean car
 ** TODO Switch to private plate

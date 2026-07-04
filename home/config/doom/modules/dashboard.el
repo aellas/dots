@@ -1,8 +1,9 @@
 ;;; home/config/doom/modules/dashboard.el -*- lexical-binding: t; -*-
 
 (use-package! dashboard
+  :ensure t 
   :config
-  (dashboard-setup-startup-hook)
+
   (setq dashboard-navigation-cycle t
         dashboard-week-agenda t
         dashboard-set-init-info nil
@@ -15,9 +16,10 @@
         dashboard-items
         '((recents . 7)
           (projects . 5)
-          (bookmarks . 3)
-          (agenda . 5))
+          (bookmarks . 3))
         dashboard-set-heading-icons t
         dashboard-set-file-icons t
         dashboard-icon-type 'nerd-icons))
+
+
 
