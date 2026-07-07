@@ -16,10 +16,19 @@
         dashboard-items
         '((recents . 7)
           (projects . 5)
-          (bookmarks . 3))
+          (bookmarks . 3)
+          (agenda    . 3))
         dashboard-set-heading-icons t
         dashboard-set-file-icons t
         dashboard-icon-type 'nerd-icons))
 
+(setq dashboard-startupify-list '(dashboard-insert-banner
+                                  dashboard-insert-init-info
+                                  dashboard-insert-navigator
+                                  dashboard-insert-newline
+                                  dashboard-insert-items))
 
+(setq dashboard-item-names '(("Recent Files:"               . "Recently opened files:")
+                             ("Agenda for today:"           . "Today's agenda:")
+                             ("Agenda:" . "Agenda:")))
 

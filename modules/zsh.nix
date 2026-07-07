@@ -65,24 +65,18 @@ in
     '';
 
     shellAliases = {
-
       em = "/usr/bin/emacs -nw";
       rem = "killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon";
       dsync = "doom sync && pkill emacs && emacs --daemon";
-
       cd = "z";
       dots = "z ~/nixdots";
       cat = "bat";
-
       home = "cd && cd nux && nix flake update && home-manager switch --flake '.#array'";
       update = "sudo dnf upgrade --refresh";
-
       ls = "eza -A --color=always --group-directories-first --icons";
       ll = "eza -Ahl --color=always --group-directories-first --icons";
       lt = "eza -aT --color=always --group-directories-first";
       jctl = "journalctl -p 3 -xb";
-      sernix = "ssh array@sernix";
-
       prefetch = "nix-prefetch-url --type sha256";
 
     };

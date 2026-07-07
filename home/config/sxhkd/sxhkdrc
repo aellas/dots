@@ -7,10 +7,7 @@ super + l
       xsecurelock
 
 super + Return
-     wezterm
-
-super + shift + t
-      wezterm -e tmux
+      wezterm
 
 super + n
     wezterm -e joshuto 
@@ -38,6 +35,7 @@ super + m
 
 super + d
       vesktop 
+
 
 super + shift + p
       ./.config/bspwm/scripts/power.sh

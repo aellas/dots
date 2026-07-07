@@ -26,3 +26,8 @@
         org-modern-block-fringe t))
 (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0)))
 (add-hook 'org-mode-hook (lambda () (setq-local mode-line-format nil)))
+
+(setq org-agenda-files
+      (list (concat org-directory "notes.org")
+            (concat org-directory "agenda.org")
+            (concat org-directory "tasks.org")))

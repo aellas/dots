@@ -27,8 +27,8 @@
     tdrop
     brightnessctl
     wiremix
-    flameshot
     bluetui
+    bolt-launcher
   ];
 
   imports = [

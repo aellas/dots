@@ -16,6 +16,7 @@
  smooth-scroll
  treemacs
  window-select
+ workspaces
  
  :editor
  (evil +everywhere)
@@ -34,7 +35,7 @@
  (undo +tree)
 
  :term
- vterm
+ ghostel
 
  :checkers
  (syntax +flymake)
@@ -61,7 +62,7 @@
  (lua +lsp +treesitter)
  (python +lsp +treesitter)
  (emacs-lisp +lsp +treesitter)
- (org +dragndrop +hugo +pandoc +pomodoro +present +modern +pretty)
+ (org +dragndrop +hugo +pandoc +pomodoro +present +modern +pretty +capture +journal)
  
  :config
  (default +bindings +smartparens))

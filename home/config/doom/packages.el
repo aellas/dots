@@ -11,10 +11,6 @@
 (package! org-auto-tangle)
 (package! org-modern)
 (package! mixed-pitch)
-(package! orgnote
-  :recipe (:host github
-           :repo "Artawower/orgnote.el"
-           :branch "dev"))
 (package! dirvish)
 (package! empv)
-
+(package! ghostel)

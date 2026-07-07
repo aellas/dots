@@ -6,16 +6,22 @@
 
 ;; Orgnote
 (map! :leader
-      :desc "Orgnote Sync"
+      :desc "orgnote"
       "o n s" #'orgnote-sync
       "o n f" #'orgnote-force-sync
       "o n c" #'orgnote-open-configuration)
 
 ;; Calander
 (map! :leader
-      :desc "Calendar"
+      :desc "calendar"
       "@" #'calendar)
 
+;; Calculator
+(map! :leader
+      :desc "quick-calc"
+      "=" #'quick-calc)
+
+;; Empv
 (map! :leader
       :desc "empv-seach"
       "m s" #'empv-subsonic-search
@@ -26,3 +32,8 @@
       "m n" #'empv-playlist-next
       "m p" #'empv-playlist-prev
       "m q" #'empv-exit)
+
+;; Ghostel
+(map! :leader
+      :desc "ghostel"
+      "o t" #'ghostel)
