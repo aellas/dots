@@ -14,3 +14,4 @@
 (package! dirvish)
 (package! empv)
 (package! ghostel)
+(package! org-caldav)

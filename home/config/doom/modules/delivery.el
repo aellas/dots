@@ -1,39 +1,60 @@
-;;; hmrc-delivery.el --- HMRC Delivery Core System (agenda + Orgzly friendly)
+;;; hmrc-delivery.el --- HMRC Delivery Core System
 
 ;; --------------------------------------------------
 ;; CONFIG
 ;; --------------------------------------------------
 
-(defvar hmrc-base-dir "~/org/tax/"
+(defvar hmrc-base-dir "~/org/"
   "Base directory for HMRC logs.")
 
 (defconst hmrc-mileage-rate 0.45)
 (defconst hmrc-tax-rate 0.20)
 
 ;; --------------------------------------------------
-;; FILE LOCATION (YYYY/MM.org)
+;; FILE LOCATION (/work/YYYY/month/weekN.org)
 ;; --------------------------------------------------
 
+(defun hmrc--week-of-month ()
+  "Return week number within the current month, starting at 1."
+  (let ((day (string-to-number (format-time-string "%d"))))
+    (1+ (/ (1- day) 7))))
+
 (defun hmrc--file ()
-  (concat hmrc-base-dir
-          (format-time-string "%Y/%m.org")))
+  "Return current weekly HMRC org file."
+  (let* ((year (format-time-string "%Y"))
+         (month (downcase (format-time-string "%B")))
+         (week (hmrc--week-of-month))
+         (dir (expand-file-name (concat year "/" month "/") hmrc-base-dir)))
+    (make-directory dir t)
+    (expand-file-name (format "week%d.org" week) dir)))
+
+(defun hmrc--month-name (month year)
+  "Return lowercase month name for MONTH and YEAR."
+  (downcase
+   (format-time-string "%B" (encode-time 0 0 0 1 month year))))
+
+(defun hmrc--month-dir (year month)
+  "Return directory for YEAR and MONTH."
+  (expand-file-name
+   (format "%04d/%s/" year (hmrc--month-name month year))
+   hmrc-base-dir))
+
+(defun hmrc--month-files (year month)
+  "Return all week org files for YEAR and MONTH."
+  (let ((dir (hmrc--month-dir year month)))
+    (when (file-directory-p dir)
+      (directory-files dir t "^week[0-9]+\\.org$"))))
 
 ;; --------------------------------------------------
 ;; AGENDA FILE MANAGEMENT
 ;; --------------------------------------------------
-;; org-agenda only scans files listed in `org-agenda-files'. Since HMRC
-;; files live in a YYYY/MM.org tree, a plain directory entry won't pick
-;; them up (org-agenda-files doesn't recurse into subdirectories), so we
-;; register each file the first time we touch it.
 
 (defun hmrc--ensure-agenda-file (file)
   (unless (member file org-agenda-files)
     (add-to-list 'org-agenda-files file)))
 
 (defun hmrc-refresh-agenda-files ()
-  "Add all existing HMRC monthly org files to `org-agenda-files'.
-Run this once (or after creating a new month) so the agenda always
-sees every file, not just the ones touched this session."
+  "Add all existing HMRC weekly org files to `org-agenda-files'."
   (interactive)
   (let ((files (directory-files-recursively
                 (expand-file-name hmrc-base-dir) "\\.org\\'")))
@@ -42,12 +63,11 @@ sees every file, not just the ones touched this session."
     (message "Added %d HMRC file(s) to org-agenda-files" (length files))))
 
 ;; --------------------------------------------------
-;; NEW SHIFT ENTRY (blank — fill in later via Orgzly)
+;; NEW SHIFT ENTRY
 ;; --------------------------------------------------
 
 (defun hmrc-new-shift ()
   (interactive)
-
   (let* ((file (hmrc--file))
          (date (format-time-string "%Y-%m-%d %a")))
 
@@ -73,12 +93,11 @@ sees every file, not just the ones touched this session."
     (message "Shift created ✔ — fill in via Orgzly, then mark DONE")))
 
 ;; --------------------------------------------------
-;; LOG SHIFT (prompted, fully filled in immediately)
+;; LOG SHIFT
 ;; --------------------------------------------------
 
 (defun hmrc-log-shift ()
   (interactive)
-
   (let* ((file (hmrc--file))
          (date (format-time-string "%Y-%m-%d %a"))
 
@@ -121,17 +140,17 @@ sees every file, not just the ones touched this session."
     (message "Shift logged ✔")))
 
 ;; --------------------------------------------------
-;; EXPENSE ENTRY (non-vehicle: phone, equipment, etc.)
+;; EXPENSE ENTRY
 ;; --------------------------------------------------
 
 (defun hmrc-add-expense ()
   (interactive)
-
   (let* ((file (hmrc--file))
          (date (format-time-string "%Y-%m-%d %a"))
-         (category (upcase (replace-regexp-in-string
-                            "[^A-Za-z0-9]+" "_"
-                            (read-string "Expense category (e.g. Phone, Equipment): "))))
+         (category (upcase
+                    (replace-regexp-in-string
+                     "[^A-Za-z0-9]+" "_"
+                     (read-string "Expense category (e.g. Phone, Equipment): "))))
          (amount (read-number "Amount (£): ")))
 
     (hmrc--ensure-agenda-file file)
@@ -171,17 +190,23 @@ sees every file, not just the ones touched this session."
   (let ((total-hours 0.0))
     (goto-char (point-min))
     (while (re-search-forward "^\\*+ \\(?:TODO\\|DONE\\) Shift\\_>" nil t)
-      (let ((end-of-entry (save-excursion
-                            (if (re-search-forward "^\\* " nil t)
-                                (progn (beginning-of-line) (point))
-                              (point-max))))
-            start-str end-str)
+      (let ((end-of-entry
+             (save-excursion
+               (if (re-search-forward "^\\* " nil t)
+                   (progn
+                     (beginning-of-line)
+                     (point))
+                 (point-max))))
+            start-str
+            end-str)
+
         (save-excursion
           (when (re-search-forward ":START_TIME: *\\([0-2][0-9]:[0-5][0-9]\\)" end-of-entry t)
             (setq start-str (match-string 1)))
           (goto-char (match-beginning 0))
           (when (re-search-forward ":END_TIME: *\\([0-2][0-9]:[0-5][0-9]\\)" end-of-entry t)
             (setq end-str (match-string 1))))
+
         (when (and start-str end-str)
           (let* ((sh (string-to-number (substring start-str 0 2)))
                  (sm (string-to-number (substring start-str 3 5)))
@@ -231,74 +256,125 @@ sees every file, not just the ones touched this session."
           :total-hours total-hours
           :entries entries)))
 
+(defun hmrc--calc-files (files)
+  "Calculate totals across multiple org FILES."
+  (let ((gross-income 0.0)
+        (uber-income 0.0)
+        (deliveroo-income 0.0)
+        (miles 0)
+        (mileage-deduction 0.0)
+        (expenses 0.0)
+        (total-deductions 0.0)
+        (taxable-profit 0.0)
+        (estimated-tax 0.0)
+        (after-tax-income 0.0)
+        (total-hours 0.0)
+        (entries 0))
+
+    (dolist (file files)
+      (when (file-exists-p file)
+        (with-temp-buffer
+          (insert-file-contents file)
+          (let ((data (hmrc--calc)))
+            (setq gross-income (+ gross-income (plist-get data :gross-income)))
+            (setq uber-income (+ uber-income (plist-get data :uber-income)))
+            (setq deliveroo-income (+ deliveroo-income (plist-get data :deliveroo-income)))
+            (setq miles (+ miles (plist-get data :miles)))
+            (setq mileage-deduction (+ mileage-deduction (plist-get data :mileage-deduction)))
+            (setq expenses (+ expenses (plist-get data :expenses)))
+            (setq total-deductions (+ total-deductions (plist-get data :total-deductions)))
+            (setq taxable-profit (+ taxable-profit (plist-get data :taxable-profit)))
+            (setq estimated-tax (+ estimated-tax (plist-get data :estimated-tax)))
+            (setq after-tax-income (+ after-tax-income (plist-get data :after-tax-income)))
+            (setq total-hours (+ total-hours (plist-get data :total-hours)))
+            (setq entries (+ entries (plist-get data :entries)))))))
+
+    (list :gross-income gross-income
+          :uber-income uber-income
+          :deliveroo-income deliveroo-income
+          :miles miles
+          :mileage-deduction mileage-deduction
+          :expenses expenses
+          :total-deductions total-deductions
+          :taxable-profit taxable-profit
+          :estimated-tax estimated-tax
+          :after-tax-income after-tax-income
+          :total-hours total-hours
+          :entries entries)))
+
 ;; --------------------------------------------------
 ;; MONTHLY DASHBOARD
 ;; --------------------------------------------------
 
 (defun hmrc-dashboard ()
+  "Show dashboard for the current month, across all week files."
   (interactive)
-  (let ((file (hmrc--file)))
-    (if (not (file-exists-p file))
+  (let* ((year (string-to-number (format-time-string "%Y")))
+         (month (string-to-number (format-time-string "%m")))
+         (files (hmrc--month-files year month)))
+
+    (if (not files)
         (message "No data for this month")
-      (with-temp-buffer
-        (insert-file-contents file)
-        (let* ((data (hmrc--calc))
-               (gross (plist-get data :gross-income))
-               (hours (plist-get data :total-hours))
-               (after-tax (plist-get data :after-tax-income))
-               (uber (plist-get data :uber-income))
-               (roo (plist-get data :deliveroo-income))
-               (miles (plist-get data :miles))
-               (mileage-ded (plist-get data :mileage-deduction))
-               (expenses (plist-get data :expenses))
-               (deductions (plist-get data :total-deductions))
-               (profit (plist-get data :taxable-profit))
-               (tax (plist-get data :estimated-tax))
-               (entries (plist-get data :entries))
-               (avg-gross (if (> hours 0) (/ gross hours) 0))
-               (avg-net (if (> hours 0) (/ after-tax hours) 0)))
+      (let* ((data (hmrc--calc-files files))
+             (gross (plist-get data :gross-income))
+             (hours (plist-get data :total-hours))
+             (after-tax (plist-get data :after-tax-income))
+             (uber (plist-get data :uber-income))
+             (roo (plist-get data :deliveroo-income))
+             (miles (plist-get data :miles))
+             (mileage-ded (plist-get data :mileage-deduction))
+             (expenses (plist-get data :expenses))
+             (deductions (plist-get data :total-deductions))
+             (profit (plist-get data :taxable-profit))
+             (tax (plist-get data :estimated-tax))
+             (entries (plist-get data :entries))
+             (avg-gross (if (> hours 0) (/ gross hours) 0))
+             (avg-net (if (> hours 0) (/ after-tax hours) 0)))
 
-          (with-output-to-temp-buffer "*HMRC Dashboard*"
-            (with-current-buffer "*HMRC Dashboard*"
-              (cl-flet ((ins (str &optional face)
-                          (if face (insert (propertize str 'face face)) (insert str))))
+        (with-output-to-temp-buffer "*HMRC Dashboard*"
+          (with-current-buffer "*HMRC Dashboard*"
+            (cl-flet ((ins (str &optional face)
+                        (if face
+                            (insert (propertize str 'face face))
+                          (insert str))))
 
-                (ins "┌────────────────────────────────────────────────────────┐\n")
-                (ins "│ 📊               HMRC MONTHLY DASHBOARD               │\n")
-                (ins "└────────────────────────────────────────────────────────┘\n\n")
+              (ins "┌────────────────────────────────────────────────────────┐\n")
+              (ins "│ 📊               HMRC MONTHLY DASHBOARD               │\n")
+              (ins "└────────────────────────────────────────────────────────┘\n\n")
 
-                (ins (format "  Entries: %-15d Hours Worked: %.2f hrs\n" entries hours) 'font-lock-comment-face)
-                (ins "──────────────────────────────────────────────────────────\n\n")
+              (ins (format "  Entries: %-15d Hours Worked: %.2f hrs\n" entries hours) 'font-lock-comment-face)
+              (ins "──────────────────────────────────────────────────────────\n\n")
 
-                (ins " 💰 INCOME\n")
-                (ins (format "  ├─ 🚗 Uber Income:                     £%7.2f\n" uber))
-                (ins (format "  ├─ 🛵 Deliveroo Income:                £%7.2f\n" roo))
-                (ins (format "  └─ 🎉 Gross Income:                    £%7.2f\n" gross) 'font-lock-function-name-face)
-                (ins "\n")
+              (ins " 💰 INCOME\n")
+              (ins (format "  ├─ 🚗 Uber Income:                     £%7.2f\n" uber))
+              (ins (format "  ├─ 🛵 Deliveroo Income:                £%7.2f\n" roo))
+              (ins (format "  └─ 🎉 Gross Income:                    £%7.2f\n" gross) 'font-lock-function-name-face)
+              (ins "\n")
 
-                (ins " 📉 DEDUCTIONS & MILEAGE\n")
-                (ins (format "  ├─ 🛣️  Business Miles:                  %7d mi\n" miles))
-                (ins (format "  ├─ 💸 Mileage Allowance:               £%7.2f\n" mileage-ded))
-                (ins (format "  ├─ 🧰 Non-Vehicle Expenses:            £%7.2f\n" expenses))
-                (ins (format "  └─ ❌ Total Deductions:                £%7.2f\n" deductions) 'font-lock-warning-face)
-                (ins "\n")
+              (ins " 📉 DEDUCTIONS & MILEAGE\n")
+              (ins (format "  ├─ 🛣️  Business Miles:                  %7d mi\n" miles))
+              (ins (format "  ├─ 💸 Mileage Allowance:               £%7.2f\n" mileage-ded))
+              (ins (format "  ├─ 🧰 Non-Vehicle Expenses:            £%7.2f\n" expenses))
+              (ins (format "  └─ ❌ Total Deductions:                £%7.2f\n" deductions) 'font-lock-warning-face)
+              (ins "\n")
 
-                (ins " 💷 TAX & NET SUMMARY\n")
-                (ins (format "  ├─ 📈 Taxable Profit:                  £%7.2f\n" profit))
-                (ins (format "  ├─ 🧾 Est. Tax Bill (20%%):             £%7.2f\n" tax) 'font-lock-keyword-face)
-                (ins (format "  └─ 🔒 After-Tax Cash Net:              £%7.2f\n" after-tax) 'font-lock-type-face)
-                (ins "\n")
+              (ins " 💷 TAX & NET SUMMARY\n")
+              (ins (format "  ├─ 📈 Taxable Profit:                  £%7.2f\n" profit))
+              (ins (format "  ├─ 🧾 Est. Tax Bill (20%%):             £%7.2f\n" tax) 'font-lock-keyword-face)
+              (ins (format "  └─ 🔒 After-Tax Cash Net:              £%7.2f\n" after-tax) 'font-lock-type-face)
+              (ins "\n")
 
-                (ins " ──────────────────────────────────────────────────────────\n")
-                (ins (format "  🚀 Gross Hourly Efficiency:            £%.2f/hr\n" avg-gross) 'font-lock-constant-face)
-                (ins (format "  🛡️  Net Hourly Take-Home:              £%.2f/hr\n" avg-net) 'font-lock-string-face)
-                (ins " ──────────────────────────────────────────────────────────\n")))))))))
+              (ins " ──────────────────────────────────────────────────────────\n")
+              (ins (format "  🚀 Gross Hourly Efficiency:            £%.2f/hr\n" avg-gross) 'font-lock-constant-face)
+              (ins (format "  🛡️  Net Hourly Take-Home:              £%.2f/hr\n" avg-net) 'font-lock-string-face)
+              (ins " ──────────────────────────────────────────────────────────\n"))))))))
 
 ;; --------------------------------------------------
 ;; WEEKLY SNAPSHOT
 ;; --------------------------------------------------
 
 (defun hmrc-weekly ()
+  "Show snapshot for the current week file."
   (interactive)
   (let ((file (hmrc--file)))
     (if (not (file-exists-p file))
@@ -319,7 +395,9 @@ sees every file, not just the ones touched this session."
           (with-output-to-temp-buffer "*HMRC Weekly*"
             (with-current-buffer "*HMRC Weekly*"
               (cl-flet ((ins (str &optional face)
-                          (if face (insert (propertize str 'face face)) (insert str))))
+                          (if face
+                              (insert (propertize str 'face face))
+                            (insert str))))
 
                 (ins "┌────────────────────────────────────────────────────────┐\n")
                 (ins "│ 📅                 WEEKLY SNAPSHOT                    │\n")
@@ -340,86 +418,85 @@ sees every file, not just the ones touched this session."
                 (ins " ──────────────────────────────────────────────────────────\n")))))))))
 
 ;; --------------------------------------------------
-;; YEARLY REPORT (APRIL → APRIL)
+;; YEARLY REPORT APRIL → APRIL
 ;; --------------------------------------------------
 
 (defun hmrc-yearly-report ()
+  "Show yearly report across weekly files from April to April."
   (interactive)
   (let* ((current-year (string-to-number (format-time-string "%Y")))
-         (tax-start (if (>= (string-to-number (format-time-string "%m")) 4)
+         (current-month (string-to-number (format-time-string "%m")))
+         (tax-start (if (>= current-month 4)
                         current-year
                       (1- current-year)))
-         (gross-income 0.0)
-         (uber-income 0.0)
-         (deliveroo-income 0.0)
-         (miles 0)
-         (expenses 0.0)
-         (entries 0)
-         (hours 0.0)
+         (all-files nil)
          (months 0))
 
     (dotimes (i 12)
       (let* ((month (+ 4 i))
              (year (if (> month 12) (1+ tax-start) tax-start))
              (real-month (if (> month 12) (- month 12) month))
-             (file (concat hmrc-base-dir (format "%04d/%02d.org" year real-month))))
+             (files (hmrc--month-files year real-month)))
 
-        (when (file-exists-p file)
-          (with-temp-buffer
-            (insert-file-contents file)
-            (let ((m-data (hmrc--calc)))
-              (setq uber-income (+ uber-income (plist-get m-data :uber-income)))
-              (setq deliveroo-income (+ deliveroo-income (plist-get m-data :deliveroo-income)))
-              (setq gross-income (+ gross-income (plist-get m-data :gross-income)))
-              (setq miles (+ miles (plist-get m-data :miles)))
-              (setq expenses (+ expenses (plist-get m-data :expenses)))
-              (setq hours (+ hours (plist-get m-data :total-hours)))
-              (setq entries (+ entries (plist-get m-data :entries)))))
+        (when files
+          (setq all-files (append all-files files))
           (setq months (1+ months)))))
 
-    (let* ((mileage-deduction (* miles hmrc-mileage-rate))
-           (total-deductions (+ mileage-deduction expenses))
-           (taxable-profit (max 0 (- gross-income total-deductions)))
-           (estimated-tax (* taxable-profit hmrc-tax-rate))
-           (after-tax-income (- gross-income estimated-tax))
-           (avg-gross (if (> hours 0) (/ gross-income hours) 0))
-           (avg-net (if (> hours 0) (/ after-tax-income hours) 0)))
+    (if (not all-files)
+        (message "No yearly HMRC data found")
+      (let* ((data (hmrc--calc-files all-files))
+             (gross-income (plist-get data :gross-income))
+             (uber-income (plist-get data :uber-income))
+             (deliveroo-income (plist-get data :deliveroo-income))
+             (miles (plist-get data :miles))
+             (expenses (plist-get data :expenses))
+             (entries (plist-get data :entries))
+             (hours (plist-get data :total-hours))
+             (mileage-deduction (* miles hmrc-mileage-rate))
+             (total-deductions (+ mileage-deduction expenses))
+             (taxable-profit (max 0 (- gross-income total-deductions)))
+             (estimated-tax (* taxable-profit hmrc-tax-rate))
+             (after-tax-income (- gross-income estimated-tax))
+             (avg-gross (if (> hours 0) (/ gross-income hours) 0))
+             (avg-net (if (> hours 0) (/ after-tax-income hours) 0)))
 
-      (with-output-to-temp-buffer "*HMRC YEARLY REPORT*"
-        (with-current-buffer "*HMRC YEARLY REPORT*"
-          (cl-flet ((ins (str &optional face)
-                      (if face (insert (propertize str 'face face)) (insert str))))
+        (with-output-to-temp-buffer "*HMRC YEARLY REPORT*"
+          (with-current-buffer "*HMRC YEARLY REPORT*"
+            (cl-flet ((ins (str &optional face)
+                        (if face
+                            (insert (propertize str 'face face))
+                          (insert str))))
 
-            (ins "┌────────────────────────────────────────────────────────┐\n")
-            (ins "│ 📊            HMRC ANNUAL REPORT (APR → APR)           │\n")
-            (ins "└────────────────────────────────────────────────────────┘\n\n")
+              (ins "┌────────────────────────────────────────────────────────┐\n")
+              (ins "│ 📊            HMRC ANNUAL REPORT (APR → APR)           │\n")
+              (ins "└────────────────────────────────────────────────────────┘\n\n")
 
-            (ins (format "  Months Logged: %-9d Total Shifts: %d\n" months entries) 'font-lock-comment-face)
-            (ins (format "  Total Hours worked: %.2f hrs\n" hours) 'font-lock-comment-face)
-            (ins "──────────────────────────────────────────────────────────\n\n")
+              (ins (format "  Months Logged: %-9d Total Shifts: %d\n" months entries) 'font-lock-comment-face)
+              (ins (format "  Total Hours worked: %.2f hrs\n" hours) 'font-lock-comment-face)
+              (ins "──────────────────────────────────────────────────────────\n\n")
 
-            (ins " 💰 ANNUAL REVENUE\n")
-            (ins (format "  ├─ 🚗 Total Uber Income:               £%7.2f\n" uber-income))
-            (ins (format "  ├─ 🛵 Total Deliveroo Income:          £%7.2f\n" deliveroo-income))
-            (ins (format "  └─ 🎉 Total Gross Income:              £%7.2f\n" gross-income) 'font-lock-function-name-face)
-            (ins "\n")
+              (ins " 💰 ANNUAL REVENUE\n")
+              (ins (format "  ├─ 🚗 Total Uber Income:               £%7.2f\n" uber-income))
+              (ins (format "  ├─ 🛵 Total Deliveroo Income:          £%7.2f\n" deliveroo-income))
+              (ins (format "  └─ 🎉 Total Gross Income:              £%7.2f\n" gross-income) 'font-lock-function-name-face)
+              (ins "\n")
 
-            (ins " 📉 BUSINESS WRITE-OFFS\n")
-            (ins (format "  ├─ 🛣️  Total Miles Logged:              %7d mi\n" miles))
-            (ins (format "  ├─ 💸 Total Mileage Allowance:         £%7.2f\n" mileage-deduction))
-            (ins (format "  ├─ 🧰 Non-Vehicle Expenses:            £%7.2f\n" expenses))
-            (ins (format "  └─ ❌ Total Annual Deductions:         £%7.2f\n" total-deductions) 'font-lock-warning-face)
-            (ins "\n")
+              (ins " 📉 BUSINESS WRITE-OFFS\n")
+              (ins (format "  ├─ 🛣️  Total Miles Logged:              %7d mi\n" miles))
+              (ins (format "  ├─ 💸 Total Mileage Allowance:         £%7.2f\n" mileage-deduction))
+              (ins (format "  ├─ 🧰 Non-Vehicle Expenses:            £%7.2f\n" expenses))
+              (ins (format "  └─ ❌ Total Annual Deductions:         £%7.2f\n" total-deductions) 'font-lock-warning-face)
+              (ins "\n")
 
-            (ins " 💷 NET PROFILE\n")
-            (ins (format "  ├─ 📈 Net Taxable Profit:              £%7.2f\n" taxable-profit))
-            (ins (format "  ├─ 🧾 Est. Annual Tax (20%%):           £%7.2f\n" estimated-tax) 'font-lock-keyword-face)
-            (ins (format "  └─ 🔒 Estimated Net Take-Home:         £%7.2f\n" after-tax-income) 'font-lock-type-face)
-            (ins "\n")
+              (ins " 💷 NET PROFILE\n")
+              (ins (format "  ├─ 📈 Net Taxable Profit:              £%7.2f\n" taxable-profit))
+              (ins (format "  ├─ 🧾 Est. Annual Tax (20%%):           £%7.2f\n" estimated-tax) 'font-lock-keyword-face)
+              (ins (format "  └─ 🔒 Estimated Net Take-Home:         £%7.2f\n" after-tax-income) 'font-lock-type-face)
+              (ins "\n")
 
-            (ins " ──────────────────────────────────────────────────────────\n")
-            (ins (format "  🚀 Hourly Gross Efficiency:            £%.2f/hr\n" avg-gross) 'font-lock-constant-face)
-            (ins (format "  🛡️  Hourly Net Efficiency:              £%.2f/hr\n" avg-net) 'font-lock-string-face)
-            (ins " ──────────────────────────────────────────────────────────\n")))))))
+              (ins " ──────────────────────────────────────────────────────────\n")
+              (ins (format "  🚀 Hourly Gross Efficiency:            £%.2f/hr\n" avg-gross) 'font-lock-constant-face)
+              (ins (format "  🛡️  Hourly Net Efficiency:              £%.2f/hr\n" avg-net) 'font-lock-string-face)
+              (ins " ──────────────────────────────────────────────────────────\n"))))))))
 
 (provide 'hmrc-delivery)

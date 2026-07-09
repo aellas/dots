@@ -10,6 +10,6 @@
 (load! "modules/writing")
 (load! "modules/keybinds.el")
 (load! "modules/empv.el")
-
+(load! "modules/caldav")
 (setq initial-buffer-choice 'dashboard-open)
 (load "~/.config/doom/modules/delivery.el")

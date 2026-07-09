@@ -50,7 +50,7 @@ super + ctrl + r
 
 # Web Apps
 super + a
-      helium-browser-bin --app='http://serfor:3080/c/new' --force-scale-factor=1.5
+      helium --app='http://serfor:3080/c/new' --force-scale-factor=1.5
 
 # Scratchpads
 super + shift + b
@@ -59,7 +59,8 @@ super + shift + s
       tdrop -ma -w 60% -h 60% -x 20% -y 20% wezterm start --always-new-process --class tdrop -e wiremix
 super + shift + Return
     tdrop -ma -w 24% -h 24% -x 38% -y 38% wezterm start --always-new-process --class tdrop
-    # --------- SCREENSHOTS ---------
+
+# --------- SCREENSHOTS ---------
 
 # screenshot (entire screen)
 super + Home
