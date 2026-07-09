@@ -3,7 +3,6 @@
 {
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs;
     extraPackages = epkgs: [
       epkgs.treesit-grammars.with-all-grammars
     ];
@@ -40,9 +39,6 @@
     pkgs.python3Packages.python-lsp-server
     pkgs.python3Packages.grip
     pkgs.rustup
-    (pkgs.writeShellScriptBin "orgnote-cli" ''
-      exec ${pkgs.nodejs}/bin/npx orgnote-cli@dev "$@"
-    '')
     pkgs.google-fonts
     pkgs.vips
   ];

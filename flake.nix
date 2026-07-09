@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    helium = {
+      url = "github:AlvaroParker/helium-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
@@ -16,6 +21,7 @@
       self,
       nixpkgs,
       home-manager,
+      helium,
       ...
     }:
     let
@@ -29,6 +35,9 @@
       homeConfigurations.array = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
+        extraSpecialArgs = {
+          inherit helium;
+        };
         modules = [
           ./home.nix
         ];

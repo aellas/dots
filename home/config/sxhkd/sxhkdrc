@@ -13,16 +13,16 @@ super + n
     wezterm -e joshuto 
     
 super + shift + n
-      GDK_SCALE=2 GDK_DPI_SCALE=0.8 thunar      
+      pcmanfm-qt      
 
 super + e
       emacsclient -c -a "emacs"
       
 super + b
-    helium-browser-bin --force-device-scale-factor=1.5
+    helium --enable-features=UseOzonePlatform --ozone-platform=x11 --force-device-scale-factor=1.5
 
 super + shift + b
-    helium-browser-bin --incognito --force-device-scale-factor=1.5
+    helium --incognito --force-device-scale-factor=1.5
 
 super + space
 	rofi -show drun -modi drun -line-padding 4 -hide-scrollbar -show-icons
@@ -34,8 +34,7 @@ super + m
      feishin --ozone-platform=x11 
 
 super + d
-      vesktop 
-
+      discord 
 
 super + shift + p
       ./.config/bspwm/scripts/power.sh

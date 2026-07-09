@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  helium,
   ...
 }:
 
@@ -29,10 +30,18 @@
     wiremix
     bluetui
     bolt-launcher
+    helium.packages.${system}.default
   ];
 
   imports = [
     ./home/config.nix
     ./modules/default.nix
   ];
+
+  home.pointerCursor = {
+    enable = true;
+    name = "Bibata-Modern-Ice";
+    package = pkgs.bibata-cursors;
+    size = 32;
+  };
 }
