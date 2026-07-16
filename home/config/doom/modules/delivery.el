@@ -4,7 +4,7 @@
 ;; CONFIG
 ;; --------------------------------------------------
 
-(defvar hmrc-base-dir "~/org/"
+(defvar hmrc-base-dir "~/org/work/"
   "Base directory for HMRC logs.")
 
 (defconst hmrc-mileage-rate 0.45)
@@ -90,7 +90,7 @@
       ":BUSINESS_MILES:\n\n"))
 
     (save-buffer)
-    (message "Shift created ✔ — fill in via Orgzly, then mark DONE")))
+    (message "Shift created ✔ — fill in via Org-note, then mark DONE")))
 
 ;; --------------------------------------------------
 ;; LOG SHIFT

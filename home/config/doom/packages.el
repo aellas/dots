@@ -12,6 +12,7 @@
 (package! org-modern)
 (package! mixed-pitch)
 (package! dirvish)
-(package! empv)
 (package! ghostel)
 (package! org-caldav)
+(package! empv)
+(package! pdf-tools)

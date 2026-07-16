@@ -7,7 +7,9 @@
       epkgs.treesit-grammars.with-all-grammars
     ];
   };
-
+  home.sessionVariables = {
+    PKG_CONFIG_PATH = "$HOME/.nix-profile/lib/pkgconfig:$PKG_CONFIG_PATH";
+  };
   home.packages = [
     pkgs.git
     pkgs.ripgrep
@@ -41,5 +43,8 @@
     pkgs.rustup
     pkgs.google-fonts
     pkgs.vips
+    pkgs.libpng
+    pkgs.poppler
+    pkgs.zlib
   ];
 }

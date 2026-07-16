@@ -3,6 +3,11 @@
  :completion
  (company +auto)
  (vertico +icons)
+ vertico           ; includes consult
+ (embark +vertico)
+ 
+ :app
+ (media +mpd)
 
  :ui
  doom
@@ -17,6 +22,7 @@
  treemacs
  window-select
  workspaces
+
  
  :editor
  (evil +everywhere)
@@ -36,6 +42,7 @@
 
  :term
  ghostel
+ vterm
 
  :checkers
  (syntax +flymake)

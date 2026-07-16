@@ -31,6 +31,8 @@
     bluetui
     bolt-launcher
     helium.packages.${system}.default
+    bolt-launcher
+    localsend
   ];
 
   imports = [

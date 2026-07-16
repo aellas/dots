@@ -21,19 +21,7 @@
       :desc "quick-calc"
       "=" #'quick-calc)
 
-;; Empv
-(map! :leader
-      :desc "empv-seach"
-      "m s" #'empv-subsonic-search
-      "m a" #'empv-subsonic-artists
-      "m x" #'empv-subsonic-albums
-      "m c" #'empv-display-current
-      "m m" #'empv-toggle
-      "m n" #'empv-playlist-next
-      "m p" #'empv-playlist-prev
-      "m q" #'empv-exit)
-
 ;; Ghostel
 (map! :leader
       :desc "ghostel"
-      "o t" #'ghostel)
+      "o g" #'+ghostel/toggle)

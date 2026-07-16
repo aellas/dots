@@ -3,7 +3,7 @@
 super + Escape
 	pkill -USR1 -x sxhkd
 
-super + l
+super + shift + l
       xsecurelock
 
 super + Return
@@ -48,9 +48,17 @@ super + shift + x
 super + ctrl + r
       bspc wm -r
 
+super + j
+      bolt-launcher
+
+super + l
+      GDK_SCALE=2 GDK_DPI_SCALE=0.5  localsend_app
+
 # Web Apps
 super + a
-      helium --app='http://serfor:3080/c/new' --force-scale-factor=1.5
+      helium --app='http://serfor:3035' --force-scale-factor=1.5
+super + w
+      helium --app='https://web.whatsapp.com/' --force-scale-factor=1.5
 
 # Scratchpads
 super + shift + b
