@@ -15,4 +15,3 @@
 (package! ghostel)
 (package! org-caldav)
 (package! empv)
-(package! pdf-tools)

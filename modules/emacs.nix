@@ -5,6 +5,8 @@
     enable = true;
     extraPackages = epkgs: [
       epkgs.treesit-grammars.with-all-grammars
+      epkgs.pdf-tools
+
     ];
   };
   home.sessionVariables = {
@@ -43,8 +45,5 @@
     pkgs.rustup
     pkgs.google-fonts
     pkgs.vips
-    pkgs.libpng
-    pkgs.poppler
-    pkgs.zlib
   ];
 }

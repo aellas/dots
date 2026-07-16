@@ -54,7 +54,6 @@
  (lookup +docsets)
  lsp
  (magit +forge)
- pdf
  tree-sitter
 
  :lang

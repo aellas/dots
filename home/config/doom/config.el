@@ -13,3 +13,6 @@
 (setq initial-buffer-choice 'dashboard-open)
 (load "~/.config/doom/modules/delivery.el")
 (load! "modules/empv.el")
+(use-package! pdf-tools
+  :config
+  (pdf-tools-install :no-query))
