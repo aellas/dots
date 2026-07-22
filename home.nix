@@ -29,10 +29,9 @@
     brightnessctl
     wiremix
     bluetui
-    bolt-launcher
     helium.packages.${system}.default
-    bolt-launcher
     localsend
+    brave
   ];
 
   imports = [
