@@ -31,7 +31,8 @@
     bluetui
     helium.packages.${system}.default
     localsend
-    brave
+    superfile
+    signal-desktop
   ];
 
   imports = [
