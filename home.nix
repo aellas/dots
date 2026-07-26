@@ -33,6 +33,7 @@
     localsend
     superfile
     signal-desktop
+    kid3
   ];
 
   imports = [

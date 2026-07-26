@@ -43,11 +43,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784798704,
-        "narHash": "sha256-xqDi5rryHyxSBCzm3E2N+wwcIm/uq3+R8dXG81XptMo=",
+        "lastModified": 1784973025,
+        "narHash": "sha256-bjoQW38bmVYu2WG5kD2j/c0yUt9fby+MbGhwiZNLZZk=",
         "owner": "AlvaroParker",
         "repo": "helium-nix",
-        "rev": "25715a83933fb2689f9d102ce3ac08ddbea34005",
+        "rev": "0d0d22eecfe2d1855a61d570b87b1b8943a29c9b",
         "type": "github"
       },
       "original": {
@@ -63,11 +63,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784877405,
-        "narHash": "sha256-W649GocILahx7Vb/JMx834217+OLKBrq014VmC/8+NM=",
+        "lastModified": 1784913159,
+        "narHash": "sha256-JWq0BfjO4ktpH5USfQNQzdvHpIDT8fSKD5K7LvdMRFs=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "32de400b6ac9f43042bca706f4a64f6ad08117e8",
+        "rev": "079a3b5d1aa6a719920a51316253b7d6dd22738d",
         "type": "github"
       },
       "original": {

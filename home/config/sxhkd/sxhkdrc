@@ -19,7 +19,7 @@ super + e
       emacsclient -c -a "emacs"
       
 super + b
-    helium --enable-features=UseOzonePlatform --ozone-platform=x11 --force-device-scale-factor=1.5
+    helium --force-device-scale-factor=1.5
 
 super + shift + b
     helium --incognito --force-device-scale-factor=1.5
@@ -48,11 +48,8 @@ super + shift + x
 super + ctrl + r
       bspc wm -r
 
-super + j
-      bolt-launcher
-
 super + l
-      GDK_SCALE=2 GDK_DPI_SCALE=0.5  localsend_app
+      localsend_app
 
 # Web Apps
 super + a
