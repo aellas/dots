@@ -1,0 +1,45 @@
+# User configurations (managed by Home Manager)
+home/
+
+# Build artifacts
+result/
+result-*
+*.drv
+.nix-cache
+
+# Logs
+*.log
+journalctl
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.emacs.desktop-integration/
+.doom.d/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Screenshots & media
+screenshots/
+wallpapers/
+
+# Backup files
+*.bak
+*.backup
+*.swp
+*.swo
+
+# Nix specific
+nix/
+.nix-profile/
+.nix-defer
+.nix-transport
+.nix-commands
+.nix-repl
+nix-store/
+```
