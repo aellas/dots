@@ -29,6 +29,7 @@
     signal-desktop
     herdr
     opencode
+    yazi
   ];
 
   imports = [

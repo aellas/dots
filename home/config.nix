@@ -14,6 +14,7 @@ let
     rofi = "rofi";
     dunst = "dunst";
     picom = "picom";
+    yazi = "yazi";
   };
 in
 
