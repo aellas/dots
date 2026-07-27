@@ -17,22 +17,16 @@
   targets.genericLinux.enable = true;
   programs.git.enable = true;
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "pnpm-10.29.2"
-  ];
-
   home.packages = with pkgs; [
     feishin
     joshuto
     xcolor
-    tdrop
     brightnessctl
     wiremix
     bluetui
-    helium.packages.${system}.default
+    helium.packages.${stdenv.hostPlatform.system}.default
     localsend
     signal-desktop
-    kid3
     herdr
     opencode
   ];
