@@ -9,6 +9,7 @@
     #./zsh.nix
     ./emacs.nix
     ./wezterm.nix
-    ./st.nix
+
+    ./cli/yazi.nix
   ];
 }
