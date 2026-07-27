@@ -31,9 +31,10 @@
     bluetui
     helium.packages.${system}.default
     localsend
-    superfile
     signal-desktop
     kid3
+    herdr
+    opencode
   ];
 
   imports = [

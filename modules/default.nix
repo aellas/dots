@@ -9,6 +9,5 @@
     #./zsh.nix
     ./emacs.nix
     ./wezterm.nix
-    ./dmenu.nix
   ];
 }
