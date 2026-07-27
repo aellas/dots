@@ -13,3 +13,4 @@
 (setq initial-buffer-choice 'dashboard-open)
 (load "~/.config/doom/modules/delivery.el")
 (load! "modules/empv.el")
+

@@ -36,5 +36,4 @@ bspc config focused_border_color "#bfc9f4"
 bspc config normal_border_color "#1a1b26"
 
 bspc config focus_follows_pointer true
-bspc rule -a "tdrop" state=floating
 xsetroot -cursor_name left_ptr &

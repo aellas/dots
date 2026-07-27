@@ -8,16 +8,12 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "bakkeby";
       repo = "st-flexipatch";
-
-      # Pin this to a full commit once you are happy with the build.
-      rev = "04ce0d6";
-
-      # The first build prints the correct hash.
-      hash = lib.fakeHash;
+      rev = "master";
+      hash = "sha256-bYhitRKHlrHcWZ2qDIajH98QHGXbe5ti+fZf9D3AFxU=";
     };
-
     nativeBuildInputs = with pkgs; [
       pkg-config
+      python3
     ];
 
     buildInputs = with pkgs; [
@@ -92,7 +88,7 @@ let
       path = Path("config.h")
       text = path.read_text()
 
-      tokyo_night = r'''
+      tokyo_night = r"""
       static const char *colorname[] = {
           /*  0: black   */ "#15161e",
           /*  1: red     */ "#f7768e",
@@ -118,7 +114,7 @@ let
           "#1a1b26",
           "#7aa2f7",
       };
-      '''
+      """
 
       pattern = re.compile(
           r'static const char \*colorname\[\]\s*=\s*\{.*?\n\};',
@@ -170,19 +166,8 @@ let
   };
 in
 {
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     st-custom
-
-    # Font used by the configuration.
     nerd-fonts.iosevka-term
   ];
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.iosevka-term
-  ];
-
-  # Helps applications identify st as a terminal.
-  environment.sessionVariables = {
-    TERMINAL = "st";
-  };
 }
