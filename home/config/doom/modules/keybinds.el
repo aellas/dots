@@ -16,6 +16,11 @@
       :desc "calendar"
       "@" #'calendar)
 
+;; New shift
+(map! :leader
+      :desc "new shift"
+      "o s n" #'new-delivery-shift-with-confirmation)
+
 ;; Calculator
 (map! :leader
       :desc "quick-calc"

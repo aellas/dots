@@ -9,6 +9,8 @@
 
 (defconst hmrc-mileage-rate 0.45)
 (defconst hmrc-tax-rate 0.20)
+(defconst hmrc-shift-confirmation t)
+(defconst hmrc-shift-extra-fields "")
 
 ;; --------------------------------------------------
 ;; FILE LOCATION (/work/YYYY/month/weekN.org)
@@ -71,26 +73,37 @@
   (let* ((file (hmrc--file))
          (date (format-time-string "%Y-%m-%d %a")))
 
-    (hmrc--ensure-agenda-file file)
-    (find-file file)
-    (goto-char (point-max))
+  (if hmrc-shift-confirmation
+      (if (y-n-p "Create shift for %s?" date)
+          (hmrc-new-shift-impl file date))
+    (hmrc-new-shift-impl file date))
 
-    (insert
-     (concat
-      "* TODO Shift\n"
-      "SCHEDULED: <" date ">\n"
-      ":START_TIME:\n"
-      ":END_TIME:\n"
-      ":UBER:\n"
-      ":UBER_TIPS:\n"
-      ":DELIVEROO:\n"
-      ":DELIVEROO_TIPS:\n"
-      ":START_MILES:\n"
-      ":END_MILES:\n"
-      ":BUSINESS_MILES:\n\n"))
+  (message "Shift created ✔ — fill in via Org-note, then mark DONE"))
 
-    (save-buffer)
-    (message "Shift created ✔ — fill in via Org-note, then mark DONE")))
+(defun new-delivery-shift-impl (file date)
+  (hmrc--ensure-agenda-file file)
+  (find-file file)
+  (goto-char (point-max))
+
+  (insert
+   (concat
+    "* TODO Shift\n"
+    "SCHEDULED: <" date ">\n"
+    ":START_TIME:\n"
+    ":END_TIME:\n"
+    ":START_MILES:\n"
+    ":END_MILES:\n"
+    ":BUSINESS_MILES:\n\n"))
+  (save-buffer))
+
+(defun hmrc-new-shift-with-confirmation ()
+  "Create a new shift with confirmation prompt."
+  (interactive)
+  (let* ((file (hmrc--file))
+         (date (format-time-string "%Y-%m-%d %a")))
+    (if (y-n-p "Create shift for %s?" date)
+        (hmrc-new-shift-impl file date)
+      (message "Shift creation cancelled"))))
 
 ;; --------------------------------------------------
 ;; LOG SHIFT
@@ -104,37 +117,26 @@
          (start-time (read-string "Start time (e.g. 08:30): "))
          (end-time (read-string "End time (e.g. 17:30): "))
 
-         (uber (read-number "Uber total (£): " 0))
-         (uber-tips (read-number "Uber tips (£, already included in Uber total above — enter for reference only): " 0))
-
-         (deliveroo (read-number "Deliveroo order fees (£): " 0))
-         (deliveroo-tips (read-number "Deliveroo tips (£, reported separately — will be added to income): " 0))
-
-         (start-miles (read-number "Start odometer (miles): " 0))
-         (end-miles (read-number "End odometer (miles): " 0))
-         (default-business-miles (max 0 (- end-miles start-miles)))
-         (business-miles (read-number "Business miles: " default-business-miles)))
+  (start-miles (read-number "Start odometer (miles): " 0))
+          (end-miles (read-number "End odometer (miles): " 0))
+          (default-business-miles (max 0 (- end-miles start-miles)))
+          (business-miles (read-number "Business miles: " default-business-miles)))
 
     (hmrc--ensure-agenda-file file)
     (find-file file)
     (goto-char (point-max))
 
     (insert
-     (format
-      (concat
-       "* DONE Shift\n"
-       "SCHEDULED: <%s>\n"
-       ":START_TIME: %s\n"
-       ":END_TIME: %s\n"
-       ":UBER: %.2f\n"
-       ":UBER_TIPS: %.2f\n"
-       ":DELIVEROO: %.2f\n"
-       ":DELIVEROO_TIPS: %.2f\n"
-       ":START_MILES: %d\n"
-       ":END_MILES: %d\n"
-       ":BUSINESS_MILES: %d\n\n")
-      date start-time end-time uber uber-tips deliveroo deliveroo-tips
-      start-miles end-miles business-miles))
+  (format
+   (concat
+    "* DONE Shift\n"
+    "SCHEDULED: <%s>\n"
+    ":START_TIME: %s\n"
+    ":END_TIME: %s\n"
+    ":START_MILES: %d\n"
+    ":END_MILES: %d\n"
+    ":BUSINESS_MILES: %d\n\n")
+   date start-time end-time start-miles end-miles business-miles))
 
     (save-buffer)
     (message "Shift logged ✔")))
@@ -225,11 +227,7 @@
 ;; --------------------------------------------------
 
 (defun hmrc--calc ()
-  (let* ((uber-income (hmrc--sum ":UBER: *\\([0-9.]+\\)"))
-         (deliveroo-fees (hmrc--sum ":DELIVEROO: *\\([0-9.]+\\)"))
-         (deliveroo-tips (hmrc--sum ":DELIVEROO_TIPS: *\\([0-9.]+\\)"))
-         (deliveroo-income (+ deliveroo-fees deliveroo-tips))
-         (gross-income (+ uber-income deliveroo-income))
+  (let* ((gross-income (hmrc--sum ":GROSS_INCOME: *\\([0-9.]+\\)"))
 
          (miles (hmrc--sum ":BUSINESS_MILES: *\\([0-9]+\\)"))
          (mileage-deduction (* miles hmrc-mileage-rate))
@@ -243,24 +241,20 @@
          (total-hours (hmrc--parse-hours))
          (entries (hmrc--count)))
 
-    (list :gross-income gross-income
-          :uber-income uber-income
-          :deliveroo-income deliveroo-income
-          :miles miles
-          :mileage-deduction mileage-deduction
-          :expenses expenses
-          :total-deductions total-deductions
-          :taxable-profit taxable-profit
-          :estimated-tax estimated-tax
-          :after-tax-income after-tax-income
-          :total-hours total-hours
-          :entries entries)))
+     (list :gross-income gross-income
+           :miles miles
+           :mileage-deduction mileage-deduction
+           :expenses expenses
+           :total-deductions total-deductions
+           :taxable-profit taxable-profit
+           :estimated-tax estimated-tax
+           :after-tax-income after-tax-income
+           :total-hours total-hours
+           :entries entries)))
 
 (defun hmrc--calc-files (files)
   "Calculate totals across multiple org FILES."
   (let ((gross-income 0.0)
-        (uber-income 0.0)
-        (deliveroo-income 0.0)
         (miles 0)
         (mileage-deduction 0.0)
         (expenses 0.0)
@@ -277,8 +271,6 @@
           (insert-file-contents file)
           (let ((data (hmrc--calc)))
             (setq gross-income (+ gross-income (plist-get data :gross-income)))
-            (setq uber-income (+ uber-income (plist-get data :uber-income)))
-            (setq deliveroo-income (+ deliveroo-income (plist-get data :deliveroo-income)))
             (setq miles (+ miles (plist-get data :miles)))
             (setq mileage-deduction (+ mileage-deduction (plist-get data :mileage-deduction)))
             (setq expenses (+ expenses (plist-get data :expenses)))
@@ -290,8 +282,6 @@
             (setq entries (+ entries (plist-get data :entries)))))))
 
     (list :gross-income gross-income
-          :uber-income uber-income
-          :deliveroo-income deliveroo-income
           :miles miles
           :mileage-deduction mileage-deduction
           :expenses expenses
@@ -315,21 +305,19 @@
 
     (if (not files)
         (message "No data for this month")
-      (let* ((data (hmrc--calc-files files))
-             (gross (plist-get data :gross-income))
-             (hours (plist-get data :total-hours))
-             (after-tax (plist-get data :after-tax-income))
-             (uber (plist-get data :uber-income))
-             (roo (plist-get data :deliveroo-income))
-             (miles (plist-get data :miles))
-             (mileage-ded (plist-get data :mileage-deduction))
-             (expenses (plist-get data :expenses))
-             (deductions (plist-get data :total-deductions))
-             (profit (plist-get data :taxable-profit))
-             (tax (plist-get data :estimated-tax))
-             (entries (plist-get data :entries))
-             (avg-gross (if (> hours 0) (/ gross hours) 0))
-             (avg-net (if (> hours 0) (/ after-tax hours) 0)))
+     (let* ((data (hmrc--calc-files files))
+            (gross (plist-get data :gross-income))
+            (hours (plist-get data :total-hours))
+            (after-tax (plist-get data :after-tax-income))
+            (miles (plist-get data :miles))
+            (mileage-ded (plist-get data :mileage-deduction))
+            (expenses (plist-get data :expenses))
+            (deductions (plist-get data :total-deductions))
+            (profit (plist-get data :taxable-profit))
+            (tax (plist-get data :estimated-tax))
+            (entries (plist-get data :entries))
+            (avg-gross (if (> hours 0) (/ gross hours) 0))
+            (avg-net (if (> hours 0) (/ after-tax hours) 0)))
 
         (with-output-to-temp-buffer "*HMRC Dashboard*"
           (with-current-buffer "*HMRC Dashboard*"
@@ -345,11 +333,9 @@
               (ins (format "  Entries: %-15d Hours Worked: %.2f hrs\n" entries hours) 'font-lock-comment-face)
               (ins "──────────────────────────────────────────────────────────\n\n")
 
-              (ins " 💰 INCOME\n")
-              (ins (format "  ├─ 🚗 Uber Income:                     £%7.2f\n" uber))
-              (ins (format "  ├─ 🛵 Deliveroo Income:                £%7.2f\n" roo))
-              (ins (format "  └─ 🎉 Gross Income:                    £%7.2f\n" gross) 'font-lock-function-name-face)
-              (ins "\n")
+               (ins " 💰 INCOME\n")
+               (ins (format "  └─ 🎉 Gross Income:                    £%7.2f\n" gross) 'font-lock-function-name-face)
+               (ins "\n")
 
               (ins " 📉 DEDUCTIONS & MILEAGE\n")
               (ins (format "  ├─ 🛣️  Business Miles:                  %7d mi\n" miles))
@@ -446,8 +432,6 @@
         (message "No yearly HMRC data found")
       (let* ((data (hmrc--calc-files all-files))
              (gross-income (plist-get data :gross-income))
-             (uber-income (plist-get data :uber-income))
-             (deliveroo-income (plist-get data :deliveroo-income))
              (miles (plist-get data :miles))
              (expenses (plist-get data :expenses))
              (entries (plist-get data :entries))
@@ -460,26 +444,24 @@
              (avg-gross (if (> hours 0) (/ gross-income hours) 0))
              (avg-net (if (> hours 0) (/ after-tax-income hours) 0)))
 
-        (with-output-to-temp-buffer "*HMRC YEARLY REPORT*"
-          (with-current-buffer "*HMRC YEARLY REPORT*"
-            (cl-flet ((ins (str &optional face)
-                        (if face
-                            (insert (propertize str 'face face))
-                          (insert str))))
+         (with-output-to-temp-buffer "*HMRC YEARLY REPORT*"
+           (with-current-buffer "*HMRC YEARLY REPORT*"
+             (cl-flet ((ins (str &optional face)
+                         (if face
+                             (insert (propertize str 'face face))
+                           (insert str))))
 
-              (ins "┌────────────────────────────────────────────────────────┐\n")
-              (ins "│ 📊            HMRC ANNUAL REPORT (APR → APR)           │\n")
-              (ins "└────────────────────────────────────────────────────────┘\n\n")
+               (ins "┌────────────────────────────────────────────────────────┐\n")
+               (ins "│ 📊            HMRC ANNUAL REPORT (APR → APR)           │\n")
+               (ins "└────────────────────────────────────────────────────────┘\n\n")
 
-              (ins (format "  Months Logged: %-9d Total Shifts: %d\n" months entries) 'font-lock-comment-face)
-              (ins (format "  Total Hours worked: %.2f hrs\n" hours) 'font-lock-comment-face)
-              (ins "──────────────────────────────────────────────────────────\n\n")
+               (ins (format "  Months Logged: %-9d Total Shifts: %d\n" months entries) 'font-lock-comment-face)
+               (ins (format "  Total Hours worked: %.2f hrs\n" hours) 'font-lock-comment-face)
+               (ins "──────────────────────────────────────────────────────────\n\n")
 
-              (ins " 💰 ANNUAL REVENUE\n")
-              (ins (format "  ├─ 🚗 Total Uber Income:               £%7.2f\n" uber-income))
-              (ins (format "  ├─ 🛵 Total Deliveroo Income:          £%7.2f\n" deliveroo-income))
-              (ins (format "  └─ 🎉 Total Gross Income:              £%7.2f\n" gross-income) 'font-lock-function-name-face)
-              (ins "\n")
+               (ins " 💰 ANNUAL REVENUE\n")
+               (ins (format "  └─ 🎉 Total Gross Income:              £%7.2f\n" gross-income) 'font-lock-function-name-face)
+               (ins "\n")
 
               (ins " 📉 BUSINESS WRITE-OFFS\n")
               (ins (format "  ├─ 🛣️  Total Miles Logged:              %7d mi\n" miles))

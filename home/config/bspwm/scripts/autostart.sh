@@ -13,5 +13,6 @@ run nitrogen --restore
 run dunst
 run brightnessctl set 60%
 run lxpolkit
-run xss-lock -- xsecurelock &
+run xss-lock -- xsecurelock
 emacs --daemon
+polybar
