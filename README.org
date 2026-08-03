@@ -23,14 +23,4 @@
 - *File Manager*: [[https://docs.xfce.org/xfce/thunar/start][Thunar]]
 - *Music Player*: [[https://github.com/jeffvli/feishin][Feishin]]
 
-* Screenshots
-*Desktop*
-[[file:screenshots/2.png]]
-*Doom Emacs*
-[[file:screenshots/1.png]]
-*Org Mode*
-[[file:screenshots/3.png]]
-*Feishin*
-[[file:screenshots/4.png]]
-
 
