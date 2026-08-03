@@ -30,7 +30,6 @@
     discord
     pcmanfm-qt
     opencode
-    programs.talib
   ];
 
   imports = [
