@@ -26,11 +26,10 @@
     helium.packages.${stdenv.hostPlatform.system}.default
     localsend
     signal-desktop
-    herdr
-    opencode
     lxappearance
     discord
     pcmanfm-qt
+    opencode
   ];
 
   imports = [

@@ -1,6 +1,5 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
-config.front_end = "Software"
 
 config.initial_cols = 120
 config.initial_rows = 28
