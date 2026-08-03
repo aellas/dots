@@ -7,13 +7,12 @@ super + shift + l
       xsecurelock
 
 super + Return
-      wezterm
+    emacsclient -c -e '(ghostel)'
       
 super + shift + Return
-      urxvt
-      
+    wezterm 
 super + n
-    wezterm -e joshuto 
+    emacsclient -c -e '(dirvish)'
     
 super + shift + n
       pcmanfm-qt      

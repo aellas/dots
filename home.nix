@@ -19,7 +19,6 @@
 
   home.packages = with pkgs; [
     feishin
-    joshuto
     xcolor
     brightnessctl
     wiremix
@@ -29,6 +28,9 @@
     signal-desktop
     herdr
     opencode
+    lxappearance
+    discord
+    pcmanfm-qt
   ];
 
   imports = [

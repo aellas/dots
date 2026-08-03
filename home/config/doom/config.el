@@ -9,8 +9,5 @@
 (load! "modules/git")
 (load! "modules/writing")
 (load! "modules/keybinds.el")
-(load! "modules/caldav.el")
 (setq initial-buffer-choice 'dashboard-open)
-(load "~/.config/doom/modules/delivery.el")
-(load! "modules/empv.el")
 

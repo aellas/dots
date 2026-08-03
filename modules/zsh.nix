@@ -71,8 +71,8 @@ in
       cd = "z";
       dots = "z ~/nixdots";
       cat = "bat";
-      home = "cd && cd nux && nix flake update && home-manager switch --flake '.#array'";
-      update = "sudo dnf upgrade --refresh";
+      home = "cd && cd nux && nix flake update && home-manager switch --flake .";
+      update = "sudo dnf upgrade --refresh && cd && cd nux && nix flake update && home-manager switch --flake .";
       ls = "eza -A --color=always --group-directories-first --icons";
       ll = "eza -Ahl --color=always --group-directories-first --icons";
       lt = "eza -aT --color=always --group-directories-first";
