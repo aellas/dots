@@ -9,7 +9,5 @@
     ./zsh.nix
     ./emacs.nix
     ./wezterm.nix
-
-    ./joshuto.nix
   ];
 }
