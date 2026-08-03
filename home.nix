@@ -36,7 +36,6 @@
   imports = [
     ./home/config.nix
     ./modules/default.nix
-    ./modules/input.nix
   ];
 
   home.pointerCursor = {

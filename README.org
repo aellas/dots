@@ -9,7 +9,6 @@
 * Details
 *** System & Core
 - *OS:* [[https://fedoraproject.org/][Fedora]]
-- *Kernel:* [[https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/][Cachy]]
 - *WM:* [[https://github.com/baskerville/bspwm][BSPWM]]
 - *X:* [[https://github.com/x11libre/xserver][XLibre]]
 - *Bar:* [[https://github.com/polybar/polybar][Polybar]]
@@ -19,8 +18,5 @@
 - *Terminal:* [[https://wezterm.org/][WezTerm]]
 - *Editor:* [[https://github.com/doomemacs/core][Doom Emacs]]
 - *Launcher*: [[https://github.com/davatorium/rofi][Rofi]]
-- *TUI File Manager*: [[https://github.com/kamiyaa/joshuto][Joshuto]]
-- *File Manager*: [[https://docs.xfce.org/xfce/thunar/start][Thunar]]
-- *Music Player*: [[https://github.com/jeffvli/feishin][Feishin]]
 
 
