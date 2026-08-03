@@ -21,6 +21,13 @@
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = 0;
     };
+
+    cursorTheme = {
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
+      size = 32;
+    };
+
   };
 
   qt = {

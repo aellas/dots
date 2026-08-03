@@ -15,4 +15,4 @@ run brightnessctl set 60%
 run lxpolkit
 run xss-lock -- xsecurelock
 emacs --daemon
-polybar
+run udiskie
