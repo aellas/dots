@@ -17,5 +17,9 @@
     ./cli/bluetui.nix
     ./cli/wiremix.nix
     ./cli/opencode.nix
+    ./apps/discord.nix
+    ./apps/localsend.nix
+    ./apps/signal.nix
+    ./misc/xclip.nix
   ];
 }

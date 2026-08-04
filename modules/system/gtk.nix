@@ -48,5 +48,6 @@
     whitesur-gtk-theme
     gnome-themes-extra
     papirus-icon-theme
+    lxappearance
   ];
 }

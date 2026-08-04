@@ -17,12 +17,6 @@
   targets.genericLinux.enable = true;
 
   home.packages = with pkgs; [
-    xcolor
-    brightnessctl
-    localsend
-    signal-desktop
-    lxappearance
-    discord
   ];
 
   imports = [
