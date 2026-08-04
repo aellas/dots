@@ -4,8 +4,7 @@
 
 {
   imports = [
-    ./emacs.nix
-
+    ./editors/emacs.nix
     ./browsers/floorp.nix
     ./browsers/helium.nix
     ./terminals/wezterm.nix
@@ -13,7 +12,6 @@
     ./system/fonts.nix
     ./system/gtk.nix
     ./system/git.nix
-    ./file-managers/dolphin.nix
-    ./file-manager/krusader.nix
+    ./file-managers/pcmanfm-qt.nix
   ];
 }

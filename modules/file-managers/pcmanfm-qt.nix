@@ -7,7 +7,7 @@
 
 {
   home.packages = with pkgs; [
-    kdePackages.dolphin
+    pcmanfm-qt
   ];
 
 }
