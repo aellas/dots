@@ -8,5 +8,5 @@
 {
   programs.opencode = {
     enable = true;
-  }
+  };
 }

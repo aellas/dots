@@ -6,7 +6,8 @@
 }:
 
 {
-  imports = [
-    ./dolphin.nix
+  home.packages = with pkgs; [
+    krusader
   ];
+
 }
