@@ -19,13 +19,10 @@
   home.packages = with pkgs; [
     xcolor
     brightnessctl
-    wiremix
-    bluetui
     localsend
     signal-desktop
     lxappearance
     discord
-    opencode
   ];
 
   imports = [

@@ -14,5 +14,8 @@
     ./system/git.nix
     ./fm/pcmanfm-qt.nix
     ./music/feishin.nix
+    ./cli/bluetui.nix
+    ./cli/wiremix.nix
+    ./cli/opencode.nix
   ];
 }
