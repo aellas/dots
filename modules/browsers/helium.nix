@@ -1,12 +1,12 @@
 {
   pkgs,
-  helium,
+  inputs,
   ...
 }:
 
 {
   home.packages = with pkgs; [
-    helium.packages.${stdenv.hostPlatform.system}.default
+    inputs.helium.packages.${stdenv.hostPlatform.system}.default
   ];
 
 }
