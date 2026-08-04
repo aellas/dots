@@ -1,23 +1,18 @@
 {
   description = "My Fedora Home Manager config";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     helium = {
       url = "github:AlvaroParker/helium-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
-
   outputs =
-    {
+    inputs@{
       self,
       nixpkgs,
       home-manager,
@@ -34,9 +29,8 @@
     {
       homeConfigurations.array = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-
         extraSpecialArgs = {
-          inherit helium;
+          inherit inputs;
         };
         modules = [
           ./home.nix

@@ -6,13 +6,14 @@ run() {
 	pgrep -x "$1" >/dev/null || "$@" &
 }
 
-xrandr --output eDP-1 --scale 1x1 --mode 2560x1600 --rate 60.00
+run xrandr --output eDP-1 --scale 1x1 --mode 2560x1600 --rate 60.00
 run sxhkd
 run picom
-run nitrogen --restore
+run feh --scale ~/nux/wallpapers/5.jpg
 run dunst
 run brightnessctl set 60%
 run lxpolkit
 run xss-lock -- xsecurelock
-emacs --daemon
+run polybar
+run emacs --daemon
 run udiskie
