@@ -14,5 +14,6 @@
     ./system/gtk.nix
     ./system/git.nix
     ./file-managers/dolphin.nix
+    ./file-manager/krusader.nix
   ];
 }
