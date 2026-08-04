@@ -30,7 +30,7 @@
   ];
 
   imports = [
-    ./home/config.nix
+    ./home/symlink.nix
     ./modules/default.nix
   ];
 
