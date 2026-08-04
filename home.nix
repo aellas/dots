@@ -17,7 +17,6 @@
   targets.genericLinux.enable = true;
 
   home.packages = with pkgs; [
-    feishin
     xcolor
     brightnessctl
     wiremix

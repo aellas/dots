@@ -13,5 +13,6 @@
     ./system/gtk.nix
     ./system/git.nix
     ./fm/pcmanfm-qt.nix
+    ./music/feishin.nix
   ];
 }
