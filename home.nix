@@ -26,7 +26,6 @@
     signal-desktop
     lxappearance
     discord
-    pcmanfm-qt
     opencode
   ];
 
