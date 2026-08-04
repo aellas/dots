@@ -12,5 +12,6 @@
     ./gtk.nix
 
     ./browsers/floorp.nix
+    ./browsers/helium.nix
   ];
 }

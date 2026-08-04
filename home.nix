@@ -22,7 +22,6 @@
     brightnessctl
     wiremix
     bluetui
-    helium.packages.${stdenv.hostPlatform.system}.default
     localsend
     signal-desktop
     lxappearance
