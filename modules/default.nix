@@ -8,10 +8,10 @@
     ./git.nix
     ./zsh.nix
     ./emacs.nix
-    ./wezterm.nix
     ./gtk.nix
 
     ./browsers/floorp.nix
     ./browsers/helium.nix
+    ./terminals/wezterm.nix
   ];
 }
