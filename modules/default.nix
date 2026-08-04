@@ -12,6 +12,6 @@
     ./system/fonts.nix
     ./system/gtk.nix
     ./system/git.nix
-    ./file-managers/pcmanfm-qt.nix
+    ./fm/pcmanfm-qt.nix
   ];
 }
