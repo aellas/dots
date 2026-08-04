@@ -20,7 +20,7 @@
   ];
 
   imports = [
-    ./home/symlink.nix
+    ./home/default.nix
     ./modules/default.nix
   ];
 
