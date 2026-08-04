@@ -13,5 +13,6 @@
     ./system/fonts.nix
     ./system/gtk.nix
     ./system/git.nix
+    ./file-managers/dolphin.nix
   ];
 }
