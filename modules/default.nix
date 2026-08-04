@@ -4,22 +4,15 @@
 
 {
   imports = [
-    ./editors/emacs.nix
-    ./browsers/floorp.nix
-    ./browsers/helium.nix
-    ./terminals/wezterm.nix
-    ./shells/zsh.nix
-    ./system/fonts.nix
-    ./system/gtk.nix
-    ./system/git.nix
-    ./fm/pcmanfm-qt.nix
-    ./music/feishin.nix
-    ./cli/bluetui.nix
-    ./cli/wiremix.nix
-    ./cli/opencode.nix
-    ./apps/discord.nix
-    ./apps/localsend.nix
-    ./apps/signal.nix
-    ./misc/xclip.nix
+    ./apps/default.nix
+    ./browsers/default.nix
+    ./cli/default.nix
+    ./editors/default.nix
+    ./fm/default.nix
+    ./misc/default.nix
+    ./music/default.nix
+    ./shells/default.nix
+    ./system/default.nix
+    ./terminals/default.nix
   ];
 }
