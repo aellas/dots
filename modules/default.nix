@@ -10,5 +10,7 @@
     ./emacs.nix
     ./wezterm.nix
     ./gtk.nix
+
+    ./browsers/floorp.nix
   ];
 }

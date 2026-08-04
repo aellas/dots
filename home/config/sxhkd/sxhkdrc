@@ -11,7 +11,7 @@ super + Return
 
 super + h
       wezterm -e herdr
-      
+
 super + shift + Return
     emacsclient -c -e '(ghostel)'
     
@@ -24,11 +24,11 @@ super + shift + n
 super + e
       emacsclient -c -a "emacs"
       
-super + b
+super + h
     helium --force-device-scale-factor=1.5
 
-super + shift + b
-    helium --incognito --force-device-scale-factor=1.5
+super + b
+      floorp
 
 super + space
 	rofi -show drun -modi drun -line-padding 4 -hide-scrollbar -show-icons

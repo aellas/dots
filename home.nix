@@ -15,7 +15,6 @@
   home.enableNixpkgsReleaseCheck = false;
 
   targets.genericLinux.enable = true;
-  programs.git.enable = true;
 
   home.packages = with pkgs; [
     feishin
@@ -37,4 +36,10 @@
     ./modules/default.nix
   ];
 
+  home.pointerCursor = {
+    enable = true;
+    name = "Bibata-Modern-Ice";
+    package = pkgs.bibata-cursors;
+    size = 32;
+  };
 }
