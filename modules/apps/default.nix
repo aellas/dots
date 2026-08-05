@@ -10,5 +10,6 @@
     ./discord.nix
     ./localsend.nix
     ./signal.nix
+    ./tailscale-systray.nix
   ];
 }

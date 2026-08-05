@@ -28,7 +28,7 @@ super + h
     helium --force-device-scale-factor=1.5
 
 super + b
-      floorp
+     librewolf 
 
 super + space
 	rofi -show drun -modi drun -line-padding 4 -hide-scrollbar -show-icons

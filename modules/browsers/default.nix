@@ -8,7 +8,6 @@
 {
   imports = [
     ./floorp.nix
-    ./librewolf.nix
     ./helium.nix
   ];
 }
