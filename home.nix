@@ -16,18 +16,9 @@
 
   targets.genericLinux.enable = true;
 
-  home.packages = with pkgs; [
-  ];
-
   imports = [
     ./home/default.nix
     ./modules/default.nix
   ];
 
-  home.pointerCursor = {
-    enable = true;
-    name = "Bibata-Modern-Ice";
-    package = pkgs.bibata-cursors;
-    size = 32;
-  };
 }
