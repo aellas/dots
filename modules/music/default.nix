@@ -8,5 +8,6 @@
 {
   imports = [
     ./feishin.nix
+    ./rmpc.nix
   ];
 }

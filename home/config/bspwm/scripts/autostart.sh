@@ -16,4 +16,4 @@ run xss-lock -- xsecurelock
 run polybar
 run emacs --daemon
 run udiskie
-feh --bg-scale ~/nux/wallpapers/5.jpg
+run nitrogen --restore
