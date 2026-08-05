@@ -30,12 +30,6 @@
 
   };
 
-  qt = {
-    enable = true;
-    platformTheme.name = "gtk3";
-    style.name = "adwaita";
-  };
-
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "default";
