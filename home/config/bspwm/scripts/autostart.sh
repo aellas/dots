@@ -17,3 +17,4 @@ run polybar
 run emacs --daemon
 run udiskie
 run nitrogen --restore
+run ktailctl
