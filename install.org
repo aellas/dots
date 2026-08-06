@@ -10,6 +10,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/fdellwing/zsh-bat.git $ZSH_CUSTOM/plugins/zsh-bat
 #+END_SRC
 
+#+RESULTS:
+
 * Install Nix
 #+BEGIN_SRC bash
 sudo dnf install nix nix-daemon
@@ -38,3 +40,32 @@ sudo dnf copr enable @xlibre/xlibre-xserver
 sudo dnf install xlibre-xserver xlibre-xf86-input-libinput --allowerasing
 #+END_SRC
 
+* Personal
+** Setup Natural Scrolling + Tapping
+#+BEGIN_SRC bash
+sudo tee /etc/X11/xorg.conf.d/30-touchpad.conf > /dev/null <<'EOF'
+Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+    Option "Tapping" "on"
+    Option "NaturalScrolling" "true"
+EndSection
+EOF
+#+END_SRC
+
+** Fix Trackpoint 
+#+BEGIN_SRC bash
+sudo tee /etc/systemd/system/disable-trackpoint.service << 'EOF'
+[Unit]
+Description=Disable TrackPoint sensitivity, keep buttons
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'echo 0 > /sys/devices/platform/i8042/serio1/sensitivity'
+
+[Install]
+WantedBy=multi-user.target
+EOF
+#+END_SRC
