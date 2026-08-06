@@ -6,7 +6,7 @@
 - *Package Manager*: [[https://nixos.org/download/#download-nix][Nix]]
 - *Window Manager*: [[https://github.com/baskerville/bspwm][bspwm]]
 - *Status Bar*: [[https://github.com/polybar/polybar][Polybar]]
-- Display Server: [[https://github.com/x11libre/xserver][XLibre]]
+- *Display Server:* [[https://github.com/x11libre/xserver][XLibre]]
 - *Editor*: [[https://github.com/doomemacs/core][Doom Emacs]]
 - *File Manager*: [[https://github.com/alexluigit/dirvish][Dirvish]]
 - *Terminal*: [[https://st.suckless.org/][st]]
