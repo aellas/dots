@@ -9,5 +9,6 @@
     ./git.nix
     ./gtk.nix
     ./qt.nix
+    ./screenshot.nix
   ];
 }
