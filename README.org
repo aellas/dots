@@ -17,6 +17,8 @@
  [[file:install.org][install.org]]
 
 ** Special Thanks 
-- [[https://gitlab.com/dwilliam62][Ddubsos]] - I highly recommend checking out [[ddubsOS][ddubsOS]] if you want to learn anything Nix!
-- [[https://github.com/bitterhalt][Bitterhalt]] - Goated dots.
-
+- [[https://gitlab.com/dwilliam62][Ddubsos]]
+  - I highly recommend checking out [[ddubsOS][ddubsOS]] if you want to learn anything Nix!
+    - Bought a book to learn Lua for Hyprland, trust this man with your life. 
+- [[https://github.com/bitterhalt][Bitterhalt]]
+  - Goated dots.
