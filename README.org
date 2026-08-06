@@ -1,4 +1,4 @@
-* Dots 
+* Dots
 [[file:overview.png]]
 
 ** Stack
