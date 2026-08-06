@@ -1,9 +1,8 @@
 * Dots 
 [[file:overview.png]]
 
-** System Summary
-The following components define my current setup:
-- *Distribution*: Fedora
+** Setup 
+- *Distro*: Fedora
 - *Package Manager*: Nix
 - *Window Manager*: BSPWM
 - *Editor*: Doom Emacs
@@ -11,8 +10,6 @@ The following components define my current setup:
 - *Shell*: Zsh
 - *File Manager*: Dirvish
 
-
 ** Prerequisites
 - Nix must be installed and configured.
 - Flakes and Home Manager must be enabled on Fedora.
-- This ensures proper dependency resolution and environment management.
