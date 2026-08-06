@@ -6,8 +6,8 @@
 - *Package Manager*: [[https://nixos.org/download/#download-nix][Nix]]
 - *Window Manager*: [[https://github.com/baskerville/bspwm][bspwm]]
 - *Bar*: [[https://github.com/polybar/polybar][Polybar]]
-- *Editor*: [[https://github.com/doomemacs/core][Doom Emacs
-]]- *File Manager*: [[https://github.com/alexluigit/dirvish][Dirvish]]
+- *Editor*: [[https://github.com/doomemacs/core][Doom Emacs]]
+- *File Manager*: [[https://github.com/alexluigit/dirvish][Dirvish]]
 - *Terminal*: [[https://st.suckless.org/][st]]
 - *Shell*: [[https://github.com/zsh-users/zsh][Zsh]]
 
