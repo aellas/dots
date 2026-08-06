@@ -69,3 +69,12 @@ ExecStart=/bin/sh -c 'echo 0 > /sys/devices/platform/i8042/serio1/sensitivity'
 WantedBy=multi-user.target
 EOF
 #+END_SRC
+
+** RPM Fusion / Multimedia
+#+BEGIN_SRC bash
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+sudo dnf install intel-media-driver
+sudo dnf install rpmfusion-nonfree-release-tainted
+sudo dnf --repo=rpmfusion-nonfree-tainted install "*-firmware"
+#+END_SRC
