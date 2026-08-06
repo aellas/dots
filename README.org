@@ -12,3 +12,5 @@
 
 [[file:overview.png]]
 
+*** Note
+You need to install Nix & enable flakes + home-manager on Fedora before you can use my dots
