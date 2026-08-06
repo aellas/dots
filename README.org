@@ -15,3 +15,7 @@
 
 ** Installation
  [[file:install.org][install.org]]
+
+* Special Mentions
+- [[https://gitlab.com/dwilliam62][Ddubsos]]
+- [[https://github.com/bitterhalt][Bitterhalt]]
