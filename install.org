@@ -1,7 +1,8 @@
 #+TITLE: 🌿 Installation
 #+AUTHOR: LXDE
 
-* Setup Fedora
+* Fedora
+** Initial
 #+BEGIN_SRC bash
 sudo dnf update --refresh
 sudo dnf install git bspwm sxhkd polybar rofi zsh bat eza zoxide fastfetch maim nitrogen feh xrandr
@@ -10,9 +11,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/fdellwing/zsh-bat.git $ZSH_CUSTOM/plugins/zsh-bat
 #+END_SRC
 
-#+RESULTS:
-
-* Install Nix
+** Nix
 #+BEGIN_SRC bash
 sudo dnf install nix nix-daemon
 sudo systemctl enable --now nix-daemon
@@ -20,21 +19,22 @@ mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 #+END_SRC
 
-* Setup Home Manager
+** Home Manager
 #+BEGIN_SRC bash
 git clone https://codeberg.org/lxde/dots.git ~/nux
 cd nux
 nix run github:nix-community/home-manager -- switch --flake .
 #+END_SRC
 
-* Setup Doom Emacs
+** Doom Emacs
 #+BEGIN_SRC bash
 git clone --depth 1 https://github.com/doomemacs/core ~/.config/emacs
 ~/.config/emacs/bin/doom install
 sudo rm -rf ~/.emacs.d
 #+END_SRC
 
-* [Optional] Install XLibre
+* Optional
+** Install XLibre
 #+BEGIN_SRC bash
 sudo dnf copr enable @xlibre/xlibre-xserver
 sudo dnf install xlibre-xserver xlibre-xf86-input-libinput --allowerasing
