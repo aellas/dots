@@ -60,7 +60,7 @@ EndSection
 EOF
 #+END_SRC
 
-** Fix Trackpoint 
+** Fix Track point 
 #+BEGIN_SRC bash
 sudo tee /etc/systemd/system/disable-trackpoint.service << 'EOF'
 [Unit]
@@ -83,4 +83,11 @@ sudo dnf install @multimedia --setopt="install_weak_deps=False" --exclude=Packag
 sudo dnf install intel-media-driver
 sudo dnf install rpmfusion-nonfree-release-tainted
 sudo dnf --repo=rpmfusion-nonfree-tainted install "*-firmware"
+#+END_SRC
+
+** Tailscale
+#+BEGIN_SRC bash
+sudo dnf install tailscale
+sudo systemctl enable --now tailscaled
+sudo tailscale up
 #+END_SRC
