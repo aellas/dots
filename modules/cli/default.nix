@@ -10,6 +10,5 @@
     ./bluetui.nix
     ./opencode.nix
     ./wiremix.nix
-    ./yazi.nix
   ];
 }
