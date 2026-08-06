@@ -10,6 +10,5 @@
 - *Shell*: Zsh
 - *File Manager*: Dirvish
 
-** Prerequisites
-- Nix must be installed and configured.
-- Flakes and Home Manager must be enabled on Fedora.
+** Installation
+ [[file:install.org]]
