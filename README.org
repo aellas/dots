@@ -1,10 +1,14 @@
-#+TITLE: Dotfiles
+#+TITLE: Dots
 #+AUTHOR: lxde
 #+DATE: <2026-07-01 Wed>
-
-[[file:overview.png]]
 
 - Distro: Fedora
 - Packages: Nix
 - WM: BSPWM
 - Editor: Doom Emacs
+- Terminal: ST
+- Shell: Zsh
+- File Manager: Dirvish 
+
+[[file:overview.png]]
+
