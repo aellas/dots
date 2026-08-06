@@ -4,3 +4,7 @@
 
 [[file:overview.png]]
 
+- Distro: Fedora
+- Packages: Nix
+- WM: BSPWM
+- Editor: Doom Emacs
