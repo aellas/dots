@@ -5,7 +5,7 @@
 ** Initial
 #+BEGIN_SRC bash
 sudo dnf update --refresh
-sudo dnf install git bspwm sxhkd polybar rofi zsh bat eza zoxide fastfetch maim nitrogen feh xrandr
+sudo dnf install git bspwm sxhkd picom polybar rofi zsh bat eza zoxide fastfetch maim nitrogen feh xrandr lxpolkit dunst xsecurelock udiskie brightnessctl
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/fdellwing/zsh-bat.git $ZSH_CUSTOM/plugins/zsh-bat
@@ -34,7 +34,7 @@ sudo rm -rf ~/.emacs.d
 #+END_SRC
 
 * Optional
-** Install XLibre
+** XLibre
 #+BEGIN_SRC bash
 sudo dnf copr enable @xlibre/xlibre-xserver
 sudo dnf install xlibre-xserver xlibre-xf86-input-libinput --allowerasing
