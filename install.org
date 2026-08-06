@@ -40,6 +40,12 @@ sudo dnf copr enable @xlibre/xlibre-xserver
 sudo dnf install xlibre-xserver xlibre-xf86-input-libinput --allowerasing
 #+END_SRC
 
+** Librewolf
+#+BEGIN_SRC bash
+sudo dnf config-manager addrepo --from-repofile=https://repo.librewolf.net/librewolf.repo
+sudo dnf install librewolf
+#+END_SRC
+
 * Personal
 ** Setup Natural Scrolling + Tapping
 #+BEGIN_SRC bash

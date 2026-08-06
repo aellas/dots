@@ -14,6 +14,7 @@ export XCURSOR_SIZE=32
 
 ~/.config/bspwm/scripts/autostart.sh &
 xsetroot -cursor_name left_ptr &
+xrdb -merge ~/.Xresources
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 bspc config border_width 4
