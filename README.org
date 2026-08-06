@@ -17,5 +17,6 @@
  [[file:install.org][install.org]]
 
 ** Special Thanks 
-- [[https://gitlab.com/dwilliam62][Ddubsos]] - Bought a book to learn Lua for Hyprland - Trust this man with your life. I highly recommend checking out [[ddubsOS][ddubsOS]] if you want to learn Nix etc. 
-- [[https://github.com/bitterhalt][Bitterhalt]] - 🐐 Dots
+- [[https://gitlab.com/dwilliam62][Ddubsos]] - I highly recommend checking out [[ddubsOS][ddubsOS]] if you want to learn anything Nix!
+- [[https://github.com/bitterhalt][Bitterhalt]] - Goated dots.
+
