@@ -69,7 +69,7 @@ in
       rem = "killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon";
       dsync = "doom sync && pkill emacs && emacs --daemon";
       cd = "z";
-      dots = "z ~/nixdots";
+      dots = "z ~/nux";
       cat = "bat";
       home = "cd && cd nux && nix flake update && home-manager switch --flake .";
       update = "sudo dnf upgrade --refresh && cd && cd nux && nix flake update && home-manager switch --flake .";
