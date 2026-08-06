@@ -10,13 +10,15 @@
 - *Shell*: Zsh
 - *File Manager*: Dirvish
 
-** [[file:home/config/sxhkd/keybinds.org][keybinds.org]]
+** Keybinds
+[[file:home/config/sxhkd/keybinds.org][keybinds.org]]
 
-** [[file:install.org][install.org]]
+** Installation
+ [[file:install.org][install.org]]
 
 ** Special Thanks 
 - [[https://gitlab.com/dwilliam62][Ddubsos]]
   - I highly recommend checking out [[ddubsOS][ddubsOS]] if you want to learn anything Nix!
-    - Bought a book to learn Lua for Hyprland, trust this man with your life. 
+  - Bought a book to learn Lua for Hyprland, trust this man with your life. 
 - [[https://github.com/bitterhalt][Bitterhalt]]
   - Goated dots.
