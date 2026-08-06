@@ -2,21 +2,5 @@
 #+AUTHOR: lxde
 #+DATE: <2026-07-01 Wed>
 
-#+begin_src emacs-lisp
-(message "I pretty much spend all my time in emacs!")
-#+end_src
-
-* Details
-*** System & Core
-- *OS:* [[https://fedoraproject.org/][Fedora]]
-- *WM:* [[https://github.com/baskerville/bspwm][BSPWM]]
-- *X:* [[https://github.com/x11libre/xserver][XLibre]]
-- *Bar:* [[https://github.com/polybar/polybar][Polybar]]
-- *Shell*: [[https://www.zsh.org/][Zsh]]
-*** Applications
-- *Browser:* [[https://helium.computer/][Helium]]
-- *Terminal:* [[https://wezterm.org/][WezTerm]]
-- *Editor:* [[https://github.com/doomemacs/core][Doom Emacs]]
-- *Launcher*: [[https://github.com/davatorium/rofi][Rofi]]
-
 [[file:overview.png]]
+
