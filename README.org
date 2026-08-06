@@ -1,16 +1,18 @@
-#+TITLE: Dots
-#+AUTHOR: lxde
-#+DATE: <2026-07-01 Wed>
-
-- Distro: Fedora
-- Packages: Nix
-- WM: BSPWM
-- Editor: Doom Emacs
-- Terminal: ST
-- Shell: Zsh
-- File Manager: Dirvish 
-
+* Dots 
 [[file:overview.png]]
 
-*Note*
-You need to install Nix & enable flakes + home-manager on Fedora before you can use my dots
+** System Summary
+The following components define my current setup:
+- *Distribution*: Fedora
+- *Package Manager*: Nix
+- *Window Manager*: BSPWM
+- *Editor*: Doom Emacs
+- *Terminal Emulator*: ST
+- *Shell*: Zsh
+- *File Manager*: Dirvish
+
+
+** Prerequisites
+- Nix must be installed and configured.
+- Flakes and Home Manager must be enabled on Fedora.
+- This ensures proper dependency resolution and environment management.
