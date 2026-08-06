@@ -1,15 +1,25 @@
 {
   description = "My Fedora Home Manager config";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixos-unstable";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     helium = {
       url = "github:AlvaroParker/helium-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    st = {
+      url = "github:siduck/st";
+    };
+
   };
   outputs =
     inputs@{
@@ -17,6 +27,7 @@
       nixpkgs,
       home-manager,
       helium,
+      st,
       ...
     }:
     let

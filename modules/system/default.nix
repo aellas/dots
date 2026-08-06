@@ -8,6 +8,6 @@
     ./fonts.nix
     ./git.nix
     ./gtk.nix
-    ./systemd.nix
+    ./qt.nix
   ];
 }
