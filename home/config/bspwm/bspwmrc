@@ -6,7 +6,6 @@
 #                 ░▀▀░░▀▀▀░▀░░░▀░▀░▀░▀
 #
 
-printf 'Xft.dpi: 144\nXcursor.size: 32\n' | xrdb -merge
 #export GDK_SCALE=2
 export GDK_DPI_SCALE=0.8
 export QT_AUTO_SCREEN_SCALE_FACTOR=1.0

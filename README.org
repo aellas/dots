@@ -10,5 +10,8 @@
 - *Shell*: Zsh
 - *File Manager*: Dirvish
 
+** Keybinds
+[[file:home/config/sxhkd/keybinds.org][keybinds.org]]
+
 ** Installation
  [[file:install.org][install.org]]

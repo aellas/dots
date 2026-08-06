@@ -1,3 +1,9 @@
+! Fonts DPI
+Xft.dpi: 144
+
+! Cursor
+Xcursor.size: 32
+
 ! Terminal geometry
 st.termname: st-256color
 st.cols: 120
