@@ -1,96 +1,26 @@
 #+TITLE: Keybinds 
-#+DESCRIPTION: Keybinds for sxhkd + bspwm
+#+AUTHOR: LXDE
 
-| **Key Binding**                 | **Action**                              |
-|-------------------------------+---------------------------------------|
-| `super + Escape`              | Kill `sxhkd` daemon                   |
-| `super + shift + l`           | Lock screen                           |
-| `super + Return`              | Open terminal (`st`)                  |
-| `super + h`                   | Open history reader (`herdr`)         |
-| `super + shift + Return`      | Open Emacs Ghost layer                |
-| `super + n`                   | Open directory viewer (`dirvish`)     |
-| `super + shift + n`           | Open file manager (`dolphin`)         |
-| `super + e`                   | Open Emacs                            |
-| `super + h`                   | Open Helium with device scale factor  |
-| `super + b`                   | Open Librewolf                        |
-| `super + space`               | Open application menu (`rofi`)        |
-| `super + c`                   | Open color picker                     |
-| `super + m`                   | Open file browser (`feishin`)         |
-| `super + d`                   | Open Discord                          |
-| `super + shift + p`           | Open power management script          |
-| `super + p`                   | Open polybar launcher                 |
-| `super + shift + x`           | Kill window (`xkill`)                 |
-| `super + ctrl + r`            | Restart BSPWM                         |
-| `super + l`                   | Open local send app                   |
-| `super + s`                   | Open Signal                           |
-| `super + w`                   | Open WhatsApp web in Helium           |
-| `super + g`                   | Open Fluffy Chat in Helium            |
-| `super + i`                   | Open Serrate in Helium                |
-| `super + shift + b`           | Open Bleuti scratchpad                |
-| `super + shift + s`           | Open Wiremix scratchpad               |
-| `super + shift + Return`      | Open generic scratchpad               |
-| `super + Home`                | Take screenshot                       |
-| `ctrl + alt + v`              | Toggle floating window rule           |
-| `super + F3`                  | Increase audio volume                 |
-| `super + F2`                  | Decrease audio volume                 |
-| `super + F5`                  | Toggle audio mute                     |
-| `XF86AudioRaiseVolume`        | Increase audio volume                 |
-| `XF86AudioLowerVolume`        | Decrease audio volume                 |
-| `XF86AudioMute`               | Toggle audio mute                     |
-| `super + alt + s`             | Shutdown system                       |
-| `super + alt + r`             | Reboot system                         |
-| `super + alt + q`             | Quit BSPWM                            |
-| `super + alt + r`             | Restart BSPWM                         |
-| `super + q`                   | Close current window                  |
-| `super + o`                   | Switch to next layout                 |
-| `super + f`                   | Toggle floating window                |
-| `super + t`                   | Toggle tiled window                   |
-| `super + shift + f`           | Toggle fullscreen window              |
-| `super + ctrl + m`            | Mark node                             |
-| `super + ctrl + x`            | Lock node                             |
-| `super + ctrl + y`            | Keep node on top (sticky)             |
-| `super + ctrl + z`            | Hide node from taskbar                |
-| `super + Left`                | Focus window to the west              |
-| `super + Right`               | Focus window to the east              |
-| `super + Up`                  | Focus window to the north             |
-| `super + Down`                | Focus window to the south             |
-| `super + shift + Left`        | Swap window to the west               |
-| `super + shift + Right`       | Swap window to the east               |
-| `super + shift + Up`          | Swap window to the north              |
-| `super + shift + Down`        | Swap window to the south              |
-| `super + h`                   | Focus window to the west              |
-| `super + j`                   | Focus window to the south             |
-| `super + k`                   | Focus window to the north             |
-| `super + l`                   | Focus window to the east              |
-| `super + p`                   | Focus parent node                     |
-| `super + b`                   | Focus brother node                    |
-| `super + comma`               | Focus first node in path              |
-| `super + period`              | Focus second node in path             |
-| `super + c`                   | Focus next node                       |
-| `super + shift + c`           | Focus previous node                   |
-| `super + bracket left`        | Focus previous desktop                |
-| `super + bracket right`       | Focus next desktop                    |
-| `super + grave`               | Swap focused windows                  |
-| `super + Tab`                 | Swap focused windows                  |
-| `super + o`                   | Focus older node (with history)       |
-| `super + i`                   | Focus newer node (with history)       |
-| `super + 1-9`                 | Focus desktop or move node to desktop |
-| `super + 0`                   | Focus desktop or move node to desktop |
-| `ctrl + alt + Left`           | Focus previous desktop                |
-| `ctrl + alt + Right`          | Focus next desktop                    |
-| `ctrl + alt + h`              | Focus previous desktop                |
-| `ctrl + alt + l`              | Focus next desktop                    |
-| `super + alt + Left`          | Expand window to the west             |
-| `super + alt + Down`          | Expand window to the south            |
-| `super + alt + Up`            | Expand window to the north            |
-| `super + alt + Right`         | Expand window to the east             |
-| `super + alt + shift + Left`  | Contract window from the west         |
-| `super + alt + shift + Down`  | Contract window from the south        |
-| `super + alt + shift + Up`    | Contract window from the north        |
-| `super + alt + shift + Right` | Contract window from the east         |
-| `super + Left`                | Move floating window left             |
-| `super + Down`                | Move floating window down             |
-| `super + Up`                  | Move floating window up               |
-| `super + Right`               | Move floating window right            |
-| `XF86MonBrightnessUp`         | Increase brightness                   |
-| `XF86MonBrightnessDown`       | Decrease brightness                   |
+| **Keybinds**             | **Action**                             |
+|------------------------+--------------------------------------|
+| *super + Escape*         | Kill *sxhkd* daemon                    |
+| *super + shift + l*      | Lock screen                          |
+| *super + Return*         | Open terminal (*st*)                   |
+| *super + h*              | Open Herdr                           |
+| *super + shift + Return* | Open Emacs Ghostel                   |
+| *super + n*              | Open tui file manager (*dirvish*) |
+| *super + shift + n*      | Open file manager (*dolphin*) |
+| *super + e*              | Open Emacs                           |
+| *super + b*              | Open Librewolf                       |
+| *super + space*          | Open application menu (*rofi*)         |
+| *super + c*              | Open color picker                    |
+| *super + m*              | Open music player (*feishin*) |
+| *super + d*              | Open Discord                         |
+| *super + shift + p*      | Open power management script         |
+| *super + p*              | Open polybar launcher                |
+| *super + shift + x*      | Kill window (*xkill*)                  |
+| *super + ctrl + r*       | Restart BSPWM                        |
+| *super + l*              | Open local send app                  |
+| *super + s*              | Open Signal                          |
+| *super + w*              | Open WhatsApp web in Helium          |
+| *super + g*              | Open Fluffy Chat in Helium           |
