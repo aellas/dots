@@ -16,7 +16,6 @@
 ** Installation
  [[file:install.org][install.org]]
 
-** Credits 
-- [[https://gitlab.com/dwilliam62][Ddubsos]] 
-- [[https://github.com/bitterhalt][Bitterhalt]]
-- [[https://codeberg.org/thelinuxcast/][TheLinuxCast]]
+** Special Thanks 
+- [[https://gitlab.com/dwilliam62][Ddubsos]] - Helped me with Nix (ALOT) + Got me into Doom Emacs
+- [[https://github.com/bitterhalt][Bitterhalt]] - 🐐 Dots
