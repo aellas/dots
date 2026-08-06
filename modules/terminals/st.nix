@@ -6,7 +6,7 @@
 
 {
   home.packages = with pkgs; [
-    inputs.st.packages.${stdenv.hostPlatform.system}.default
+    inputs.st.packages.${stdenv.hostPlatform.system}.st-snazzy
   ];
 
 }

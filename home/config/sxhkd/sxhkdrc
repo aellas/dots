@@ -7,10 +7,10 @@ super + shift + l
       xsecurelock
 
 super + Return
-      wezterm
+     st 
 
 super + h
-      wezterm -e herdr
+      st -e herdr
 
 super + shift + Return
     emacsclient -c -e '(ghostel)'
