@@ -11,4 +11,4 @@
 - *File Manager*: Dirvish
 
 ** Installation
- [[file:install.org]]
+ [[file:install.org][install.org]]
