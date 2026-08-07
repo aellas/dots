@@ -1,0 +1,37 @@
+! Tokyo Night Light colours for ST
+
+st.background: #e6e7ed
+st.foreground: #343b58
+st.cursorColor: #343b58
+
+! Black
+st.color0:  #d5d6db
+st.color8:  #9699a3
+
+! Red
+st.color1:  #8c4351
+st.color9:  #8c4351
+
+! Green
+st.color2:  #33635c
+st.color10: #33635c
+
+! Yellow
+st.color3:  #965027
+st.color11: #965027
+
+! Blue
+st.color4:  #0f4b6e
+st.color12: #0f4b6e
+
+! Magenta
+st.color5:  #5a4a78
+st.color13: #5a4a78
+
+! Cyan
+st.color6:  #485e30
+st.color14: #485e30
+
+! White
+st.color7:  #343b58
+st.color15: #1a1b26

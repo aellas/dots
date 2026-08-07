@@ -18,3 +18,6 @@ run emacs --daemon
 run udiskie
 run nitrogen --restore
 run ktailctl
+polybar-msg cmd quit 2>/dev/null
+while pgrep -x polybar >/dev/null; do sleep 0.1; done
+polybar &

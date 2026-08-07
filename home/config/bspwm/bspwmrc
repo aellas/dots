@@ -13,7 +13,12 @@ export XCURSOR_SIZE=32
 
 ~/.config/bspwm/scripts/autostart.sh &
 xsetroot -cursor_name left_ptr &
-xrdb -merge ~/.Xresources
+# Load base X resources
+[ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
+
+# Load active theme override if it exists
+[ -f ~/.config/themes/.current ] &&
+	xrdb -merge "$HOME/nux/home/config/themes/$(cat ~/.config/themes/.current)/st.Xresources" 2>/dev/null
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 bspc config border_width 4

@@ -91,3 +91,9 @@ sudo dnf install tailscale
 sudo systemctl enable --now tailscaled
 sudo tailscale up
 #+END_SRC
+
+** Polybar WiFi Icon
+#+BEGIN_SRC bash
+mkdir -p /home/$USER/.fonts
+cp -r /home/$USER/nux/home/config/fonts/* /home/$USER/.fonts/
+#+END_SRC

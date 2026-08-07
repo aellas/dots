@@ -1,23 +1,7 @@
-! Fonts DPI
-Xft.dpi: 144
+! Tokyo Night colours for ST
 
-! Cursor
-Xcursor.size: 32
-
-! Terminal geometry
-st.termname: st-256color
-st.cols: 120
-st.rows: 28
-
-! Font
-st.font: IosevkaTerm Nerd Font:size=12
-
-! Cursor style
-st.cursorstyle: 2  ! underline
-
-! ST default colors (Tokyo Night as fallback)
 st.background: #13141c
-st.foreground: #c0caf5
+st.foreground: #a9b1d6
 st.cursorColor: #c0caf5
 
 ! Black
@@ -49,5 +33,5 @@ st.color6:  #7dcfff
 st.color14: #7dcfff
 
 ! White
-st.color7:  #c0caf5
+st.color7:  #a9b1d6
 st.color15: #c0caf5
