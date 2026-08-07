@@ -97,3 +97,11 @@ sudo tailscale up
 mkdir -p /home/$USER/.fonts
 cp -r /home/$USER/nux/home/config/fonts/* /home/$USER/.fonts/
 #+END_SRC
+
+** Install Steam
+#+BEGIN_SRC bash
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
+sudo dnf update --refresh
+sudo dnf install steam -y
+#+END_SRC

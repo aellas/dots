@@ -8,7 +8,7 @@ Xcursor.size: 32
 st.termname: st-256color
 st.cols: 120
 st.rows: 28
-
+st.borderpx: 10
 ! Font
 st.font: IosevkaTerm Nerd Font:size=12
 
