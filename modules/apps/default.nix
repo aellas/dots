@@ -8,5 +8,6 @@
     ./localsend.nix
     ./signal.nix
     ./ktailctl.nix
+    ./steam.nix
   ];
 }
