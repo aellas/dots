@@ -1,6 +1,6 @@
 ! Tokyo Night colours for ST
 
-st.background: #13141c
+st.background: #111117
 st.foreground: #a9b1d6
 st.cursorColor: #c0caf5
 

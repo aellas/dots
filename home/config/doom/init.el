@@ -54,7 +54,7 @@
  lsp
  (magit +forge)
  tree-sitter
-
+ 
  :lang
  bash
  sh

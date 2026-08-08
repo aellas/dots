@@ -16,7 +16,7 @@ st.font: IosevkaTerm Nerd Font:size=12
 st.cursorstyle: 2  ! underline
 
 ! ST default colors (Tokyo Night as fallback)
-st.background: #13141c
+st.background: #111117
 st.foreground: #c0caf5
 st.cursorColor: #c0caf5
 

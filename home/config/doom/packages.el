@@ -13,5 +13,4 @@
 (package! mixed-pitch)
 (package! dirvish)
 (package! ghostel)
-(package! org-caldav)
-(package! empv)
+(package! rainbow-mode)
