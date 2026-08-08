@@ -66,7 +66,6 @@ in
 
     shellAliases = {
       em = "/usr/bin/emacs -nw";
-      rem = "killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon";
       dsync = "doom sync && pkill emacs && emacs --daemon";
       cd = "z";
       dots = "z ~/nux";
@@ -78,9 +77,10 @@ in
       lt = "eza -aT --color=always --group-directories-first";
       jctl = "journalctl -p 3 -xb";
       prefetch = "nix-prefetch-url --type sha256";
-
     };
+
   };
+
   home.packages = [
     pkgs.zoxide
     pkgs.eza
