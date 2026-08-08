@@ -18,3 +18,5 @@ run emacs --daemon
 run udiskie
 run nitrogen --restore
 run polybar
+run lxappearance
+pkill lxappearance
