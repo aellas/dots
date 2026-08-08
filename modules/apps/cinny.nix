@@ -7,7 +7,7 @@
 
 {
   home.packages = with pkgs; [
-    fluffychat
+    cinny-desktop
   ];
 
 }

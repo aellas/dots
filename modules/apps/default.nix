@@ -9,6 +9,6 @@
     ./signal.nix
     ./ktailctl.nix
     ./steam.nix
-    ./fluffychat.nix
+    ./cinny.nix
   ];
 }
