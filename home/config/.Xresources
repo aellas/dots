@@ -2,7 +2,8 @@
 Xft.dpi: 144
 
 ! Cursor
-Xcursor.size: 32
+Xcursor.size: 42
+Xcursor.theme: Bibata-Modern-Ice
 
 ! Terminal geometry
 st.termname: st-256color
@@ -10,7 +11,7 @@ st.cols: 120
 st.rows: 28
 st.borderpx: 10
 ! Font
-st.font: IosevkaTerm Nerd Font:size=12
+st.font: IosevkaTerm Nerd Font:size=18
 
 ! Cursor style
 st.cursorstyle: 2  ! underline

@@ -7,8 +7,8 @@
     ./discord.nix
     ./localsend.nix
     ./signal.nix
-    ./ktailctl.nix
     ./steam.nix
     ./cinny.nix
+    ./bolt.nix
   ];
 }

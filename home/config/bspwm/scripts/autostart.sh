@@ -6,7 +6,7 @@ run() {
 	pgrep -x "$1" >/dev/null || "$@" &
 }
 
-run xrandr --output eDP-1 --scale 1x1 --mode 2560x1600 --rate 60.00
+run xrandr --output eDP-1 --scale 1x1 --mode 3840x2400 --rate 60.00
 run sxhkd
 run picom
 run dunst
@@ -17,7 +17,4 @@ run polybar
 run emacs --daemon
 run udiskie
 run nitrogen --restore
-run ktailctl
-polybar-msg cmd quit 2>/dev/null
-while pgrep -x polybar >/dev/null; do sleep 0.1; done
-polybar &
+run polybar

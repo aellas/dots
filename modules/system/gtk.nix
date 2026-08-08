@@ -25,7 +25,7 @@
     cursorTheme = {
       name = "Bibata-Modern-Ice";
       package = pkgs.bibata-cursors;
-      size = 32;
+      size = 42;
     };
 
   };
