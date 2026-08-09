@@ -34,7 +34,12 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        config.allowUnfree = true;
+        config = {
+          allowUnfree = true;
+          problems.handlers = {
+            bolt-launcher.broken = "warn";
+          };
+        };
       };
     in
     {

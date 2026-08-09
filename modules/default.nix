@@ -12,6 +12,7 @@
     ./browsers/default.nix
     ./apps/default.nix
     ./cli/default.nix
+    ./music/default.nix
   ];
 
 }
