@@ -7,8 +7,8 @@
 
 {
   home.packages = with pkgs; [
-    thunar
-    thunar-volman
+    pcmanfm
+    nemo-fileroller
   ];
 
 }

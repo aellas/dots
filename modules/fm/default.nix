@@ -7,7 +7,6 @@
 
 {
   imports = [
-    ./dolphin.nix
-    ./thunar.nix
+    ./pcmanfm.nix
   ];
 }
