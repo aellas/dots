@@ -7,10 +7,10 @@ super + shift + l
       xsecurelock
 
 super + Return
-     st 
+     st -e herdr
 
 super + h
-      st -e herdr
+      st 
 
 super + shift + Return
     emacsclient -c -e '(ghostel)'
@@ -19,14 +19,11 @@ super + n
     emacsclient -c -e '(dirvish)'
     
 super + shift + n
-      nemo  
-
+      nemo
+      
 super + e
       emacsclient -c -a "emacs"
       
-super + h
-    helium --force-device-scale-factor=1.5
-
 super + b
      librewolf 
 
@@ -42,6 +39,12 @@ super + m
 super + d
       discord 
 
+super + l
+      localsend_app
+
+super + s
+      signal-desktop
+
 super + shift + p
       ./.config/bspwm/scripts/power.sh
 
@@ -54,32 +57,10 @@ super + shift + x
 super + ctrl + r
       bspc wm -r
 
-super + l
-      localsend_app
-
-super + s
-      signal-desktop
-
-super + w
-      helium --app='https://web.whatsapp.com/' --force-scale-factor=1.5
-
-super + g
-      helium --app='https://fluffychat.im/web/#/rooms' --force-scale-factor=1.5
-
-super + i
-      helium --app='https://serfor:3020/' --force-scale-factor=1.5
-
+      
 super + shift + t
       ./nux/home/config/scripts/switch_theme.sh
-# Scratchpads
-super + shift + b
-      tdrop -ma -w 60% -h 60% -x 20% -y 20% wezterm start --always-new-process --class tdrop -e bluetui 
-super + shift + s
-      tdrop -ma -w 60% -h 60% -x 20% -y 20% wezterm start --always-new-process --class tdrop -e wiremix
-super + shift + Return
-    tdrop -ma -w 24% -h 24% -x 38% -y 38% wezterm start --always-new-process --class tdrop
 
-# --------- SCREENSHOTS ---------
 
 # screenshot (entire screen)
 super + Home

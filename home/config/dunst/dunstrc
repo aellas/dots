@@ -5,18 +5,6 @@
 
     # Which monitor should the notifications be displayed on.
     monitor = 0
-
-    # Display notification on focused monitor.  Possible modes are:
-    #   mouse: follow mouse pointer
-    #   keyboard: follow window with keyboard focus
-    #   none: don't follow anything
-    #
-    # "keyboard" needs a window manager that exports the
-    # _NET_ACTIVE_WINDOW property.
-    # This should be the case for almost all modern window managers.
-    #
-    # If this option is set to mouse or keyboard, the monitor option
-    # will be ignored.
     follow = none
 
     ### Geometry ###
@@ -25,7 +13,7 @@
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 300
+    width = (0, 600)
 
     # The height of a single notification, excluding the frame.
     # dynamic height from 0 to 300
@@ -41,7 +29,7 @@
     # Offset from the origin
     # NOTE: Dunst from version 1.11 and older use this alternative notation
     # offset = 10x50
-    offset = (7, 60)
+    offset = (7, 90)
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 1
@@ -144,7 +132,7 @@
 
     ### Text ###
 
-    font = JetBrainsMonoNF 10
+    font = JetBrainsMonoNF 15
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.

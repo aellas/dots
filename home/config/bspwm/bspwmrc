@@ -10,6 +10,9 @@ export GDK_SCALE=2
 export GDK_DPI_SCALE=0.8
 export QT_AUTO_SCREEN_SCALE_FACTOR=1.0
 export XCURSOR_SIZE=42
+export XDG_SESSION_TYPE=x11
+export GTK_USE_PORTAL=1
+export QT_QPA_PLATFORM=xcb
 
 ~/.config/bspwm/scripts/autostart.sh &
 xsetroot -cursor_name left_ptr &
