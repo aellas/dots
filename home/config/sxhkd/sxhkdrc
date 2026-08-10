@@ -54,14 +54,8 @@ super + p
 super + shift + x
       xkill
 
-super + ctrl + r
-      bspc wm -r
-
-      
-super + shift + t
-      ./nux/home/config/scripts/switch_theme.sh
-
-
+super + shift + r
+      ./.config/bspwm/scripts/reload.sh
 # screenshot (entire screen)
 super + Home
     ~/.config/bspwm/scripts/screenshot.sh
