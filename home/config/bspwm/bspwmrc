@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/usr/bin/env sh
 
 #
 #                 ░█▀▄░█▀▀░█▀█░█░█░█▄█
@@ -6,35 +6,43 @@
 #                 ░▀▀░░▀▀▀░▀░░░▀░▀░▀░▀
 #
 
+# --- Environment ---
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.8
 export QT_AUTO_SCREEN_SCALE_FACTOR=1.0
+export QT_QPA_PLATFORM=xcb
+export GTK_USE_PORTAL=1
 export XCURSOR_SIZE=42
 export XCURSOR_THEME=Bibata-Modern-Ice
-export GTK_USE_PORTAL=1
-export QT_QPA_PLATFORM=xcb
 
+# --- Startup ---
 ~/.config/bspwm/scripts/autostart.sh &
 xsetroot -cursor_name left_ptr &
 xrdb -merge ~/.Xresources &
 touchegg &
+wmname LG3D &
 
+# --- Workspaces ---
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
-bspc config border_width 4
 
+# --- Appearance ---
+bspc config border_width 4
 bspc config window_gap 12
 bspc config top_padding 0
 bspc config bottom_padding 0
-
-bspc config automatic_scheme alternate
-bspc config initial_polarity second_child
-bspc config split_ratio 0.5
 bspc config borderless_monocle true
 bspc config gapless_monocle true
-
 bspc config focused_border_color "#bfc9f4"
 bspc config normal_border_color "#13141c"
 
+# --- Behavior ---
+bspc config automatic_scheme alternate
+bspc config initial_polarity second_child
+bspc config split_ratio 0.5
 bspc config focus_follows_pointer true
 
-wmname LG3D &
+# --- Window rules ---
+bspc rule -a Gtk-file-chooser state=floating rectangle=1600x1100+1120+650 center=true
+bspc rule -a *:*:Dialog state=floating center=true
+bspc rule -a Pavucontrol state=floating rectangle=1400x1000+1220+700
+bspc rule -a Nm-connection-editor state=floating center=true

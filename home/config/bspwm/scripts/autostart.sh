@@ -6,15 +6,21 @@ run() {
 	pgrep -x "$1" >/dev/null || "$@" &
 }
 
+# --- Display ---
 run xrandr --output eDP-1 --scale 1x1 --mode 3840x2400 --rate 60.00
-run sxhkd
+run nitrogen --restore
 run picom
-run dunst
 run brightnessctl set 60%
+
+# --- Core WM services ---
+run sxhkd
+run polybar
+run dunst
+
+# --- System / session ---
+run udiskie
 run lxpolkit
 run xss-lock -- xsecurelock
-run polybar
+
+# --- Apps ---
 run emacs --daemon
-run udiskie
-run nitrogen --restore
-run polybar
