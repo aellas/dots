@@ -105,3 +105,8 @@ sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
 sudo dnf update --refresh
 sudo dnf install steam -y
 #+END_SRC
+
+** Gesture Support
+#+BEGIN_SRC bash
+sudo dnf install touchegg
+#+END_SRC
