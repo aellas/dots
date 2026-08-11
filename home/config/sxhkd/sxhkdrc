@@ -1,123 +1,154 @@
+# ====================================================================
 # SXHKDRC KEYBINDS
+# ====================================================================
+
+# --------------------- SXHKD / BSPWM CONTROL ---------------------
 
 super + Escape
 	pkill -USR1 -x sxhkd
 
-super + shift + l
-      xsecurelock
+super + alt + q
+	bspc quit
+super + alt + r
+	bspc wm -r
+
+super + shift + r
+	~/.config/bspwm/scripts/reload.sh
+
+super + shift + p
+	~/.config/bspwm/scripts/power.sh
+
+super + p
+	~/.config/polybar/launch.sh
+
+
+# --------------------- APPLICATIONS ---------------------
 
 super + Return
-     st -e herdr
+	st -e herdr
 
 super + h
-      st 
+	st
 
 super + shift + Return
-    emacsclient -c -e '(ghostel)'
-    
+	emacsclient -c -e '(ghostel)'
+
 super + n
-    emacsclient -c -e '(dirvish)'
-    
+	emacsclient -c -e '(dirvish)'
+
 super + shift + n
-      pcmanfm
-      
+	pcmanfm
+
 super + e
-      emacsclient -c -a "emacs"
-      
+	emacsclient -c -a "emacs"
+
 super + b
-     librewolf 
+	librewolf
 
 super + space
 	rofi -show drun -modi drun -line-padding 4 -hide-scrollbar -show-icons
 
 super + c
-       xcolor -s
-        
+	xcolor -s
+
 super + m
-     feishin --ozone-platform=x11 
+	feishin --ozone-platform=x11
 
 super + d
-      discord 
+	discord
 
 super + l
-      localsend_app
+	localsend_app
 
 super + s
-      signal-desktop
+	signal-desktop
 
-super + shift + p
-      ./.config/bspwm/scripts/power.sh
+super + j
+      bolt-launcher --force-device-scale-factor=2.0
 
-super + p
-      ./.config/polybar/launch.sh
+# --------------------- SYSTEM ---------------------
+
+super + shift + l
+	xsecurelock
+
+super + alt + s
+	systemctl poweroff
+
+super + alt + r
+	reboot
 
 super + shift + x
-      xkill
+	xkill
 
-super + shift + r
-      ./.config/bspwm/scripts/reload.sh
-# screenshot (entire screen)
-super + Home
-    ~/.config/bspwm/scripts/screenshot.sh
 
-ctrl + alt + v
-    bspc rule -a \* -o state=floating ; pavucontrol 
+# --------------------- AUDIO / BRIGHTNESS ---------------------
+
+XF86AudioRaiseVolume
+	pamixer --increase 5
+
+XF86AudioLowerVolume
+	pamixer --decrease 5
+
+XF86AudioMute
+	pamixer --toggle-mute
 
 super + F3
-      pamixer --increase 5   
+	pamixer --increase 5
+
 super + F2
-      pamixer --decrease 5  
+	pamixer --decrease 5
+
 super + F5
-      pamixer --toggle-mute 
+	pamixer --toggle-mute
 
-# --------- DUNST (NOTIFICATION MANAGER) ---------
+XF86MonBrightnessUp
+	brightnessctl set +5%
 
-# close all notifications
-    
-# notifications history
+XF86MonBrightnessDown
+	brightnessctl set 5%
+
+
+# --------------------- SCREENSHOT / MISC TOOLS ---------------------
+
+super + Home
+	~/.config/bspwm/scripts/screenshot.sh
+
+ctrl + alt + v
+	bspc rule -a \* -o state=floating ; pavucontrol
+
+
+# --------------------- DUNST (NOTIFICATIONS) ---------------------
 super + shift + Escape
-    dunstctl history-pop
+	dunstctl history-pop
 
 
-# ----------------------- BSPWM HOTKEYS -----------------------
+# ====================================================================
+# BSPWM WINDOW MANAGEMENT
+# ====================================================================
 
-# system shutdown
-super + alt + s
-    systemctl poweroff
-
-# system restart
-super + alt + r
-    reboot
-
-# quit/restart bspwm
-super + alt + {q,r}
-	bspc {quit,wm -r}
-
-# close and kill
+# --- close / kill ---
 super + q
 	bspc node -c
 
-# alternate between the tiled and monocle layout
+# --- layout ---
 super + o
 	bspc desktop -l next
 
 super + f
-      bspc node -t floating
+	bspc node -t floating
 
 super + t
-      bspc node -t tiled
+	bspc node -t tiled
 
 super + shift + f
-      bspc node -t fullscreen
+	bspc node -t fullscreen
 
-# set the node flags
+# --- node flags ---
 super + ctrl + {m,x,y,z}
-bspc node -g {marked,locked,sticky,private}
+	bspc node -g {marked,locked,sticky,private}
 
-#
-# focus/swap
-#
 
+# --------------------- FOCUS / SWAP ---------------------
 # focus the node in the given direction
 super + {_,shift + }{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}
@@ -137,12 +168,18 @@ super + {_,shift + }c
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
+ctrl + alt + {Left,Right}
+	bspc node -d {prev,next} -f
+
+ctrl + alt + {h,l}
+	bspc node -d {prev,next} -f
+
 # focus the last node/desktop
 super + {grave,Tab}
-      ./.config/bspwm/scripts/swap_windows.sh
+	~/.config/bspwm/scripts/swap_windows.sh
 
 # focus the older or newer node in the focus history
-super + {o,i}
+super + {ctrl + o,i}
 	bspc wm -h off; \
 	bspc node {older,newer} -f; \
 	bspc wm -h on
@@ -151,62 +188,34 @@ super + {o,i}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}' --follow
 
-ctrl + alt + {Left,Right}
-    bspc node -d {prev,next} -f
 
-ctrl + alt + {h,l}
-    bspc node -d {prev,next} -f
-#
-#
-# preselect
-#
-
-# preselect the direction
-#super + ctrl + {Left,Down,Up,Right}
-	#bspc node -p {west,south,north,east}
-
-#super + ctrl + {h,j,k,l}
-	#bspc node -p {west,south,north,east}
-
-# preselect the ratio
-#super + ctrl + {1-9}
-	#bspc node -o 0.{1-9}
-
-# cancel the preselection for the focused node
-#super + ctrl + space
-	#bspc node -p cancel
-
-# cancel the preselection for the focused desktop
-#super + ctrl + shift + space
-	#bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
-
-#
-# move/resize
-#
-
-# expand a window by moving one of its side outward
+# --------------------- MOVE / RESIZE ---------------------
+# expand a window by moving one of its sides outward
 super + alt + {Left,Down,Up,Right}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
-# contract a window by moving one of its side inward
+# contract a window by moving one of its sides inward
 super + alt + shift + {Left,Down,Up,Right}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
-super + {Left,Down,Up,Right}
+super + ctrl + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-#super + shift + g : {plus,minus}
-    #bspc config window_gap $(( $(bspc config window_gap) {+,-} 5 ))
-XF86AudioRaiseVolume
-    pamixer --increase 5
-XF86AudioLowerVolume
-    pamixer --decrease 5
-XF86AudioMute
-    pamixer --toggle-mute
 
-# Brightness
-XF86MonBrightnessUp
-    brightnessctl set +5%
-XF86MonBrightnessDown
-    brightnessctl set 5%
+# --------------------- PRESELECT (disabled) ---------------------
+#super + ctrl + {Left,Down,Up,Right}
+#	bspc node -p {west,south,north,east}
+#super + ctrl + {h,j,k,l}
+#	bspc node -p {west,south,north,east}
+#super + ctrl + {1-9}
+#	bspc node -o 0.{1-9}
+#super + ctrl + space
+#	bspc node -p cancel
+#super + ctrl + shift + space
+#	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+
+# --------------------- GAPS (disabled) ---------------------
+#super + shift + g : {plus,minus}
+#	bspc config window_gap $(( $(bspc config window_gap) {+,-} 5 ))

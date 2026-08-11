@@ -43,6 +43,6 @@ bspc config focus_follows_pointer true
 
 # --- Window rules ---
 bspc rule -a Gtk-file-chooser state=floating rectangle=1600x1100+1120+650 center=true
-bspc rule -a *:*:Dialog state=floating center=true
 bspc rule -a Pavucontrol state=floating rectangle=1400x1000+1220+700
-bspc rule -a Nm-connection-editor state=floating center=true
+bspc rule -a BoltLauncher state=floating center=true rectangle=1600x1100+1120+650
+bspc rule -a net-runelite-client-RuneLite state=floating center=true

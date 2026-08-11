@@ -7,7 +7,6 @@ let
   configs = {
     doom = "doom";
     fastfetch = "fastfetch";
-    wezterm = "wezterm";
     bspwm = "bspwm";
     polybar = "polybar";
     sxhkd = "sxhkd";
