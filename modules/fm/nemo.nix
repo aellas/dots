@@ -12,6 +12,11 @@
     nemo-preview
     nemo-emblems
     nemo-seahorse
+    file-roller
+    xarchiver
+    p7zip
+    unzip
+    unrar
   ];
 
 }

@@ -11,7 +11,7 @@ export GDK_SCALE=2
 export GDK_DPI_SCALE=0.8
 export QT_AUTO_SCREEN_SCALE_FACTOR=1.0
 export GTK_USE_PORTAL=1
-export XCURSOR_SIZE=42
+export XCURSOR_SIZE=48
 export XCURSOR_THEME=Bibata-Modern-Ice
 
 # --- Startup ---
@@ -45,3 +45,5 @@ bspc rule -a Gtk-file-chooser state=floating rectangle=1600x1100+1120+650 center
 bspc rule -a Pavucontrol state=floating rectangle=1400x1000+1220+700
 bspc rule -a BoltLauncher state=floating center=true rectangle=1600x1100+1120+650
 bspc rule -a net-runelite-client-RuneLite state=floating center=true
+bspc rule -a Xarchiver state=floating layer=normal
+bspc rule -a org.gnome.FileRoller state=floating
