@@ -11,11 +11,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    helium = {
-      url = "github:AlvaroParker/helium-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     st = {
       url = "github:siduck/st";
     };
@@ -26,7 +21,6 @@
       self,
       nixpkgs,
       home-manager,
-      helium,
       st,
       ...
     }:
