@@ -9,8 +9,6 @@ super + Escape
 
 super + alt + q
 	bspc quit
-super + alt + r
-	bspc wm -r
 
 super + shift + r
 	~/.config/bspwm/scripts/reload.sh
@@ -18,17 +16,13 @@ super + shift + r
 super + shift + p
 	~/.config/bspwm/scripts/power.sh
 
-super + p
-	~/.config/polybar/launch.sh
-
-
 # --------------------- APPLICATIONS ---------------------
 
 super + Return
-	st -e herdr
+	st
 
 super + h
-	st
+	st -e herdr
 
 super + shift + Return
 	emacsclient -c -e '(ghostel)'

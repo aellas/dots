@@ -7,6 +7,6 @@
 
 {
   imports = [
-    ./pcmanfm.nix
+    ./nemo.nix
   ];
 }
