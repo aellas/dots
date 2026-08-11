@@ -47,3 +47,4 @@ bspc rule -a BoltLauncher state=floating center=true rectangle=1600x1100+1120+65
 bspc rule -a net-runelite-client-RuneLite state=floating center=true
 bspc rule -a Xarchiver state=floating layer=normal
 bspc rule -a org.gnome.FileRoller state=floating
+bspc rule -a scratchpad state=floating
