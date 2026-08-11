@@ -1,0 +1,118 @@
+[layout]
+
+# cosmos: position preserving layout (like Niri)
+switchLayout = cosmos
+exposeLayout = cosmos
+
+# Wait time in ms before displaying switch previews
+switchWaitDuration = 100
+
+# During switchWaitDuration and animation,
+# Whether switch can cycle through windows
+switchCycleDuringWait = false
+
+# Enable cycling through all desktops in expose mode
+# Critical for paging overview
+switchCycleDesktops = false
+exposeCycleDesktops = true
+
+# Relative minimal pixel distance between windows
+distance = 100
+
+# Fill screen by upscaling windows
+upscaleWindows = true
+
+[appearance]
+
+# Faster animation for snappier paging feel
+animationDuration = 100
+
+# Animation refresh rate in fps
+animationRefresh = 60
+
+# Darker background for workspace overview feel
+background = #00000090
+
+# During paging, do not apply background to individual desktops
+preservePages = true
+
+# Clean look: no window frames
+includeFrame = true
+
+# Depending on your environment and window frame,
+# Introduce pixel offsets for better alignment
+leftFrameBorder = 0
+topFrameBorder = 0
+
+# Rounded corners
+cornerRadius = 8
+
+[livepreview]
+
+# Slightly transparent
+opacity = 240
+
+# Show icon in top left
+icon = true
+iconPlace = top left
+iconSize = 48
+
+[highlight]
+
+# Subtle blue highlight
+tint = #4C7899
+tintOpacity = 64
+tintWindow = true
+tintBorder = 0
+
+[label]
+
+# Hide labels for cleaner workspace overview
+show = false
+
+[tooltip]
+
+# Show tooltip on mouse hover
+show = true
+followsMouse = true
+offsetX = 20
+offsetY = 20
+align = left
+border = #ffffff
+background = #404040
+opacity = 128
+text = #ffffff
+textShadow = #000000
+font = fixed-11:weight=bold
+
+[bindings]
+
+# Mouse button bindings
+# Left click: select and end paging
+# Right click: cancel
+# Middle click: close window
+# Scroll: cycle through desktops
+
+# Keyboard bindings
+# Escape: cancel paging
+# Return: select focused window
+# q: cancel
+# Left/Right/Up/Down: navigate
+# Tab: cycle forward
+# Shift+Tab: cycle backward
+# 1-9: jump to desktop number
+# F1-F12: jump to desktop
+
+# For paging mode, these are most useful:
+# - Arrow keys to navigate between workspaces
+# - Tab to cycle windows
+# - 1-9 to jump to desktop directly
+# - Enter to select
+# - Escape or q to cancel
+
+[general]
+
+# Daemonize and start in background
+# Set to true if you want skippy-xd to stay resident
+# For bspwm, you can run on-demand or as daemon
+daemonize = false

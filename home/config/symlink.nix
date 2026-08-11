@@ -14,6 +14,7 @@ let
     dunst = "dunst";
     picom = "picom";
     touchegg = "touchegg";
+    skippy-xd = "skippy-xd";
   };
 
   homeConfigs = {

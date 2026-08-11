@@ -79,6 +79,8 @@ super + alt + r
 super + shift + x
 	xkill
 
+super + shift + o
+    skippy-xd --paging
 
 # --------------------- AUDIO / BRIGHTNESS ---------------------
 

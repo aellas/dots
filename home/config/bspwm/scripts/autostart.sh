@@ -24,7 +24,7 @@ run dunst
 run udiskie
 run lxpolkit
 run xss-lock -- xsecurelock
-
+run skippy-xd --start-daemon
 # --- Apps ---
 
 run emacs --daemon
