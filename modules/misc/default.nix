@@ -8,5 +8,6 @@
 {
   imports = [
     ./xcolor.nix
+    ./tdrop.nix
   ];
 }

@@ -33,6 +33,7 @@
     pkgs.findutils
     pkgs.mlocate
     pkgs.lua
+    pkgs.luarocks
     pkgs.stylua
     pkgs.shfmt
     pkgs.shellcheck
@@ -45,5 +46,7 @@
     pkgs.rustup
     pkgs.google-fonts
     pkgs.vips
+
+    pkgs.luaPackages.dkjson
   ];
 }
