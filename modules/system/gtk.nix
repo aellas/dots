@@ -5,13 +5,13 @@
     enable = true;
 
     theme = {
-      name = "WhiteSur-Light";
-      package = pkgs.whitesur-gtk-theme;
+      name = "Fluent-Light";
+      package = pkgs.fluent-gtk-theme;
     };
 
     iconTheme = {
-      name = "Paprius";
-      package = pkgs.whitesur-icon-theme;
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
     };
 
     gtk3.extraConfig = {
@@ -25,7 +25,7 @@
     cursorTheme = {
       name = "Bibata-Modern-Ice";
       package = pkgs.bibata-cursors;
-      size = 42;
+      size = 52;
     };
 
   };
@@ -33,15 +33,13 @@
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "default";
-      gtk-theme = "WhiteSur-Light";
-      icon-theme = "Paprius";
+      gtk-theme = "Fluent-Light";
+      icon-theme = "Papirus-Dark";
     };
   };
 
   home.packages = with pkgs; [
-    whitesur-gtk-theme
     gnome-themes-extra
-    papirus-icon-theme
     lxappearance
   ];
 }

@@ -2,7 +2,7 @@
 Xft.dpi: 144
 
 ! Cursor
-Xcursor.size: 42
+Xcursor.size: 52
 Xcursor.theme: Bibata-Modern-Ice
 
 ! Terminal geometry
