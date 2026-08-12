@@ -46,16 +46,16 @@ super + c
 	xcolor -s
 
 super + m
-	feishin --ozone-platform=x11
+	feishin
 
 super + d
-	discord
+	discord 
 
 super + l
 	localsend_app
 
 super + s
-	signal-desktop
+	signal-desktop 
 
 super + j
       bolt-launcher --force-device-scale-factor=2.0
@@ -78,9 +78,6 @@ super + alt + r
 
 super + shift + x
 	xkill
-
-super + shift + o
-    skippy-xd --paging
 
 # --------------------- AUDIO / BRIGHTNESS ---------------------
 

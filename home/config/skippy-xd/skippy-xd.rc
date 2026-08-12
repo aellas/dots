@@ -1,78 +1,37 @@
 [layout]
-
-# cosmos: position preserving layout (like Niri)
 switchLayout = cosmos
 exposeLayout = cosmos
-
-# Wait time in ms before displaying switch previews
-switchWaitDuration = 100
-
-# During switchWaitDuration and animation,
-# Whether switch can cycle through windows
+switchWaitDuration = 200
 switchCycleDuringWait = false
-
-# Enable cycling through all desktops in expose mode
-# Critical for paging overview
 switchCycleDesktops = false
 exposeCycleDesktops = true
-
-# Relative minimal pixel distance between windows
-distance = 100
-
-# Fill screen by upscaling windows
+distance = 50
 upscaleWindows = true
 
 [appearance]
-
-# Faster animation for snappier paging feel
-animationDuration = 100
-
-# Animation refresh rate in fps
+animationDuration = 0
 animationRefresh = 60
-
-# Darker background for workspace overview feel
-background = #00000090
-
-# During paging, do not apply background to individual desktops
+background = None
 preservePages = true
-
-# Clean look: no window frames
-includeFrame = true
-
-# Depending on your environment and window frame,
-# Introduce pixel offsets for better alignment
+includeFrame = false
 leftFrameBorder = 0
 topFrameBorder = 0
-
-# Rounded corners
-cornerRadius = 8
+cornerRadius = 0
 
 [livepreview]
+opacity = 500
 
-# Slightly transparent
-opacity = 240
-
-# Show icon in top left
-icon = true
-iconPlace = top left
-iconSize = 48
 
 [highlight]
-
-# Subtle blue highlight
 tint = #4C7899
 tintOpacity = 64
 tintWindow = true
 tintBorder = 0
 
 [label]
-
-# Hide labels for cleaner workspace overview
 show = false
 
 [tooltip]
-
-# Show tooltip on mouse hover
 show = true
 followsMouse = true
 offsetX = 20

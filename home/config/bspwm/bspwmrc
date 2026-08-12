@@ -13,7 +13,7 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1.0
 export GTK_USE_PORTAL=1
 export XCURSOR_SIZE=48
 export XCURSOR_THEME=Bibata-Modern-Ice
-
+export ELECTRON_OZONE_PLATFORM_HINT=x11
 # --- Startup ---
 ~/.config/bspwm/scripts/autostart.sh &
 xsetroot -cursor_name left_ptr &
