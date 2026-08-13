@@ -1,12 +1,12 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }:
 
 {
-  programs.wezterm = {
-    enable = true;
-  };
+  home.packages = [
+    pkgs.wezterm
+    pkgs.herdr
+  ];
 }

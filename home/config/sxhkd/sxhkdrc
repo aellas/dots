@@ -19,10 +19,10 @@ super + shift + p
 # --------------------- APPLICATIONS ---------------------
 
 super + Return
-	st
+	wezterm
 
 super + h
-	st -e herdr
+	wezterm -e herdr
 
 super + shift + Return
 	emacsclient -c -e '(ghostel)'
