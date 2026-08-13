@@ -1,2 +1,26 @@
+onboarding = false
+
 [terminal]
 shell_mode = "auto"
+
+[ui]
+tab_bar_position = "top"
+sidebar_start_collapsed = true
+
+[theme]
+name = "tokyo-night"
+
+[theme.custom]
+panel_bg = "#111117"
+
+[keys]
+prefix = "alt+a"
+switch_tab = "alt+1..9"
+
+[[keys.command]]
+key = "alt+e"
+type = "popup"
+command = "emacs -nw"
+description = "run emacs"
+width = "80%"
+height = "80%"
