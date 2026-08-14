@@ -2,47 +2,47 @@
   "version": 3,
   "workspaces": [
     {
-      "id": "w1",
+      "id": "w2",
       "custom_name": null,
-      "identity_cwd": "/home/array/nux",
+      "identity_cwd": "/home/array",
       "public_pane_numbers": {
-        "4": 3,
-        "2": 2
+        "3": 2,
+        "1": 1
       },
-      "next_public_pane_number": 4,
+      "next_public_pane_number": 6,
       "public_tab_numbers": [
-        3,
+        1,
         2
       ],
-      "next_public_tab_number": 4,
+      "next_public_tab_number": 3,
       "tabs": [
         {
           "custom_name": "nux",
           "layout": {
-            "Pane": 4
+            "Pane": 1
           },
           "panes": {
-            "4": {
-              "cwd": "/home/array/nux"
+            "1": {
+              "cwd": "/home/array"
             }
           },
           "zoomed": false,
-          "focused": 4,
-          "root_pane": 4
+          "focused": 1,
+          "root_pane": 1
         },
         {
           "custom_name": "serfor",
           "layout": {
-            "Pane": 2
+            "Pane": 3
           },
           "panes": {
-            "2": {
-              "cwd": "/home"
+            "3": {
+              "cwd": "/home/array"
             }
           },
           "zoomed": false,
-          "focused": 2,
-          "root_pane": 2
+          "focused": 3,
+          "root_pane": 3
         }
       ],
       "active_tab": 0

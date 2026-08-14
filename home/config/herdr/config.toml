@@ -16,6 +16,15 @@ panel_bg = "#111117"
 [keys]
 prefix = "alt+a"
 switch_tab = "alt+1..9"
+split_horizontal = "alt+h"
+split_vertical = "alt+v"
+new_tab = "alt+n"
+close_pane = "alt+q"
+close_tab = "alt+shift+q"
+reload_config = "alt+shift+r"
+toggle_sidebar = "alt+s"
+rename_tab = "alt+shift+t"
+resize_mode = "prefix+r"
 
 [[keys.command]]
 key = "alt+e"
