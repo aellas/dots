@@ -6,9 +6,8 @@
       "custom_name": null,
       "identity_cwd": "/home/array/nux",
       "public_pane_numbers": {
-        "4": 9,
-        "2": 7,
-        "3": 8
+        "3": 8,
+        "2": 7
       },
       "next_public_pane_number": 10,
       "public_tab_numbers": [
@@ -20,27 +19,15 @@
         {
           "custom_name": "nux",
           "layout": {
-            "Split": {
-              "direction": "Horizontal",
-              "ratio": 0.5,
-              "first": {
-                "Pane": 4
-              },
-              "second": {
-                "Pane": 2
-              }
-            }
+            "Pane": 2
           },
           "panes": {
             "2": {
               "cwd": "/home/array/nux"
-            },
-            "4": {
-              "cwd": "/home/array/nux"
             }
           },
           "zoomed": false,
-          "focused": 4,
+          "focused": 2,
           "root_pane": 2
         },
         {
@@ -58,12 +45,12 @@
           "root_pane": 3
         }
       ],
-      "active_tab": 1
+      "active_tab": 0
     }
   ],
   "active": 0,
   "selected": 0,
-  "sidebar_width": 26,
+  "sidebar_width": 21,
   "sidebar_section_split": 0.5,
   "collapsed_space_keys": []
 }
