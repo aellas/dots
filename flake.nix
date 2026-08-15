@@ -11,17 +11,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    st = {
-      url = "github:siduck/st";
-    };
-
   };
   outputs =
     inputs@{
       self,
       nixpkgs,
       home-manager,
-      st,
       ...
     }:
     let
