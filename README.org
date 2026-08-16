@@ -1,4 +1,6 @@
-* Dots
+TITLE: Dots
+#+AUTHOR: LXDE
+
 [[file:overview.png]]
 
 ** Stack
@@ -11,7 +13,7 @@
 - *File Manager*: [[https://github.com/alexluigit/dirvish][Dirvish]]
 - *Terminal*: [[https://st.suckless.org/][st]]
 - *Shell*: [[https://github.com/zsh-users/zsh][Zsh]] & [[https://ohmyz.sh/][Oh My Zsh]]
-- *Login: TTY + startx
+- *Login:* TTY + startx
   
 ** Keybinds
 [[file:home/config/sxhkd/keybinds.org][keybinds.org]]
