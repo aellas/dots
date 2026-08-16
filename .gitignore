@@ -44,3 +44,8 @@ nix-store/
 
 # Session files
 home/config/herdr/session.json
+
+# Runtime lock files
+.lock
+*.lock
+.touchegg:*.lock
