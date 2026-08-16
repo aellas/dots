@@ -6,9 +6,9 @@
       "custom_name": null,
       "identity_cwd": "/home/array/nux",
       "public_pane_numbers": {
-        "2": 8,
         "1": 7,
-        "4": 11
+        "2": 11,
+        "3": 8
       },
       "next_public_pane_number": 12,
       "public_tab_numbers": [
@@ -27,12 +27,12 @@
                 "Pane": 1
               },
               "second": {
-                "Pane": 4
+                "Pane": 2
               }
             }
           },
           "panes": {
-            "4": {
+            "2": {
               "cwd": "/home/array/nux"
             },
             "1": {
@@ -40,22 +40,22 @@
             }
           },
           "zoomed": false,
-          "focused": 4,
+          "focused": 2,
           "root_pane": 1
         },
         {
           "custom_name": "serfor",
           "layout": {
-            "Pane": 2
+            "Pane": 3
           },
           "panes": {
-            "2": {
+            "3": {
               "cwd": "/home/array"
             }
           },
           "zoomed": false,
-          "focused": 2,
-          "root_pane": 2
+          "focused": 3,
+          "root_pane": 3
         }
       ],
       "active_tab": 0

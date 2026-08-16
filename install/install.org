@@ -14,7 +14,6 @@ git clone https://github.com/fdellwing/zsh-bat.git $ZSH_CUSTOM/plugins/zsh-bat
 ** Nix
 #+BEGIN_SRC bash
 sudo dnf install nix nix-daemon
-sudo systemctl enable --now nix-daemon
 mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 #+END_SRC
@@ -22,7 +21,7 @@ echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 ** Home Manager
 #+BEGIN_SRC bash
 git clone https://codeberg.org/lxde/dots.git ~/nux
-cd nux
+cd ~/nux
 nix run github:nix-community/home-manager -- switch --flake .
 #+END_SRC
 
@@ -82,25 +81,24 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 sudo dnf install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 sudo dnf install intel-media-driver
 sudo dnf install rpmfusion-nonfree-release-tainted
-sudo dnf --repo=rpmfusion-nonfree-tainted install "*-firmware"
 #+END_SRC
 
 ** Tailscale
 #+BEGIN_SRC bash
-sudo dnf install tailscale
+sudo dnf install tailscale -y
 sudo systemctl enable --now tailscaled
 sudo tailscale up
 #+END_SRC
 
 ** Polybar WiFi Icon
 #+BEGIN_SRC bash
-mkdir -p /home/$USER/.fonts
-cp -r /home/$USER/nux/home/config/fonts/* /home/$USER/.fonts/
+mkdir -p ~/.fonts
+cp -r ~/nux/home/config/fonts/* ~/.fonts/
+fc-cache -f
 #+END_SRC
 
 ** Install Steam
 #+BEGIN_SRC bash
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
 sudo dnf update --refresh
 sudo dnf install steam -y
