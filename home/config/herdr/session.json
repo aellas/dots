@@ -6,9 +6,9 @@
       "custom_name": null,
       "identity_cwd": "/home/array/nux",
       "public_pane_numbers": {
+        "3": 8,
         "1": 7,
-        "2": 11,
-        "3": 8
+        "2": 11
       },
       "next_public_pane_number": 12,
       "public_tab_numbers": [
@@ -40,7 +40,7 @@
             }
           },
           "zoomed": false,
-          "focused": 2,
+          "focused": 1,
           "root_pane": 1
         },
         {
