@@ -1,7 +1,7 @@
 #+TITLE: Dots
 #+AUTHOR: LXDE
 
-[[file:/screenshots/overview.png][Overview]]
+[[file:overview.png][Overview]]
 
 ** Stack
 - *Distro*: [[https://fedoraproject.org/][Fedora]]
