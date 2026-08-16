@@ -108,3 +108,10 @@ sudo dnf install steam -y
 #+BEGIN_SRC bash
 sudo dnf install touchegg
 #+END_SRC
+
+** Setup xdg-user-dirs
+#+BEGIN_SRC bash
+sudo dnf install xdg-user-dirs
+xdg-user-dirs-defaults
+xdg-user-dirs-update
+#+END_SRC
