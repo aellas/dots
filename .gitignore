@@ -41,4 +41,6 @@ nix/
 .nix-commands
 .nix-repl
 nix-store/
-```
+
+# Session files
+home/config/herdr/session.json
