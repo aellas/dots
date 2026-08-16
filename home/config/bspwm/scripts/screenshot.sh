@@ -12,7 +12,7 @@ CHOICE=$(printf "Fullscreen\n  Region\n  Window" |
 	rofi -dmenu \
 		-i \
 		-p "" \
-		-theme-str 'window {width: 300px; height: 300px;}' \
+		-theme-str 'window {width: 400px; height: 370px;}' \
 		-no-custom)
 
 case "$CHOICE" in
