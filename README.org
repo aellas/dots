@@ -1,4 +1,4 @@
-TITLE: 🌿 Installation
+#+TITLE: Dots
 #+AUTHOR: LXDE
 
 [[file:overview.png]]
