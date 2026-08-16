@@ -6,6 +6,7 @@
 #+BEGIN_SRC bash
 sudo dnf update --refresh
 sudo dnf install git bspwm sxhkd picom polybar rofi zsh bat eza zoxide fastfetch maim nitrogen feh xrandr lxpolkit dunst xsecurelock udiskie brightnessctl
+chsh -s zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/fdellwing/zsh-bat.git $ZSH_CUSTOM/plugins/zsh-bat
@@ -73,6 +74,7 @@ ExecStart=/bin/sh -c 'echo 0 > /sys/devices/platform/i8042/serio1/sensitivity'
 [Install]
 WantedBy=multi-user.target
 EOF
+sudo systemctl enable --now disable-trackpoint.service
 #+END_SRC
 
 ** RPM Fusion / Multimedia
