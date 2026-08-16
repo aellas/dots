@@ -23,10 +23,6 @@ journalctl
 .DS_Store
 Thumbs.db
 
-# Screenshots & media
-screenshots/
-
-
 # Backup files
 *.bak
 *.backup
@@ -44,6 +40,11 @@ nix-store/
 
 # Session files
 home/config/herdr/session.json
+home/config/herdr/.plugins.lock
+home/config/herdr/herdr-client.log
+home/config/herdr/herdr-client.sock
+home/config/herdr/herdr-server.log
+home/config/herdr/herdr.sock
 
 # Runtime lock files
 .lock
