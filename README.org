@@ -1,6 +1,5 @@
 * Dotfiles 
-[[file:overview.png]]
-
+[[file://screenshots/overview.png]]
 ** Stack
 - *Distro*: [[https://fedoraproject.org/][Fedora]]
 - *Package Manager*: [[https://nixos.org/download/#download-nix][Nix]]
