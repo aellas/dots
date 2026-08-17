@@ -46,6 +46,14 @@ sudo dnf config-manager addrepo --from-repofile=https://repo.librewolf.net/libre
 sudo dnf install librewolf
 #+END_SRC
 
+** i3lock-color & betterlockscreen
+#+BEGIN_SRC bash
+sudo dnf copr enable lxdes/i3lock-color
+sudo dnf install i3lock-color
+sudo dnf copr enable lxdes/betterlockscreen
+sudo dnf install betterlockscreen
+#+END_SRC
+
 * Personal
 ** Setup Natural Scrolling + Tapping
 #+BEGIN_SRC bash

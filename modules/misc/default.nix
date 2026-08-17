@@ -7,7 +7,7 @@
 
 {
   imports = [
-    ./xcolor.nix
+    # ./xcolor.nix
     ./tdrop.nix
   ];
 }

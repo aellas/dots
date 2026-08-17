@@ -7,10 +7,10 @@
       "identity_cwd": "/home/array/nux",
       "public_pane_numbers": {
         "3": 8,
-        "1": 7,
+        "5": 13,
         "2": 11
       },
-      "next_public_pane_number": 12,
+      "next_public_pane_number": 14,
       "public_tab_numbers": [
         1,
         3
@@ -24,7 +24,7 @@
               "direction": "Horizontal",
               "ratio": 0.5,
               "first": {
-                "Pane": 1
+                "Pane": 5
               },
               "second": {
                 "Pane": 2
@@ -35,13 +35,13 @@
             "2": {
               "cwd": "/home/array/nux"
             },
-            "1": {
+            "5": {
               "cwd": "/home/array/nux"
             }
           },
           "zoomed": false,
-          "focused": 1,
-          "root_pane": 1
+          "focused": 2,
+          "root_pane": 2
         },
         {
           "custom_name": "serfor",

@@ -17,7 +17,6 @@
  nav-flash
  ophints
  (popup +defaults)
- ligatures
  smooth-scroll
  treemacs
  window-select

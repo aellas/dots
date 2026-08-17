@@ -68,7 +68,7 @@ super + shift + t
 # --------------------- SYSTEM ---------------------
 
 super + shift + l
-	xsecurelock
+      betterlockscreen -l	
 
 super + alt + s
 	systemctl poweroff
