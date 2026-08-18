@@ -10,5 +10,6 @@
     ./bluetui.nix
     ./wiremix.nix
     ./opencode.nix
+    ./herdr.nix
   ];
 }

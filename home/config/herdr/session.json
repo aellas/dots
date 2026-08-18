@@ -6,56 +6,59 @@
       "custom_name": null,
       "identity_cwd": "/home/array/nux",
       "public_pane_numbers": {
-        "3": 8,
-        "5": 13,
-        "2": 11
+        "1": 13,
+        "4": 8,
+        "3": 14
       },
-      "next_public_pane_number": 14,
+      "next_public_pane_number": 16,
       "public_tab_numbers": [
         1,
+        4,
         3
       ],
-      "next_public_tab_number": 4,
+      "next_public_tab_number": 5,
       "tabs": [
         {
           "custom_name": "nux",
           "layout": {
-            "Split": {
-              "direction": "Horizontal",
-              "ratio": 0.5,
-              "first": {
-                "Pane": 5
-              },
-              "second": {
-                "Pane": 2
-              }
-            }
+            "Pane": 1
           },
           "panes": {
-            "2": {
-              "cwd": "/home/array/nux"
-            },
-            "5": {
+            "1": {
               "cwd": "/home/array/nux"
             }
           },
           "zoomed": false,
-          "focused": 2,
-          "root_pane": 2
+          "focused": 1,
+          "root_pane": 1
         },
         {
-          "custom_name": "serfor",
+          "custom_name": "copr",
           "layout": {
             "Pane": 3
           },
           "panes": {
             "3": {
-              "cwd": "/home/array"
+              "cwd": "/home/array/nux"
             }
           },
           "zoomed": false,
           "focused": 3,
           "root_pane": 3
+        },
+        {
+          "custom_name": "serfor",
+          "layout": {
+            "Pane": 4
+          },
+          "panes": {
+            "4": {
+              "cwd": "/home/array"
+            }
+          },
+          "zoomed": false,
+          "focused": 4,
+          "root_pane": 4
         }
       ],
       "active_tab": 0
