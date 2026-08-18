@@ -13,6 +13,8 @@
     ./cli/default.nix
     ./music/default.nix
     ./fm/default.nix
+
+    ./dev/default.nix
   ];
 
 }
