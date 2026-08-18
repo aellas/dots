@@ -10,7 +10,7 @@ run() {
 
 run xrandr --output eDP-1 --mode 3840x2400 --rate 60.00
 run nitrogen --restore
-run picom
+run picom --config ~/.config/picom/picom.conf --vsync
 run brightnessctl set 60%
 
 # --- Core WM services ---
@@ -23,7 +23,6 @@ run dunst
 
 run udiskie
 run lxpolkit
-run xss-lock -- xsecurelock
 run skippy-xd --start-daemon
 # --- Apps ---
 

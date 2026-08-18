@@ -8,8 +8,8 @@ config.font = wezterm.font("IosevkaTerm Nerd Font")
 config.enable_tab_bar = false
 config.window_close_confirmation = "NeverPrompt"
 config.automatically_reload_config = true
-config.front_end = "Software"
-
+config.front_end = "WebGpu"
+config.webgpu_power_preference = "HighPerformance"
 config.color_scheme = "tokyonight_night"
 config.colors = {
 	background = "#111117",
