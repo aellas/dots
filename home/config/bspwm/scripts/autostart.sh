@@ -7,24 +7,21 @@ run() {
 }
 
 # --- Display ---
-
 run xrandr --output eDP-1 --mode 3840x2400 --rate 60.00
 run nitrogen --restore
 run picom --config ~/.config/picom/picom.conf --vsync
 run brightnessctl set 60%
 
 # --- Core WM services ---
-
 run sxhkd
 run snixembed
 run polybar
 run dunst
 
 # --- System / session ---
-
 run udiskie
 run lxpolkit
 run skippy-xd --start-daemon
-# --- Apps ---
 
+# --- Apps ---
 run emacs --daemon

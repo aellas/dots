@@ -14,6 +14,7 @@ export GTK_USE_PORTAL=1
 export XCURSOR_SIZE=48
 export XCURSOR_THEME=Bibata-Modern-Ice
 export ELECTRON_OZONE_PLATFORM_HINT=x11
+
 # --- Startup ---
 ~/.config/bspwm/scripts/autostart.sh &
 xsetroot -cursor_name left_ptr &
@@ -23,6 +24,7 @@ wmname BSPWM &
 
 # --- Workspaces ---
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
+
 # --- Appearance ---
 bspc config border_width 4
 bspc config window_gap 12
@@ -47,3 +49,7 @@ bspc rule -a net-runelite-client-RuneLite state=floating center=true
 bspc rule -a Xarchiver state=floating layer=normal
 bspc rule -a org.gnome.FileRoller state=floating
 bspc rule -a scratchpad state=floating
+
+# --- Scratchpads ---
+bspc rule -a scratchpad-terminal state=floating rectangle=900x500+0+0 center=on sticky=on
+bspc rule -a scratchpad-music state=floating rectangle=800x400+0+0 center=on sticky=on

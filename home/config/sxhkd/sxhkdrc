@@ -60,10 +60,9 @@ super + s
 super + j
       bolt-launcher --force-device-scale-factor=2.0
 
-# ------------------- SCRACHPADS -------------------
-
+# ------------------- SCRATCHPADS -------------------
 super + shift + t
-    tdrop -ma -w 2688 -h 1440 -x 576 -y 480 -n scratchpad st -c scratchpad
+      ~/nux/home/config/bspwm/scripts/scratchpad.sh scratchpad-terminal
 
 # --------------------- SYSTEM ---------------------
 
