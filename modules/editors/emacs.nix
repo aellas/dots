@@ -46,7 +46,6 @@
     pkgs.rustup
     pkgs.google-fonts
     pkgs.vips
-
     pkgs.luaPackages.dkjson
   ];
 }

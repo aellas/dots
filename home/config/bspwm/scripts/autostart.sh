@@ -16,6 +16,8 @@ run brightnessctl set 60%
 # --- Core WM services ---
 
 run sxhkd
+run xembedsniproxy
+run tailscale systray
 run polybar
 run dunst
 

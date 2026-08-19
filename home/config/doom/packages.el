@@ -14,3 +14,4 @@
 (package! dirvish)
 (package! ghostel)
 (package! rainbow-mode)
+(package! current-window-only)

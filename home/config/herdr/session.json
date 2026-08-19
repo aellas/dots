@@ -4,11 +4,11 @@
     {
       "id": "w2",
       "custom_name": null,
-      "identity_cwd": "/home/array",
+      "identity_cwd": "/home/array/nux",
       "public_pane_numbers": {
+        "2": 14,
         "3": 8,
-        "1": 13,
-        "2": 14
+        "1": 13
       },
       "next_public_pane_number": 17,
       "public_tab_numbers": [
@@ -25,7 +25,7 @@
           },
           "panes": {
             "1": {
-              "cwd": "/home/array"
+              "cwd": "/home/array/nux"
             }
           },
           "zoomed": false,
