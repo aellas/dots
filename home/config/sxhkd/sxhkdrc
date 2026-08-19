@@ -79,11 +79,6 @@ super + alt + r
 super + shift + x
 	xkill
 
-super + shift + o
-    skippy-xd --paging
-
-super + shift + i
-      skippy-xd --expose --desktop -1
 # --------------------- AUDIO / BRIGHTNESS ---------------------
 
 XF86AudioRaiseVolume
@@ -105,10 +100,10 @@ super + F5
 	pamixer --toggle-mute
 
 XF86MonBrightnessUp
-	brightnessctl set +5%
+	brightnessctl set +2%
 
 XF86MonBrightnessDown
-	brightnessctl set 5%
+	brightnessctl set 2%-
 
 
 # --------------------- SCREENSHOT / MISC TOOLS ---------------------

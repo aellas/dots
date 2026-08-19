@@ -6,8 +6,8 @@
       "custom_name": null,
       "identity_cwd": "/home/array/nux",
       "public_pane_numbers": {
-        "2": 14,
         "3": 8,
+        "2": 14,
         "1": 13
       },
       "next_public_pane_number": 17,
@@ -39,7 +39,7 @@
           },
           "panes": {
             "2": {
-              "cwd": "/home/array/nux"
+              "cwd": "/home/array/Projects/copr"
             }
           },
           "zoomed": false,
@@ -61,7 +61,7 @@
           "root_pane": 3
         }
       ],
-      "active_tab": 0
+      "active_tab": 2
     }
   ],
   "active": 0,

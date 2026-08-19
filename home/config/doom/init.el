@@ -3,12 +3,9 @@
  :completion
  (company +auto)
  (vertico +icons)
- vertico           ; includes consult
  (embark +vertico)
- 
- :app
- (media +mpd)
 
+ :app
  :ui
  doom
  doom-quit
@@ -21,7 +18,6 @@
  treemacs
  window-select
 
- 
  :editor
  (evil +everywhere)
  file-templates
@@ -29,7 +25,6 @@
  (format +onsave)
  multiple-cursors
  snippets
-
  :emacs
  tramp
  vc
@@ -37,26 +32,20 @@
  electric
  (ibuffer +icons)
  (undo +tree)
-
  :term
  ghostel
- vterm
-
  :checkers
  (syntax +flymake)
  (spell +flyspell)
  grammar
-
  :tools
  (eval +overlay)
  (lookup +docsets)
  lsp
  (magit +forge)
  tree-sitter
- 
- 
+
  :lang
- bash
  sh
  docker
  (json +lsp)
@@ -64,11 +53,10 @@
  (nix +tree-sitter +lsp)
  toml
  yaml
- (lua +lsp +treesitter)
- (python +lsp +treesitter)
- (emacs-lisp +lsp +treesitter)
- (org +dragndrop +hugo +pandoc +pomodoro +present +modern +pretty +capture +journal)
- 
+ (lua +lsp +tree-sitter)
+ (python +lsp +tree-sitter)
+ (emacs-lisp +lsp +tree-sitter)
+ (org +dragndrop +hugo +pandoc +pomodoro +present +pretty +capture +journal)
+
  :config
  (default +bindings +smartparens))
-
