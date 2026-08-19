@@ -52,4 +52,3 @@ bspc rule -a scratchpad state=floating
 
 # --- Scratchpads ---
 bspc rule -a scratchpad-terminal state=floating rectangle=900x500+0+0 center=on sticky=on
-bspc rule -a scratchpad-music state=floating rectangle=800x400+0+0 center=on sticky=on

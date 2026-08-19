@@ -8,6 +8,7 @@ run() {
 
 # --- Display ---
 run xrandr --output eDP-1 --mode 3840x2400 --rate 60.00
+run xrandr --output HDMI-1 --mode 1920x1080 --rate 239.76
 run nitrogen --restore
 run picom --config ~/.config/picom/picom.conf --vsync
 run brightnessctl set 60%
