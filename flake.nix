@@ -11,18 +11,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    openlogi = {
-      url = "github:AprilNEA/OpenLogi";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
   outputs =
     inputs@{
       self,
       nixpkgs,
       home-manager,
-      openlogi,
       ...
     }:
     let

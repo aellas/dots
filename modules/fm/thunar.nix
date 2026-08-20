@@ -15,6 +15,7 @@
     xarchiver
     p7zip
     unzip
+    gvfs
   ];
 
 }

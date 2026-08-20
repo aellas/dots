@@ -7,6 +7,5 @@
 
 {
   imports = [
-    # ./xcolor.nix
   ];
 }
