@@ -7,16 +7,14 @@
 
 {
   home.packages = with pkgs; [
-    nemo
-    nemo-fileroller
-    nemo-preview
-    nemo-emblems
-    nemo-seahorse
-    file-roller
+    thunar
+    thunar-volman
+    thunar-archive-plugin
+    thunar-shares-plugin
+    thunar-media-tags-plugin
     xarchiver
     p7zip
     unzip
-    unrar
   ];
 
 }

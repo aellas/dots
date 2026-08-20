@@ -7,6 +7,6 @@
 
 {
   imports = [
-    ./nemo.nix
+    ./thunar.nix
   ];
 }
