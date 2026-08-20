@@ -6,7 +6,6 @@
 (load! "modules/org")
 (load! "modules/treesit")
 (load! "modules/lsp")
-(load! "modules/git")
 (load! "modules/writing")
 (load! "modules/keybinds.el")
 (setq initial-buffer-choice 'dashboard-open)

@@ -11,24 +11,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    openlogi = {
+      url = "github:AprilNEA/OpenLogi";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
   outputs =
     inputs@{
       self,
       nixpkgs,
       home-manager,
+      openlogi,
       ...
     }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        config = {
-          allowUnfree = true;
-          problems.handlers = {
-            bolt-launcher.broken = "warn";
-          };
-        };
       };
     in
     {

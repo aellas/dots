@@ -32,13 +32,16 @@
  electric
  (ibuffer +icons)
  (undo +tree)
+ 
  :term
  ghostel
+ 
  :checkers
  (syntax +flymake)
  (spell +flyspell)
  grammar
  :tools
+ 
  (eval +overlay)
  (lookup +docsets)
  lsp

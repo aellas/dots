@@ -45,6 +45,7 @@ home/config/herdr/herdr-client.log
 home/config/herdr/herdr-client.sock
 home/config/herdr/herdr-server.log
 home/config/herdr/herdr.sock
+home/config/herdr/release-notes.json
 
 # Runtime lock files
 .lock

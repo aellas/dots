@@ -16,11 +16,6 @@
       :desc "calendar"
       "@" #'calendar)
 
-;; New shift
-(map! :leader
-      :desc "new shift"
-      "o s n" #'new-delivery-shift-with-confirmation)
-
 ;; Calculator
 (map! :leader
       :desc "quick-calc"
@@ -29,4 +24,9 @@
 ;; Ghostel
 (map! :leader
       :desc "ghostel"
-      "o g" #'+ghostel/toggle)
+      "o t" #'+ghostel/toggle)
+
+(map! :leader
+      :desc "SSH Serfor" 
+      "es" (lambda () (interactive) 
+             (find-file "/ssh:array@serfor:~/pods")))
