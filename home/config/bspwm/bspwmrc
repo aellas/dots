@@ -49,6 +49,3 @@ bspc rule -a net-runelite-client-RuneLite state=floating center=true
 bspc rule -a Xarchiver state=floating layer=normal
 bspc rule -a org.gnome.FileRoller state=floating
 bspc rule -a scratchpad state=floating
-
-# --- Scratchpads ---
-bspc rule -a scratchpad-terminal state=floating rectangle=900x500+0+0 center=on sticky=on

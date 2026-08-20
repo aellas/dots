@@ -62,7 +62,15 @@ super + j
 
 # ------------------- SCRATCHPADS -------------------
 super + shift + t
-      ~/nux/home/config/bspwm/scripts/scratchpad.sh scratchpad-terminal
+      ~/nux/home/config/bspwm/scripts/scratchpad.sh terminal
+
+super + shift + s
+      ~/nux/home/config/bspwm/scripts/scratchpad.sh wiremix
+
+super + shift + b
+      ~/nux/home/config/bspwm/scripts/scratchpad.sh bluetui
+
+
 
 # --------------------- SYSTEM ---------------------
 

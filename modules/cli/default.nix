@@ -11,5 +11,6 @@
     ./wiremix.nix
     ./opencode.nix
     ./herdr.nix
+    ./impala.nix
   ];
 }
