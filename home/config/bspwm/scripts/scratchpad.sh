@@ -15,6 +15,11 @@ bluetui)
 	GEOM="2000x1200+0+0"
 	CMD="bluetui"
 	;;
+nmtui)
+	GEOM="2000x1000+0+0"
+	CMD="nmtui"
+	;;
+
 *)
 	echo "unknown scratchpad: $1" >&2
 	exit 1

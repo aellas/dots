@@ -42,7 +42,7 @@ super + b
 super + space
 	rofi -show drun -modi drun -line-padding 4 -hide-scrollbar -show-icons
 
-super + c
+super + shift + c
 	xcolor -s
 
 super + m
@@ -55,12 +55,16 @@ super + l
 	localsend_app
 
 super + s
-	signal-desktop 
+	signal-desktop
+
+super + c
+      cinny
 
 super + j
       bolt-launcher --force-device-scale-factor=2.0
 
 # ------------------- SCRATCHPADS -------------------
+
 super + shift + t
       ~/nux/home/config/bspwm/scripts/scratchpad.sh terminal
 
@@ -70,6 +74,8 @@ super + shift + s
 super + shift + b
       ~/nux/home/config/bspwm/scripts/scratchpad.sh bluetui
 
+super + shift + w
+      ~/nux/home/config/bspwm/scripts/scratchpad.sh nmtui 
 
 
 # --------------------- SYSTEM ---------------------
@@ -123,6 +129,7 @@ ctrl + alt + v
 
 
 # --------------------- DUNST (NOTIFICATIONS) ---------------------
+
 super + shift + Escape
 	dunstctl history-pop
 
