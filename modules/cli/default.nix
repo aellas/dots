@@ -11,6 +11,5 @@
     ./wiremix.nix
     ./opencode.nix
     ./herdr.nix
-    ./cliamp.nix
   ];
 }
