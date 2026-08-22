@@ -29,10 +29,10 @@
     # Offset from the origin
     # NOTE: Dunst from version 1.11 and older use this alternative notation
     # offset = 10x50
-    offset = (7, 90)
+    offset = (7, 65)
 
     # Scale factor. It is auto-detected if value is 0.
-    scale = 1
+    scale = 0
 
     # Maximum number of notification (0 means no limit)
     notification_limit = 20

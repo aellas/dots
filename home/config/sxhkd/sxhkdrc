@@ -63,6 +63,9 @@ super + c
 super + j
       bolt-launcher --force-device-scale-factor=2.0
 
+super + shift + m
+      mediawriter
+
 # ------------------- SCRATCHPADS -------------------
 
 super + shift + t
